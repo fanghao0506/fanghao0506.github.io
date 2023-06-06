@@ -1,373 +1,400 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-  <title>Hao Fang &mdash; Neural Art Meets Edinburgh</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>方浩 | Hao Fang</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <meta charset="utf-8" />
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/resources/jt.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/lightgallery.min.css">    
+  <style type="text/css">
+    body {
+      font-family: 'DM Sans', sans-serif !important;
+    }
 
-  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    a:link,
+    a:hover,
+    a:visited,
+    a:active {
+      color: #306BAC !important;
+    }
 
-  <link rel="stylesheet" href="css/swiper.css">
+    .nodecor:link,
+    .nodecor:hover,
+    .nodecor:visited,
+    .nodecor:active {
+      color: #333 !important;
+      text-decoration: none;
+    }
 
-  <link rel="stylesheet" href="css/aos.css">
+    .boldtext {
+      font-weight: 700 !important;
+    }
 
-  <link rel="stylesheet" href="css/style.css">
+    .semiboldtext {
+      font-weight: 500 !important;
+    }
 
+    .smalltext {
+      font-size: .8em;
+    }
+
+    #name {
+      font-size: 3.6em;
+      line-height: 1em;
+      margin-top: .5em;
+      margin-bottom: .2em;
+    }
+
+    #title {
+      font-size: 1.2em;
+    }
+
+    #email {
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: .9em;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    #picpad {
+      margin-top: .5em;
+      margin-bottom: .5em;
+    }
+
+    #overview {
+      font-size: 1.2em;
+    }
+
+    #projects {
+      font-size: 1.1em;
+    }
+
+    #projects li {
+      margin-top: .5em;
+    }
+
+    @media only screen and (max-width: 750px) {
+      #fadeshow1 {
+        display: none;
+      }
+    }
+
+    .content {
+      margin: auto;
+      max-width: 800px;
+      padding: 10px;
+    }
+
+    .subcontent {
+      margin-top: 1em;
+      margin-bottom: 1.5em;
+    }
+
+    .pubtitle {
+      font-weight: 500;
+    }
+
+
+    .pubyear {
+      margin-top: 12px;
+      clear: both;
+      font-size: 1.2em;
+      color: 222;
+    }
+
+    .pubaward {
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    /* Add a card effect for articles */
+    .card {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .authlist {
+      font-size: 12px;
+      color: gray;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .date {
+      font-size: 12px;
+    }
+
+    .abstract {
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
 
-  <div class="site-wrap">
+  <div class="content" style="margin-top: 5.5rem;">
 
-    <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
+    <div class="row">
+      <div class="col-sm-offset-5 col-sm-8">
+        <div id="name">
+          <div class="semiboldtext">方浩 | Hao Fang</div>
         </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-    
+        <div id="title" style="margin-top: 1.5rem;">
 
+          <div style="margin-top: 1rem;"></div>
+          <div id="email">
+            <a href="resources/wechat.jpg">wechat: fh990506</a><br>
+            email: fanghao0506@qq.com<br>
+            tel: 86 13258283318<br>
+          </div><br>
 
-
-    <header class="site-navbar py-3" role="banner">
-
-      <div class="container-fluid">
-        <div class="row align-items-center">
-
-          <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0">Neural Art Meets Edinburgh</a></h1>
-          </div>
-          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
-            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
-
-              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="styles.html">Styles</a></li>
-                <li class="has-children">
-                  <a href="edinburgh1.html">Gallery</a>
-                  <ul class="dropdown">
-                    <li class="has-children">
-                      <a href="edinburgh1.html">Fast Style Transfer</a>
-                      <ul class="dropdown">
-                        <li><a href="edinburgh1.html">Edinburgh Castle</a></li>
-                        <li><a href="edinburgh2.html">Princes Street Gardens</a></li>
-                        <li><a href="edinburgh3.html">Royal Mile</a></li>
-                        <li><a href="edinburgh4.html">Portobello Beach</a></li>
-                        <li><a href="edinburgh5.html">Forth Bridge</a></li>
-                        <li><a href="edinburgh8.html">Memorial Duke of Buccleuch</a></li>
-                        <li><a href="edinburgh10.html">Balmoral Hotel</a></li>
-                        <li><a href="edinburgh11.html">National Records of Scotland </a></li>
-                        <li><a href="edinburgh12.html">Dugald Stewart Monument</a></li>
-                        <li><a href="edinburgh13.html">Calton Hill</a></li>
-                        <li><a href="edinburgh15.html">Edinburgh College of Arts</a></li>
-                        <li><a href="edinburgh16.html">David Hume</a></li>
-                        <li><a href="edinburgh17.html">St. Giles' Cathedral</a></li>
-                        <li><a href="edinburgh18.html">Arthur's Seat </a></li>
-                        <li><a href="edinburgh20.html">Edinburgh City</a></li>
-                        <li><a href="edinburgh21.html">Scott Monument</a></li>
-                        <li><a href="edinburgh22.html">Edinburgh Castle's Night</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-children">
-                      <a href="edinburgh1.html">VQGAN+CLIP</a>
-                      <ul class="dropdown">
-                        <li><a href="vqgan_clip_text.html">VQGAN+CLIP(text)</a></li>
-                        <li><a href="vqgan_clip_image.html">VQGAN+CLIP(text+image)</a></li>
-                      </ul>
-                    </li>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="https://www.wjx.cn/vm/PRrbSAx.aspx">Feedback</a></li>
-              </ul>
-            </nav>
-          </div>
-
-          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
-            <div class="d-none d-xl-inline-block">
-              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li>
-                  <a href="https://www.facebook.com/profile.php?id=100027915641368" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                </li>
-                <li>
-                  <a href="https://weibo.com/u/5509265271" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/fanghao.1999/" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                </li>
-                <li>
-                  <a href="https://b23.tv/6enHPol" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>
-                </li>
-              </ul>
+          <div style="font-size: 1em;"><a href="resources/FANG_H-CV.pdf">CV</a> · <a
+              href="https://github.com/fanghao0506">GitHub</a> · 
+              <!-- <a href="">scholar</a> ·  -->
+              <a href="https://orcid.org/0009-0002-5030-5059">ORCID</a><br><br>
+              <a href="timesilhouette/index.html">摄影作品</a> | 
+              <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU3MTkyNzE0NA==&action=getalbum&album_id=2903401443615850496&scene=173&from_msgid=2247483810&from_itemidx=1&count=3&nolastread=1#wechat_redirect">微信公众号</a> | 
+              <a href="https://space.bilibili.com/249688004?spm_id_from=333.1007.0.0">bilibili</a>
             </div>
-
-            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-          </div>
 
         </div>
       </div>
-      
-    </header>
 
-
-
-    <div class="container-fluid" data-aos="fade" data-aos-delay="500">
-      <div class="row">
-        <div class="col-lg-4">
-
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Edinburgh Castle</h2>
-              <a href="edinburgh1.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh1.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-          <div class="col-lg-4">
-            <div class="image-wrap-2">
-              <div class="image-info">
-                <h2 class="mb-3">Princes Street Gardens</h2>
-                <a href="edinburgh2.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-              </div>
-              <img src="images/input_images/edinburgh2.jpg" alt="Image" class="img-fluid">
-            </div>
-          </div>
-
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Royal Mile</h2>
-              <a href="edinburgh3.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh3.jpg" alt="Image" class="img-fluid">
-          </div>
-
-        </div>
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Portobello Beach</h2>
-              <a href="edinburgh4.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh4.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Forth Bridge</h2>
-              <a href="edinburgh5.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh5.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Memorial Duke of Buccleuch</h2>
-              <a href="edinburgh8.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh8.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Balmoral Hotel</h2>
-              <a href="edinburgh10.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh10.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">National Records of Scotland</h2>
-              <a href="edinburgh11.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh11.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Dugald Stewart Monument</h2>
-              <a href="edinburgh12.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh12.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Calton Hill</h2>
-              <a href="edinburgh13.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh13.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Edinburgh College of Arts</h2>
-              <a href="edinburgh15.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh15.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">David Hume</h2>
-              <a href="edinburgh16.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh16.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">St. Giles' Cathedral</h2>
-              <a href="edinburgh17.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh17.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Arthur's Seat</h2>
-              <a href="edinburgh18.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh18.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Edinburgh City</h2>
-              <a href="edinburgh20.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh20.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Scott Monument</h2>
-              <a href="edinburgh21.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh21.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Edinburgh Castle's Night</h2>
-              <a href="edinburgh22.html" class="btn btn-outline-white py-2 px-4">Meets Neural Art</a>
-            </div>
-            <img src="images/input_images/edinburgh22.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">VQGAN+CLIP</h2>
-              <a href="vqgan_clip_text.html" class="btn btn-outline-white py-2 px-4">Text input without image </a>
-            </div>
-            <img src="images/vqgan_clip/text19.png" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">VQGAN+CLIP</h2>
-              <a href="vqgan_clip_image.html" class="btn btn-outline-white py-2 px-4">Text input with image</a>
-            </div>
-            <img src="images/styles/vqgan_clip.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-
+      <div class="col-sm-4">
+        <img class="float-right" src="resources/fanghao.png" id="fadeshow1" alt="pdb" id="pdb-pic"
+          style="height: 220px; margin-top: 10px;">
       </div>
+
     </div>
 
-    <div class="footer py-4">
-      <div class="container-fluid text-center">
+    <div class="col-sm-offset-2">
+      <div id="overview" style="margin-top: 1.5rem;">
+
+        <hr>
         <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          I am currently a software algorithm engineer at 
+          <a
+            href="http://www.jitri-bmf.com/">JITRI Brain-Machine Fusion Intelligence Institute, 
+            Jiangsu Industrial Technology Research Institute</a>, where I am applying my expertise 
+          in machine learning and signal processing to develop novel solutions for closed-up
+          brain-computer interface (BCI) and image processing applications.
+        </p>
+        
+        <p>
+         Before that, I completed my M.S. in Signal Processing and Communications at the University of Edinburgh, supervised by <a
+            href="https://elliotjcrowley.github.io">Lecturer (Asst. Prof.) Elliot J. Crowley</a>. Prior to my MSc, I pursued a 
+            BEng in Electronic and Electrical Engineering from the University of Leeds and Southwest Jiaotong University. My undergraduate 
+            supervisor was  <a
+            href="https://faculty.swjtu.edu.cn/huangdeqing">Prof. Huang.</a>
+          
+        </p>
+
+        <p>
+          My research interests include (but are not limited to):
+        <ul>
+          <li> Deep learning
+          <li> Biomedical signal processing
+          <li> Image processing
+          <li> BCI
+        </ul>
+        </p>
+
+        <p>
+          In my leisure time, I enjoy photography, outdoor activities, and playing Genshin Impact.
         </p>
       </div>
     </div>
 
-    
+    <!-- <div class="col-sm-offset-2">
 
-    
-    
+      <div style="margin-top: 3.5rem;"></div>
+      <div>
+        <h3>Conference papers</h4>
+          <div id="publist">
+
+            <div id="publist">
+              <div class="container card">
+                <div class="row">
+                  <div class="col-sm-2 date">
+                    18th July, 2021
+                    <span class="badge badge-primary" style="font-size:8px;">ICML</span>
+                    <img src="resources/long-talk.png" style="width:75px; margin-top: 10px;">
+                  </div>
+                  <div class="col-sm-7">
+                    <a class="pubtitle" href="https://arxiv.org/abs/2006.04647">
+                      <p class="title"> Neural Architecture Search Without Training </p>
+                    </a>
+                    <p class="authlist">Joseph Mellor, Jack Turner, Amos Storkey, Elliot J. Crowley.</p>
+                    <p class="abstract">
+                      A low-cost measure for scoring networks at initialisation
+                      which allows us to perform architecture search in a matter
+                      of seconds instead of hours or days.
+                    </p>
+                  </div>
+                  <div class="col-sm-1.5">
+                    <img src="resources/naswot.png" id="fadeshow1" style="width:150px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="pubtitle">
+              <div class="container card">
+                <div class="row">
+                  <div class="col-sm-2 date">
+                    19th Apr, 2021
+                    <span class="badge badge-primary" style="font-size:8px;">ASPLOS</span>
+                    <img src="resources/dist-paper.png" style="width:75px; margin-top: 10px;">
+                    <img>
+                  </div>
+                  <div class="col-sm-7">
+                    <a class="pubtitle" href="https://arxiv.org/abs/2102.06599">
+                      <p class="title">Neural Architecture Search as Program Transformation Exploration </p>
+                    </a>
+                    <p class="authlist">Jack Turner, Elliot J. Crowley, Michael O'Boyle.</p>
+                    <p class="abstract">
+                      A compiler-oriented approach to neural architecture search
+                      which allows us to generate new types of convolution.
+                    </p>
+                  </div>
+                  <div class="col-sm-1.5">
+                    <img src="resources/poly.png" id="fadeshow1" style="width:150px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="pubtitle">
+              <div class="container card">
+                <div class="row">
+                  <div class="col-sm-2 date">
+                    6th Dec, 2020
+                    <span class="badge badge-primary" style="font-size:8px;">NeurIPS</span>
+                    <img src="resources/spotlight.png" style="width:75px; margin-top: 10px;">
+                  </div>
+                  <div class="col-sm-7">
+                    <a class="pubtitle" href="https://arxiv.org/abs/1910.05199">
+                      <p class="title"> Bayesian Meta-Learning for the Few-Shot Setting via Deep Kernels </p>
+                    </a>
+                    <p class="authlist">Massimiliano Patacchiola, Jack Turner, Elliot J. Crowley, Michael O'Boyle, Amos
+                      Storkey.</p>
+                    <p class="abstract">
+                      A Bayesian treatment for the meta-learning inner loop through the use of Gaussian Processes
+                      and neural networks.
+                    </p>
+                  </div>
+                  <div class="col-sm-1.5">
+                    <img src="resources/gp.png" id="fadeshow1" style="width:150px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="pubtitle">
+              <div class="container card">
+                <div class="row">
+                  <div class="col-sm-2 date">
+                    26th Apr, 2020
+                    <span class="badge badge-primary" style="font-size:8px;">ICLR</span>
+                  </div>
+                  <div class="col-sm-7">
+                    <a class="pubtitle" href="https://arxiv.org/abs/1906.04113">
+                      <p class="title"> BlockSwap: Fisher-guided Block Substitution for Network Compression </p>
+                    </a>
+                    <p class="authlist">Jack Turner, Elliot J. Crowley, Amos Storkey, Michael O'Boyle, Gavin Gray.</p>
+                    <p class="abstract">
+                      One-shot compression of neural networks by swapping out residual
+                      blocks for cheaper alternatives, guided by Fisher Information at
+                      initialisation.
+                    </p>
+                  </div>
+                  <div class="col-sm-1.5" id="fadeshow1">
+                    <img src="resources/blockswap.png" style="width:150px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="pubtitle">
+              <div class="container card">
+                <div class="row">
+                  <div class="col-sm-2 date">
+                    30th Feb, 2018
+                    <span class="badge badge-primary" style="font-size:8px;">IISWC</span>
+                  </div>
+                  <div class="col-sm-7">
+                    <a class="pubtitle" href="https://arxiv.org/abs/1809.07196">
+                      <p class="title"> Characterising Across-Stack Optimisations for Deep Neural Networks </p>
+                    </a>
+                    <p class="authlist">Jack Turner, José Cano, Valentin Radu, Elliot J. Crowley, Amos Storkey, Michael
+                      O'Boyle.</p>
+                    <p class="abstract">
+                      A study on the interaction of optimisations applied at different levels
+                      of the compilation stack for neural networks - from neural architectural
+                      decisions through to hardware design.
+                    </p>
+                  </div>
+                  <div class="col-sm-1.5">
+                    <img src="resources/charac.png" id="fadeshow1" style="width:150px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-offset-2" style="margin-bottom:6.5rem;">
+      <div style="margin-top: 3.5rem;"></div>
+      <div>
+        <h3>Workshops/Preprints</h4>
+
+          <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-2 date">
+                  7th June, 2019
+                  <span class="badge badge-info" style="font-size:8px;">NeurIPS</span>
+                  <span class="badge badge-info" style="font-size:8px;">CDNNRIA</span>
+                </div>
+                <div class="col-sm-7">
+                  <a class="pubtitle" href="https://arxiv.org/abs/1810.04622">
+                    <p class="title"> Pruning neural networks: is it time to nip it in the bud? </p>
+                  </a>
+                  <p class="authlist">Elliot J. Crowley, Jack Turner, Michael O'Boyle, Amos Storkey.</p>
+                  <p class="abstract">
+                    An investigation into the efficacy of structured pruning
+                    for compressing neural networks. We show that simple
+                    downscaling schemes can be used to produce more performant
+                    networks than their pruned equivalents.
+                  </p>
+                </div>
+                <div class="col-sm-1.5">
+                  <img src="resources/spruning.png" id="fadeshow1" style="width:150px;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div> -->
+
   </div>
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/swiper.min.js"></script>
-  <script src="js/aos.js"></script>
-
-  <script src="js/picturefill.min.js"></script>
-  <script src="js/lightgallery-all.min.js"></script>
-  <script src="js/jquery.mousewheel.min.js"></script>
-
-  <script src="js/main.js"></script>
-  
-  <script>
-    $(document).ready(function(){
-      $('#lightgallery').lightGallery();
-    });
-  </script>
-
 </body>
+
 </html>
