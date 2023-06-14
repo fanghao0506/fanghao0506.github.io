@@ -33,6 +33,19 @@
             font-size: 20px;
             text-align: center;
         }
+
+        [data-lang="en"] {
+            display: none; /* hide English content by default */
+        }
+        [data-lang="zh"] {
+            display: block; /* show Chinese content by default */
+        }
+
+        #languageButton {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
     </style>
 
 <link rel="stylesheet" href="assets/font-awesome.min.css">
@@ -40,37 +53,77 @@
 
 </head>
 <body>
-    <h1>我的收藏 | Hao's Collections</h1>
-    <h2>工具集合</h2>
+    <button id="languageButton">中文/Englisgh</button>
+
+    <h1 data-lang="zh">我的收藏</h1>
+    <h1 data-lang="en">Hao's Collection</h1>
+
+    <h2 data-lang="zh">工具集合</h2>
+    <h2 data-lang="en">Toolkit Collection</h2>
+
     <div class="link-row">
-        <a href="https://tools.miku.ac/">MikuTools--轻量工具集合</a>
+        <a href="https://tools.miku.ac/" data-lang="zh">MikuTools--轻量工具集合</a>
+        <a href="https://tools.miku.ac/" data-lang="en">MikuTools - Lightweight Toolkit Collection</a>
     </div>
-    <h2>实用工具</h2>
+
+    <h2 data-lang="zh">实用工具</h2>
+    <h2 data-lang="en">Practical Tools</h2>
+
     <div class="link-row">
-        <a href="https://smallpdf.com/cn">PDF合并及分割</a>
-        <a href="https://docsmall.com/">图像及PDF压缩</a>
-        <a href="https://compressjpeg.com/zh/">JPG图像压缩</a>
-        <a href="https://www.cutout.pro/photo-enhancer-sharpener-upscaler/upload">图像画质增强</a>
+        <a href="https://smallpdf.com/cn" data-lang="zh">PDF合并及分割</a>
+        <a href="https://smallpdf.com/cn" data-lang="en">PDF Merge and Split</a>
+
+        <a href="https://docsmall.com/" data-lang="zh">图像及PDF压缩</a>
+        <a href="https://docsmall.com/" data-lang="en">Image and PDF Compression</a>
+
+
     </div>
 
     <div class="link-row">
-        <a href="https://www.mathway.com/zh/Algebra">数学计算</a>
-        <a href="https://www.aconvert.com/">文件格式转换</a>
-        <a href="https://www.latexlive.com/">LATEX公式编辑器</a>
-        <a href="https://docs.rsshub.app/">RSSHub爬虫</a>
+        <a href="https://compressjpeg.com/zh/" data-lang="zh">JPG图像压缩</a>
+        <a href="https://compressjpeg.com/zh/" data-lang="en">JPG Image Compression</a>
+
+        <a href="https://www.cutout.pro/photo-enhancer-sharpener-upscaler/upload" data-lang="zh">图像画质增强</a>
+        <a href="https://www.cutout.pro/photo-enhancer-sharpener-upscaler/upload" data-lang="en">Image Quality Enhancement</a>
     </div>
 
     <div class="link-row">
-        <a href="https://www.subtitlecat.com/index.html">视频字幕搜索</a>
-        <a href="https://sc.chinaz.com/">HTML素材</a>
+        <a href="https://www.mathway.com/zh/Algebra" data-lang="zh">数学计算</a>
+        <a href="https://www.mathway.com/zh/Algebra" data-lang="en">Mathematical Calculations</a>
+
+        <a href="https://www.aconvert.com/" data-lang="zh">文件格式转换</a>
+        <a href="https://www.aconvert.com/" data-lang="en">File Format Conversion</a>
+
     </div>
 
-    <h2>论文写作</h2>
+    <div class="link-row">
+        <a href="https://www.latexlive.com/" data-lang="zh">LATEX公式编辑器</a>
+        <a href="https://www.latexlive.com/" data-lang="en">LATEX Formula Editor</a>
+
+        <a href="https://docs.rsshub.app/" data-lang="zh">RSSHub爬虫</a>
+        <a href="https://docs.rsshub.app/" data-lang="en">RSSHub Crawler</a>
+    </div>
+
+    <div class="link-row">
+        <a href="https://www.subtitlecat.com/index.html" data-lang="zh">视频字幕搜索</a>
+        <a href="https://www.subtitlecat.com/index.html" data-lang="en">Video Subtitle Search</a>
+
+        <a href="https://sc.chinaz.com/" data-lang="zh">HTML素材</a>
+        <a href="https://sc.chinaz.com/" data-lang="en">HTML Resources</a>
+    </div>
+
+    <h2 data-lang="zh">论文写作</h2>
+    <h2 data-lang="en">Academic Writing</h2>
+
     <div class="link-row">
         <a href="https://quillbot.com/">QuillBot</a>
-        <a href="https://www.phrasebank.manchester.ac.uk/">语料库</a>
+
+        <a href="https://www.phrasebank.manchester.ac.uk/" data-lang="zh">语料库</a>
+        <a href="https://www.phrasebank.manchester.ac.uk/" data-lang="en">Phrasebank</a>
         <a href="https://chat.openai.com/">ChatGPT</a>
-        <a href="https://translate.google.com/?hl=zh-CN">谷歌翻译</a>
+
+        <a href="https://translate.google.com/?hl=zh-CN" data-lang="zh">谷歌翻译</a>
+        <a href="https://translate.google.com/?hl=zh-CN" data-lang="en">Google Translate</a>
     </div>
     <!-- Add more rows as needed -->
 
@@ -78,6 +131,22 @@
 	<script src="assets/semantic.min.js"></script>
 	<script src="assets/jquery.scrollTo.min.js"></script>
 	<script src="assets/autoload.js"></script>
+
+    <script>
+        document.getElementById('languageButton').addEventListener('click', function() {
+            var enElements = document.querySelectorAll('[data-lang="en"]');
+            var zhElements = document.querySelectorAll('[data-lang="zh"]');
+            for (var i = 0; i < zhElements.length; i++) {
+                if (zhElements[i].style.display === 'none') {
+                    zhElements[i].style.display = 'block';
+                    enElements[i].style.display = 'none';
+                } else {
+                    zhElements[i].style.display = 'none';
+                    enElements[i].style.display = 'block';
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>

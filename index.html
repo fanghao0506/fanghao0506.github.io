@@ -141,6 +141,19 @@
     .abstract {
       font-size: 14px;
     }
+
+    [data-lang="en"] {
+            display: block; /* hide English content by default */
+        }
+        [data-lang="zh"] {
+            display: none; /* show Chinese content by default */
+        }
+
+        #languageButton {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
   </style>
 
 <link rel="stylesheet" href="assets/font-awesome.min.css">
@@ -148,8 +161,13 @@
 </head>
 
 <body>
-  <div class="center-text">
+  <button id="languageButton">中文/Englisgh</button>
+
+  <div class="center-text" data-lang="zh">
     节点切换：<a href="https://fanghao0506.gitee.io/">中国大陆</a> / <a href="https://fanghao0506.github.io/">海外</a>（如果您访问卡顿，请根据您所在地区切换节点）<br>
+  </div>
+
+  <div class="center-text" data-lang="en">
     Node switch: <a href="https://fanghao0506.gitee.io/">Mainland China</a> / <a href="https://fanghao0506.github.io/">Overseas</a> (If you are experiencing lag, please switch nodes based on your location).
   </div>
 
@@ -158,27 +176,47 @@
     <div class="row">
       <div class="col-sm-offset-5 col-sm-8">
         <div id="name">
-          <div class="semiboldtext">方浩 | Hao Fang</div>
+          <div class="semiboldtext" data-lang="zh">方浩</div>
+          <div class="semiboldtext" data-lang="en">Hao Fang</div>
         </div>
         <div id="title" style="margin-top: 1.5rem;">
 
           <div style="margin-top: 1rem;"></div>
-          <div id="email">
+          <div id="email" data-lang="zh">
+            <a href="resources/wechat.jpg">微信: fh990506</a><br>
+            <a href="mailto:zhulamei@jitri-bmf.com" >邮箱: fanghao0506@qq.com</a><br>
+            <a href="tel:13258283318">电话: 86 13258283318</a><br>
+          </div>
+          <div id="email" data-lang="en">
             <a href="resources/wechat.jpg">wechat: fh990506</a><br>
             <a href="mailto:zhulamei@jitri-bmf.com" >email: fanghao0506@qq.com</a><br>
             <a href="tel:13258283318">tel: 86 13258283318</a><br>
           </div><br>
 
-          <div style="font-size: 1em;"><a href="resources/FANG_H_CV_Combine.pdf">CV</a> · <a
+          <div style="font-size: 1em;" data-lang="zh"><a href="resources/FANG_H_CV_Combine.pdf">简历</a> · <a
               href="https://github.com/fanghao0506">GitHub</a> · 
               <!-- <a href="">scholar</a> ·  -->
               <a href="https://orcid.org/0009-0002-5030-5059">ORCID</a><br><br>
 
               <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU3MTkyNzE0NA==&action=getalbum&album_id=2903401443615850496&scene=173&from_msgid=2247483810&from_itemidx=1&count=3&nolastread=1#wechat_redirect">微信公众号</a> | 
               <a href="https://v.douyin.com/Ub839tJ/">抖音</a> |
-              <a href="https://space.bilibili.com/249688004?spm_id_from=333.1007.0.0">bilibili</a><br><br>
+              <a href="https://space.bilibili.com/249688004?spm_id_from=333.1007.0.0">b站</a><br><br>
               <a href="timesilhouette/portfolio-single.html">摄影作品</a> | 
               <a href="tools.html">我的收藏</a> | 
+              <a href="edinburgh_arts/index.html">神经艺术遇见爱丁堡</a> 
+              <br><br> 
+            </div>
+
+          <div style="font-size: 1em;" data-lang="en"><a href="resources/FANG_H_CV_Combine.pdf">CV</a> · <a
+              href="https://github.com/fanghao0506">GitHub</a> · 
+              <!-- <a href="">scholar</a> ·  -->
+              <a href="https://orcid.org/0009-0002-5030-5059">ORCID</a><br><br>
+
+              <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU3MTkyNzE0NA==&action=getalbum&album_id=2903401443615850496&scene=173&from_msgid=2247483810&from_itemidx=1&count=3&nolastread=1#wechat_redirect">WeChat Official Account</a> | 
+              <a href="https://v.douyin.com/Ub839tJ/">Douyin</a> |
+              <a href="https://space.bilibili.com/249688004?spm_id_from=333.1007.0.0">bilibili</a><br><br>
+              <a href="timesilhouette/portfolio-single.html">Photography Works</a> | 
+              <a href="tools.html">Hao's Collection</a> | 
               <a href="edinburgh_arts/index.html">Neural Art meets Edinburgh</a> 
               <br><br> 
             </div>
@@ -193,7 +231,43 @@
 
     </div>
 
-    <div class="col-sm-offset-2">
+    <div class="col-sm-offset-2" data-lang="zh">
+      <div id="overview" style="margin-top: 1.5rem;">
+
+        <hr>
+        <p>
+          我目前是
+          <a
+            href="http://www.jitri-bmf.com/">江苏省产业技术研究院脑机融合智能技术研究所</a>的一名软件算法工程师。我的主要工作包括闭环脑机接口（BCI）算法设计和图像处理相关应用的开发。
+        </p>
+        
+        <p>
+         在这之前，我在<a
+         href="resources/Edinburgh.pdf">爱丁堡大学</a>的通信与信号处理专业完成了我的硕士学位, 我的导师是<a
+            href="https://elliotjcrowley.github.io">Asst. Prof. Elliot J. Crowley</a>。在取得硕士学位之前，我分别获得了 <a
+            href="resources/Leeds.pdf">利兹大学</a>和 <a
+            href="resources/SWJTU.pdf">西南交通大学</a>电子信息工程的工学学士学位。我本科期间的导师是<a
+            href="https://faculty.swjtu.edu.cn/huangdeqing">黄德青</a>教授。
+          
+        </p>
+
+        <p>
+          我的研究方向包括但不限于：
+        <ul>
+          <li> 深度学习
+          <li> 生物医学信号处理
+          <li> 图像处理
+          <li> 脑机接口
+        </ul>
+        </p>
+
+        <p>
+          在我的空闲时间，我喜欢摄影和户外运动，我还是一个op。
+        </p>
+      </div>
+    </div>
+
+    <div class="col-sm-offset-2" data-lang="en">
       <div id="overview" style="margin-top: 1.5rem;">
 
         <hr>
@@ -419,6 +493,22 @@
 	<script src="assets/semantic.min.js"></script>
 	<script src="assets/jquery.scrollTo.min.js"></script>
 	<script src="assets/autoload.js"></script>
+
+  <script>
+    document.getElementById('languageButton').addEventListener('click', function() {
+        var enElements = document.querySelectorAll('[data-lang="en"]');
+        var zhElements = document.querySelectorAll('[data-lang="zh"]');
+        for (var i = 0; i < enElements.length; i++) {
+            if (enElements[i].style.display === 'none') {
+                enElements[i].style.display = 'block';
+                zhElements[i].style.display = 'none';
+            } else {
+                enElements[i].style.display = 'none';
+                zhElements[i].style.display = 'block';
+            }
+        }
+    });
+</script>
 
 </body>
 
