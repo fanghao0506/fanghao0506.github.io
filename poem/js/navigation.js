@@ -13,7 +13,14 @@ navigation.innerHTML = `
     <span class="nav-tab"><a href="poem9.html">神里绫华</a></span>
     <span class="nav-tab"><a href="poem10.html">天气之子</a></span>
     <span class="nav-tab"><a href="poem11.html">姑苏一日行</a></span>
-    <span class="nav-tab"><a href="poem12.html">疫</a></span>
+    <span class="nav-tab"><a href="poem12.html">疫年</a></span>
+    <span class="nav-tab"><a href="poem13.html">秋风</a></span>
+    <span class="nav-tab"><a href="poem14.html">蒲公英</a></span>
+    <span class="nav-tab"><a href="poem15.html">所谓孤独</a></span>
+    <span class="nav-tab"><a href="poem16.html">绍兴问对</a></span>
+    <span class="nav-tab"><a href="poem17.html">挪威的森林</a></span>
+    <span class="nav-tab"><a href="poem18.html">葡萄藤之叶</a></span>
+    <span class="nav-tab"><a href="poem19.html">雪花</a></span>
 `;
 document.body.appendChild(navigation);
 

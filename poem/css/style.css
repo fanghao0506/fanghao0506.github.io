@@ -52,21 +52,23 @@ button:hover {
   cursor: pointer;
 }
 
-body.about {
-  background: url("../img/bg-about.png");
+
+body.bg-1 {
+  background: url("../img/bg-1.png");
 }
-body.xxz {
-  background: url("../img/bg-xxz.png");
+body.bg-2 {
+  background: url("../img/bg-2.png");
 }
-body.ljx {
-  background: url("../img/bg-ljx.png");
+body.bg-3 {
+  background: url("../img/bg-3.png");
 }
-body.dlh {
-  background: url("../img/bg-dlh.png");
+body.bg-4 {
+  background: url("../img/bg-4.png");
 }
-body.ngz {
-  background: url("../img/bg-ngz.png");
+body.bg-5 {
+  background: url("../img/bg-5.png");
 }
+
 ::selection {
   background: #8f9396;
   color: #fff;
@@ -187,8 +189,8 @@ body.ngz {
 }
 .typewriter:after {
   content: "_";
-  animation: flash .6s steps(2, start) infinite;
-  -webkit-animation: flash .6s steps(2, start) infinite;
+  animation: flash .4s steps(2, start) infinite;
+  -webkit-animation: flash .4s steps(2, start) infinite;
 }
 .typewriter.gameover:after {
   display: none;
