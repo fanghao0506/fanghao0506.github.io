@@ -132,7 +132,6 @@ body.ngz {
   -webkit-animation-iteration-count: 1;
 }
 #navigation {
-  height: 39px;
   margin: 35px 0 55px;
   border-bottom: 1px solid #e9e9ea;
   display: flex; /* 让子元素呈现为行内元素 */
@@ -142,7 +141,6 @@ body.ngz {
 .nav-tab {
   display: inline-block;
   margin: 0 41px;
-  float: left;
   color: #41464b;
   opacity: .6;
   line-height: 1;
@@ -164,8 +162,14 @@ body.ngz {
   font-family: "Kaiti SC", "KaiTi", 楷体, 楷体_GB2312, serif;
   line-height: 1.5;
   margin: auto;
-  width: 650px;
+  display: flex;
+  flex-direction: column;   /* 垂直排列子元素 */
+  justify-content: center;  /* 沿着主轴（这里是垂直轴线）居中子元素 */
+  align-items: center;      /* 沿着交叉轴（这里是水平轴线）居中子元素 */
+  width: 100%;              /* container 占据全部宽度 */
 }
+
+
 .text {
   width: 400px;
   float: left;
@@ -208,7 +212,7 @@ body.ngz {
 .title {
   font-size: 1.8em;
 }
-.author {
+.author { 
   font-size: 1.2em;
   margin: 20px 0 20px 120px;
 }
