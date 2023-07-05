@@ -139,6 +139,7 @@ body.bg-5 {
   display: flex; /* 让子元素呈现为行内元素 */
   overflow-x: auto; /* 允许水平滚动 */
   white-space: nowrap; /* 防止元素换行 */
+  width: 100%;
 }
 .nav-tab {
   display: inline-block;
