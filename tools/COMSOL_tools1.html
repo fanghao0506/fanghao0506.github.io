@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Information Collection Tools for COMSOL</title>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      text-align: center;
+      border: 2px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .input-output {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .input-box,
+    .output-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const inputElement = document.getElementById('input');
+      const outputElement = document.getElementById('output');
+
+      inputElement.addEventListener('input', handleInput);
+
+      function handleInput() {
+        const input = inputElement.value;
+        const result = convertToCompleteArray(input);
+        outputElement.textContent = result.join(', ');
+      }
+
+      function convertToCompleteArray(input) {
+        const ranges = input.split(',');
+        let completeArray = [];
+
+        ranges.forEach((range) => {
+          if (range.includes('-')) {
+            const [start, end] = range.split('-').map(Number);
+            for (let i = start; i <= end; i++) {
+              completeArray.push(i);
+            }
+          } else {
+            completeArray.push(Number(range));
+          }
+        });
+
+        return completeArray;
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>快速从COMSOL获得完整数据标号</h1>
+
+    <div>此网页用于Information Collection任务中协助您从COMSOL复制的数据标号快速获取完整的数据标号：<br />
+        例如，您输入：1-3, 5, 9-11, 17 <br />
+        网页会自动为您返回：1, 2, 3, 5, 9, 10, 11, 17 <br /><br />
+    </div>
+
+    <div class="input-output">
+      <div class="input-box">
+        <label for="input">Input：</label>
+        <input type="text" id="input" />
+      </div>
+      <div class="output-box">
+        <label for="output">Output：</label>
+        <div id="output"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
