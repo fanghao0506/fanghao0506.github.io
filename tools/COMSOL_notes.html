@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>COMSOL Notes</title>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      text-align: justify;
+      border: 2px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    /* .input-output {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .input-box,
+    .output-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    } */
+  </style>
+  <!-- <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const inputElement = document.getElementById('input');
+      const outputElement = document.getElementById('output');
+
+      inputElement.addEventListener('input', handleInput);
+
+      function handleInput() {
+        const input = inputElement.value;
+        const result = convertToCompleteArray(input);
+        outputElement.textContent = result.join(', ');
+      }
+
+      function convertToCompleteArray(input) {
+        const ranges = input.split(',');
+        let completeArray = [];
+
+        ranges.forEach((range) => {
+          if (range.includes('-')) {
+            const [start, end] = range.split('-').map(Number);
+            for (let i = start; i <= end; i++) {
+              completeArray.push(i);
+            }
+          } else {
+            completeArray.push(Number(range));
+          }
+        });
+
+        return completeArray;
+      }
+    });
+  </script> -->
+</head>
+<body>
+  <div class="container">
+    <h1>COMSOL肺成像学习笔记</h1>
+
+    <h2>1 - Geometry Source</h2>
+    <div>该文件夹放置胸部和双肺的原始几何文件。<br />
+    </div>
+
+    <h2>2 - Electrode Placement</h2>
+    <div>打开COMSOL软件，读入 ‘1 - Geometry Source’ 文件夹中的胸部和双肺几何结构。<br /><br />
+      将电极放置在胸部表面适当位置，具体步骤为：<br />
+      1. 圆柱体（Cylinder）<br />
+      2. 旋转（Rotate）<br />
+      3. 移动（Move）<br />
+      4. 比例因子（Scale）<br />
+      5. 差集（Difference）<br />
+      6. 交集（Intersection）<br /><br />
+      删去双肺几何结构（Delete Entities）并形成联合体（Form Union）。<br /><br />
+      对电极上的细小边以及肺部密集边进行忽略边（Ignore Edges）操作。<br /><br />
+      将最终的几何导出命名为 ‘thorax_electrodes_0.mphbin’。<br />
+      将COMSOL文件保存命名为 ‘thorax_electrodes_0.mph’。<br /><br />
+      最终，该文件夹包含以下文件：<br />
+      thorax_electrodes_0.mph<br />
+      thorax_electrodes_0.mphbin<br />
+
+    </div>
+
+    <h2>3 - Two-lung Geometry</h2>
+    <div>打开COMSOL软件，读入 ‘1 - Geometry Source’ 文件夹中的双肺几何结构。<br /><br />
+      对几何结构进行适当的忽略边（Ignore Edges）操作。[如需]<br /><br />
+      将最终的双肺几何，作为整体导出并命名为 ‘lungs _0.mphbin’ 。<br />
+      将该COMSOL文件保存并命名为 ‘lungs _0.mph’。<br /><br />
+      最终，该文件夹包含以下文件：<br />
+      lungs _0.mph<br />
+      lungs _0.mphbin<br />
+    </div>
+
+    <h2>4 - Information Collection</h2>
+    <div>该文件夹下包含下述初始文件和文件夹:<br />
+      subfuns（文件夹）<br />
+      Cal_Info.m<br />
+      check_info.m<br />
+
+      您可以使用<a href="COMSOL_tools1.html">快速从COMSOL获得完整数据标号</a>工具协助您完成此步骤的部分任务。<br />
+
+      <h3>4 - 1 Thorax-electrodes Geometry </h3>
+      打开COMSOL软件，读入 ‘2 - Electrode Placement’ 文件夹中的 ‘thorax_electrodes_0.mphbin’。<br />
+      在COMSOL软件中，获取需要的参数，填入‘Cal_Info.m’ 中Thorax-electrodes Geometry代码块中。<br />
+
+      <h4>1 - Points on the Electrodes</h4>
+      参数填写过程中，请注意：<br />
+      1. layer1和layer2分别对应底层电极和上层电极。<br />
+      2. 在xz平面，底层中部电极视为1号电极，随后标号逆时针依次增加。<br />
+      3. 1号电极上方第一个电极视为17号电极，随后标号逆时针依次增加。<br />
+      4. 每个电极外表面上方的点视为第一个点。<br />
+      5. 每个电极外表面下方的点视为第二个点。<br />
+
+      <h4>2 - Ground point</h4>
+      选择胸腔背部的中心点为ground point，测量并填写坐标。<br />
+
+      <h4>3 - Radius for selection on thorax-electrodes geometry</h4>
+      选择最薄的电极上的一个点，使用球选择（Ball Selection）估测球半径。<br />
+      球半径尽量不要超过电极厚度的1/4.<br />
+
+      <h4>4 - Thorax-electrodes boundary indexes</h4>
+      选择固定边界的标号（定义(Definitions)-选择(Selections)-显式(Explict)），固定位置一般包括：<br />
+      胸部上下两个面、胸部背部的面<br />
+      
+      <h4>5 - Domain labels</h4>
+      选择所有电极并记录标号：可以先选中全部域再去掉胸腔来实现快速选择。<br />
+      选择胸腔并记录标号。<br />
+
+      <h4>6 - Thoracic size</h4>
+      通过几何（Geometry）-测量（Measure）获取Thoracic size<br />
+
+      <h4> -- END --</h4>
+      最后，将该文件存为 ‘_THO_ELE.mph’ 放置在当前目录下。<br />
+
+    </div>
+
+    <h3>4 - 2 Lung Geometry </h3>
+    打开COMSOL软件，读入 ‘3 - Two-lung Geometry’ 文件夹中的 ‘lungs _0.mphbin’。<br />
+    在COMSOL软件中，获取需要的参数，填入‘Cal_Info.m’ 中 Lung Geometry 代码块中。<br />
+
+    <h4>7 - Lung boundary indexes</h4>
+    选择固定边界的标号（定义(Definitions)-选择(Selections)-显式(Explict)），固定位置一般为：<br />
+    靠近心脏的位置。具体方案等待后续更新。<br />
+
+    <h4>8 - Points on the lung boundaries</h4>
+    在左肺和右肺的固定边界各选择一个点，记录坐标位置。<br />
+
+    <h4>9 - Radius for selection on lung geometry</h4>
+    选择刚刚在左肺或右肺上的点，使用球选择（Ball Selection）估测球半径。<br />
+
+    <h4> -- END --</h4>
+    将该文件存为‘_LUNS.mph’ 放置在当前目录下。<br /><br />
+
+    运行 ‘Cal_Info.m’，生成目标数据 ‘info.mat’。<br /><br />
+
+    运行 ‘check_info.m’验证 ‘info.mat’ 数据的正确性：<br />
+    在当前目录下生成两个COMSOL文件 ‘model_THO_ELE.mph’ 和 ‘model_ LUNS.mph’。<br />
+    打开该两个COMSOL文件就可验证 ‘info.mat’ 的正确与否。<br />
+    ‘check_info.m’ 会调用 ‘subfuns’ 文件夹中的子函数。<br /><br />
+
+    最终，该文件夹包含以下文件及文件夹：<br />
+      subfuns（文件夹）<br />
+      Cal_Info.m<br />
+      check_info.m<br />
+      info.mat<br />
+      model_THO_ELE.mph<br />
+      model_ LUNS.mph<br />
+      _THO_ELE.mph<br />
+      _LUNS.mph<br />
+
+
+  </div>
+</body>
+</html>
+
+
