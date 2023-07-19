@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>时间与天气</title>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .time-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    .time-container div {
+      margin-right: 20px;
+      margin-bottom: 10px;
+      font-size: large;
+    }
+
+    .weather-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .weather-card {
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .weather-card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .weather-card p {
+      margin: 5px 0;
+    }
+
+    .tools-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      margin-top: 10px;
+      margin-left: 10px;
+        }
+    .text-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      font-size: 13px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-color: #f2f2f2;
+      padding: 10px;
+      color: #888;
+      padding: 10px;
+}
+
+  </style>
+  <script>
+    function displayTime() {
+      var currentTime = new Date();
+      var beijingTime = currentTime.toLocaleString("en-US", { timeZone: "Asia/Shanghai" });
+      var londonTime = currentTime.toLocaleString("en-US", { timeZone: "Europe/London" });
+
+      document.getElementById("beijing-time").textContent = "北京时间（Beijing）：" + beijingTime;
+      document.getElementById("london-time").textContent = "伦敦时间（London）：" + londonTime;
+    }
+
+    function fetchWeatherData(city, containerId) {
+        var apiKey = "24e09c965861feeffdae33148618b5a9";  // Replace with your OpenWeatherMap API key
+      var apiUrl = "https://api.openweathermap.org/data/2.5/weather";
+      var units = "metric";
+      var url = apiUrl + "?q=" + city + "&units=" + units + "&appid=" + apiKey;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          var weatherContainer = document.getElementById(containerId);
+          var weatherCard = document.createElement("div");
+          weatherCard.className = "weather-card";
+
+          var cityName = data.name;
+          var temperature = data.main.temp;
+          var weatherDescription = data.weather[0].description;
+          var humidity = data.main.humidity;
+
+          var cityHeading = document.createElement("h2");
+          cityHeading.textContent = cityName;
+
+          var temperatureParagraph = document.createElement("p");
+          temperatureParagraph.textContent = "Temperature: " + temperature + "°C";
+
+          var descriptionParagraph = document.createElement("p");
+          descriptionParagraph.textContent = "Weather: " + weatherDescription;
+
+          var humidityParagraph = document.createElement("p");
+          humidityParagraph.textContent = "Humidity: " + humidity + "%";
+
+          weatherCard.appendChild(cityHeading);
+          weatherCard.appendChild(temperatureParagraph);
+          weatherCard.appendChild(descriptionParagraph);
+          weatherCard.appendChild(humidityParagraph);
+
+          weatherContainer.appendChild(weatherCard);
+        })
+        .catch(error => {
+          console.log("Error fetching weather data:", error);
+        });
+    }
+
+    setInterval(displayTime, 1000);
+
+    window.addEventListener("DOMContentLoaded", function () {
+      fetchWeatherData("Shanghai, CN", "weather-container");
+      fetchWeatherData("Taihu, CN", "weather-container");
+      fetchWeatherData("Suzhou, CN", "weather-container");
+      fetchWeatherData("Edinburgh, UK", "weather-container");
+      fetchWeatherData("London, UK", "weather-container");
+    });
+  </script>
+</head>
+<body>
+  <a href="index.html" class="tools-button">
+    <img src="images/tools_icon.png" alt="Tools" />
+</a>
+  <h1>时间</h1>
+  <div class="time-container">
+    <div id="beijing-time"></div>
+    <div id="london-time"></div>
+  </div>
+  <h1>天气</h1>
+  <div class="weather-container" id="weather-container"></div>
+</body>
+
+<div class="text-bottom">&copy; 2023 Hao Fang. All rights reserved.</div>
+</html>
