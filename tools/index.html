@@ -28,7 +28,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 1000px;
+            width: 80%;
             margin-top: 20px;
         }
 
@@ -65,6 +65,46 @@
             margin-top: 10px;
             margin-left: 10px;
         }
+
+        .search-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+
+            label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 22px;
+            }
+
+            select,
+            input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            }
+
+            #search-button {
+            width: auto;
+            margin-top: 10px;
+            padding: 8px 15px;
+            font-size: 25px;
+            background-color: #909497;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+
+            #search-button:hover {
+            background-color: #0056b3;
+            }
     </style>
 
 <link rel="stylesheet" href="assets/font-awesome.min.css">
@@ -79,6 +119,30 @@
 
     <h1 data-lang="zh">我的收藏</h1>
     <h1 data-lang="en">Online Tools</h1>
+
+    <h2 data-lang="zh">搜索</h2>
+    <h2 data-lang="en">Search</h2>
+    <div class="search-container">
+        <div>
+          <label for="searchEngine" data-lang="zh">选择搜索引擎:</label>
+          <label for="searchEngine" data-lang="en">Select Search Engine:</label>
+          <select id="searchEngine">
+            <option value="https://www.google.com/">Google</option>
+            <option value="https://www.baidu.com/s?">Baidu</option>
+            <!-- Add more search engine options here -->
+          </select>
+        </div>
+        <div>
+          <label for="searchQuery" data-lang="zh">输入搜索内容:</label>
+          <label for="searchQuery" data-lang="en">Enter your search query:</label>
+          <input type="text" id="searchQuery" />
+        </div>
+        <div>
+          <button id="search-button" onclick="search()" data-lang="zh">搜索</button>
+          <button id="search-button" onclick="search()" data-lang="en">Search</button>
+        </div>
+      </div>
+
 
     <h2 data-lang="zh">工具集合</h2>
     <h2 data-lang="en">Toolkit Collection</h2>
@@ -132,19 +196,20 @@
         <a href="https://docs.rsshub.app/" data-lang="en">RSSHub Crawler</a>
     </div>
 
-    <div class="link-row">
-        <a href="https://www.subtitlecat.com/index.html" data-lang="zh">视频字幕搜索</a>
-        <a href="https://www.subtitlecat.com/index.html" data-lang="en">Video Subtitle Search</a>
 
+    <div class="link-row">
         <a href="https://sc.chinaz.com/" data-lang="zh">HTML素材</a>
         <a href="https://sc.chinaz.com/" data-lang="en">HTML Resources</a>
+
+        <a href="https://www.flaticon.com/" data-lang="zh">矢量图标素材</a>
+        <a href="https://www.flaticon.com/" data-lang="en">Vector icons</a>
     </div>
 
     <div class="link-row">
         <a href="https://www.emojiall.com/zh-hans/copy">Emoji</a>
 
-        <a href="https://www.flaticon.com/" data-lang="zh">矢量图标素材</a>
-        <a href="https://www.flaticon.com/" data-lang="en">Vector icons</a>
+        <a href="https://tikolu.net/emojimix" data-lang="zh">Emoji融合</a>
+        <a href="https://tikolu.net/emojimix" data-lang="en">Emoji Mix</a>
     </div>
 
     <div class="link-row">
@@ -158,6 +223,7 @@
     <div class="link-row">
         <a href="https://networks001.ridefullspeed.us/">VPN -- RideFullSpeed</a>
     </div>
+
 
     <h2 data-lang="zh">论文写作</h2>
     <h2 data-lang="en">Academic Writing</h2>
@@ -191,6 +257,12 @@
     <div class="link-row">
         <a href="time_weather.html" data-lang="zh">时间与天气</a>
         <a href="time_weather.html" data-lang="en">Time and Weather</a>
+
+        <a href="currency.html" data-lang="zh">实时汇率</a>
+        <a href="currency.html" data-lang="en">Real-time Currency </a>        
+
+        <a href="search.html" data-lang="zh">搜索</a>
+        <a href="search.html" data-lang="en">Search </a>  
     </div>
 
     <div class="link-row">
@@ -199,6 +271,25 @@
 
         <a href="COMSOL_tools1.html" data-lang="zh">COMSOL数据标号</a>
         <a href="COMSOL_tools1.html" data-lang="en">COMSOL DataLabeler</a>
+    </div>
+
+    <h2 data-lang="zh">多媒体</h2>
+    <h2 data-lang="en">Multimedia</h2>
+
+    <!-- <div class="link-row">
+        <a href="https://www.subtitlecat.com/index.html" data-lang="zh">视频字幕搜索</a>
+        <a href="https://www.subtitlecat.com/index.html" data-lang="en">Video Subtitle Search</a>
+    </div> -->
+
+    <div class="link-row">
+        <a href="https://www.gushiwen.cn/" data-lang="zh">古诗文</a>
+        <a href="https://www.gushiwen.cn/" data-lang="en">Gushiwen</a>
+
+        <a href="https://g2.ltfc.net/home" data-lang="zh">中华珍宝馆</a>
+        <a href="https://g2.ltfc.net/home" data-lang="en">Chinese Treasure</a>
+
+        <a href="gallerix.asia/" data-lang="zh">虚拟博物馆</a>
+        <a href="gallerix.asia/" data-lang="en">Gallerix</a>
     </div>
 
     <h2 data-lang="zh">摸鱼</h2>
@@ -221,11 +312,11 @@
     </div>
     <!-- Add more rows as needed -->
     <div class="link-row">
-        <a href="https://tikolu.net/emojimix" data-lang="zh">Emoji融合</a>
-        <a href="https://tikolu.net/emojimix" data-lang="en">Emoji Mix</a>
-
         <a href="http://magickeyboard.io/" data-lang="zh">魔法键盘</a>
         <a href="http://magickeyboard.io/" data-lang="en">Magic Keyboard</a>
+
+        <a href="https://www.yikm.net/" data-lang="zh">小霸王游戏机</a>
+        <a href="http://magickeyboard.io/" data-lang="en">SUBOR Simulator</a>
     </div>
 
     <div class="link-row">
@@ -242,6 +333,14 @@
 
         <a href="https://www.playok.com/" data-lang="zh">下棋</a>
         <a href="https://www.playok.com/" data-lang="en">Playok</a>
+    </div>
+
+    <div class="link-row">
+        <a href="https://lines.frvr.com/" data-lang="zh">连线</a>
+        <a href="https://lines.frvr.com/" data-lang="en">Play Lines</a>
+
+        <a href="https://www.crazygames.com" data-lang="zh">在线游戏</a>
+        <a href="https://www.crazygames.com" data-lang="en">Crazy Games</a>
     </div>
 
     <script src="../assets/jquery.min.js"></script>
@@ -264,6 +363,41 @@
             }
         });
     </script>
+
+<script>
+    function search() {
+      const searchEngineSelect = document.getElementById('searchEngine');
+      const searchEngineUrl = searchEngineSelect.value;
+      const searchQueryInput = document.getElementById('searchQuery');
+      const searchQuery = encodeURIComponent(searchQueryInput.value);
+
+      if (searchQuery.trim() !== '') {
+        let searchUrl;
+
+        if (searchEngineUrl.includes('google')) {
+          searchUrl = searchEngineUrl + 'search?q=' + searchQuery;
+        } else if (searchEngineUrl.includes('baidu')) {
+          searchUrl = searchEngineUrl + 'wd=' + searchQuery;
+        } else {
+          // Add more conditions for other search engines
+          // For example, if it's another search engine, use a different query parameter
+        }
+
+        window.location.href = searchUrl;
+      }
+    }
+
+    
+    const searchQueryInput = document.getElementById('searchQuery');
+    searchQueryInput.addEventListener('keydown', handleKeyDown);
+
+    function handleKeyDown(event) {
+      if (event.key === "Enter") {
+        // Call the search() function when the Enter key is pressed
+        search();
+      }
+    }
+  </script>
 
 </body>
 </html>

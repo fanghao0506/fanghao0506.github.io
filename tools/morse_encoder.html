@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morse Code Encoder</title>
+  <style>
+    .input-output {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+  
+    .input-box, .output-box {
+      margin-bottom: 20px;
+    }
+  
+    label {
+      font-weight: bold;
+    }
+  
+    input[type="text"] {
+      width: 300px;
+      padding: 5px;
+      font-size: 16px;
+    }
+  
+    #output {
+      padding: 5px;
+      border: 1px solid #ccc;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="input-output">
+    <div class="input-box">
+      <label for="input">Input：</label>
+      <input type="text" id="input" oninput="encodeMorseCode()" />
+    </div>
+    <div class="output-box">
+      <label for="output">Output：</label>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const morseCodeMap = {
+      '.-': 'A',
+      '-...': 'B',
+      '-.-.': 'C',
+      '-..': 'D',
+      '.': 'E',
+      '..-.': 'F',
+      '--.': 'G',
+      '....': 'H',
+      '..': 'I',
+      '.---': 'J',
+      '-.-': 'K',
+      '.-..': 'L',
+      '--': 'M',
+      '-.': 'N',
+      '---': 'O',
+      '.--.': 'P',
+      '--.-': 'Q',
+      '.-.': 'R',
+      '...': 'S',
+      '-': 'T',
+      '..-': 'U',
+      '...-': 'V',
+      '.--': 'W',
+      '-..-': 'X',
+      '-.--': 'Y',
+      '--..': 'Z',
+      '.----': '1',
+      '..---': '2',
+      '...--': '3',
+      '....-': '4',
+      '.....': '5',
+      '-....': '6',
+      '--...': '7',
+      '---..': '8',
+      '----.': '9',
+      '-----': '0',
+      '/': ' ',
+      '.-.-.-': '.',
+      '--..--': ',',
+      '..--..': '?',
+      '.----.': "'",
+      '-.-.--': '!',
+      '-..-.': '/',
+      '-.--.': '(',
+      '-.--.-': ')',
+      '.-...': '&',
+      '---...': ':',
+      '-.-.-.': ';',
+      '-...-': '=',
+      '.-.-.': '+',
+      '-....-': '-',
+      '..--.-': '_',
+      '.-..-.': '"',
+      '...-..-': '$',
+      '.--.-.': '@',
+      '.-.-': 'Å',
+      '.--.-': 'Ä',
+      '..-..': 'É',
+      '--.--': 'Ñ',
+      '---.': 'Ö',
+      '..--': 'Ü',
+      '~.-': 'a',
+      '~-...': 'b',
+      '~-.-.': 'c',
+      '~-..': 'd',
+      '~.': 'e',
+      '~..-.': 'f',
+      '~--.': 'g',
+      '~....': 'h',
+      '~..': 'i',
+      '~.---': 'j',
+      '~-.-': 'k',
+      '~.-..': 'l',
+      '~--': 'm',
+      '~-.': 'n',
+      '~---': 'o',
+      '~.--.': 'p',
+      '~--.-': 'q',
+      '~.-.': 'r',
+      '~...': 's',
+      '~-': 't',
+      '~..-': 'u',
+      '~...-': 'v',
+      '~.--': 'w',
+      '~-..-': 'x',
+      '~-.--': 'y',
+      '~--..': 'z',
+    };
+
+    function encodeMorseCode() {
+      const input = document.getElementById('input').value;
+      const output = document.getElementById('output');
+      const encodedText = encodeTextToMorseCode(input);
+      output.textContent = encodedText;
+    }
+
+    function encodeTextToMorseCode(text) {
+      const encodedChars = [];
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const morseCode = getKeyByValue(morseCodeMap, char);
+        if (morseCode) {
+          encodedChars.push(morseCode);
+        }
+      }
+      return encodedChars.join(' ').replace(/\s/g, '/') + ' ';
+    }
+
+    function getKeyByValue(object, value) {
+      return Object.keys(object).find(key => object[key] === value);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索 | search</title>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .search-container {
+      max-width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      font-size: 22px;
+    }
+
+    select,
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      font-size: 25px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Search Engine</h1>
+  <div class="search-container">
+    <div>
+      <label for="searchEngine">Select Search Engine:</label>
+      <select id="searchEngine">
+        <option value="https://www.google.com/">Google</option>
+        <option value="https://www.baidu.com/s?">Baidu</option>
+        <!-- Add more search engine options here -->
+      </select>
+    </div>
+    <div>
+      <label for="searchQuery">Enter your search query:</label>
+      <input type="text" id="searchQuery" />
+    </div>
+    <div>
+      <button onclick="search()">Search</button>
+    </div>
+  </div>
+
+  <script>
+    function search() {
+      const searchEngineSelect = document.getElementById('searchEngine');
+      const searchEngineUrl = searchEngineSelect.value;
+      const searchQueryInput = document.getElementById('searchQuery');
+      const searchQuery = encodeURIComponent(searchQueryInput.value);
+
+      if (searchQuery.trim() !== '') {
+        let searchUrl;
+
+        if (searchEngineUrl.includes('google')) {
+          searchUrl = searchEngineUrl + 'search?q=' + searchQuery;
+        } else if (searchEngineUrl.includes('baidu')) {
+          searchUrl = searchEngineUrl + 'wd=' + searchQuery;
+        } else {
+          // Add more conditions for other search engines
+          // For example, if it's another search engine, use a different query parameter
+        }
+
+        window.location.href = searchUrl;
+      }
+    }
+
+    const searchQueryInput = document.getElementById('searchQuery');
+    searchQueryInput.addEventListener('keydown', handleKeyDown);
+
+    function handleKeyDown(event) {
+      if (event.key === "Enter") {
+        // Call the search() function when the Enter key is pressed
+        search();
+      }
+    }
+
+    
+  </script>
+</body>
+</html>

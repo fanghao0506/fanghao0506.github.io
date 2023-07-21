@@ -3,6 +3,7 @@
 <head>
   <title>时间与天气</title>
   <meta charset="utf-8" />
+  <script src="morseDecoder.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -88,7 +89,9 @@
     }
 
     function fetchWeatherData(city, containerId) {
-        var apiKey = "24e09c965861feeffdae33148618b5a9";  // Replace with your OpenWeatherMap API key
+      const morseCode = '..---/....-/~./-----/----./~-.-./----./-..../...../---../-..../.----/~..-./~./~./~..-./~..-./~-../~.-/~./...--/...--/.----/....-/---../-..../.----/---../~-.../...../~.-/----.';
+      const apiKey = morseCodeDecoder(morseCode);
+
       var apiUrl = "https://api.openweathermap.org/data/2.5/weather";
       var units = "metric";
       var url = apiUrl + "?q=" + city + "&units=" + units + "&appid=" + apiKey;

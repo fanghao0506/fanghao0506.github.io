@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>实时汇率 | Real-time Currency</title>
+  <meta charset="utf-8" />
+  <script src="morseDecoder.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .currency-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .currency-card {
+      width: 300px;
+      margin: 20px;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 5px;
+    }
+    .currency-card img {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 10px;
+    }
+    .currency-card .currency-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .currency-card .currency-name {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .currency-card .currency-value {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .tools-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      margin-top: 10px;
+      margin-left: 10px;
+        }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="tools-button">
+    <img src="images/tools_icon.png" alt="Tools" />
+</a>
+  <h1>实时汇率</h1>
+  <div class="currency-container">
+    <div id="currencyCards"></div>
+  </div>
+  
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // 获取汇率数据
+    function getExchangeRates() {
+      // 定义 morseCode
+      const morseCode = '~..-./~-.-./~.-/..--.-/~.-../~../~...-/~./..--.-/~--.-/--.../~...-/-../-.../-.--/.-/~...-/.-./----./-----/~..-./~---/...../~-..-/.-../.----/-../~--./..-./~-../-.--/~--../.../----./~.-/~--../---/.-./~...-/~--/----./....-/~--../----./~-/.-./~-.../~-./.';
+
+      // 使用 morseCodeDecoder 解码 morseCode
+      const apiKey = morseCodeDecoder(morseCode);
+
+      // console.log(apiKey);
+
+      // 嵌入 apiKey 到 URL 中
+      const url = 'https://api.freecurrencyapi.com/v1/latest?apikey=' + apiKey + '&currencies=EUR%2CCAD%2CUSD%2CGBP%2CAUD%2CHKD%2CKRW%2CJPY%2CSGD%2CNZD&base_currency=CNY';
+
+      console.log(url);
+
+      $.getJSON(url, function(data) {
+        var rates = data.data;
+
+        // 创建并显示汇率卡片
+        Object.keys(rates).forEach(function(currency) {
+          var exchangeRate = 1 / rates[currency];
+          var currencyCard = createCurrencyCard(currency, exchangeRate);
+          $('#currencyCards').append(currencyCard);
+        });
+      }).fail(function() {
+        alert('无法获取汇率数据，请稍后再试。');
+      });
+    }
+
+    // 创建汇率卡片
+    function createCurrencyCard(currency, exchangeRate) {
+      var currencyCard = $('<div class="currency-card"></div>');
+      var flagImg = $('<img src="' + getFlagImageUrl(currency) + '">');
+      var currencyInfo = $('<div class="currency-info"></div>');
+      var currencyName = $('<span class="currency-name">' + getCurrencyName(currency) + '</span>');
+      var currencyValue = $('<span class="currency-value">1 ' + getCurrencyCode(currency) + ' = ' + (exchangeRate).toFixed(4) + ' 元</span>');
+
+
+      currencyInfo.append(currencyName);
+      currencyInfo.append(currencyValue);
+
+      currencyCard.append(flagImg);
+      currencyCard.append(currencyInfo);
+
+      return currencyCard;
+    }
+
+    // 获取国旗图片URL
+    function getFlagImageUrl(currency) {
+      // 在这里根据货币代码返回对应的国旗图片URL
+      // 这里只是一个示例，你需要根据实际需求添加适当的国旗图片URL
+      switch (currency) {
+        case 'EUR':
+          return 'images/eur.png';
+        case 'USD':
+          return 'images/us.png';
+        case 'CAD':
+          return 'images/cad.png';
+        case 'GBP':
+          return 'images/uk.png';
+        case 'AUD':
+          return 'images/au.png';
+        case 'KRW':
+          return 'images/kr.png';     
+        case 'HKD':
+          return 'images/hk.png';
+        case 'JPY':
+          return 'images/jp.png';
+        case 'SGD':
+          return 'images/sg.png';
+        case 'NZD':
+          return 'images/nz.png'; 
+        default:
+          return '';
+      }
+    }
+
+    // 获取货币名称
+    function getCurrencyName(currency) {
+      // 在这里根据货币代码返回对应的货币名称
+      // 这里只是一个示例，你需要根据实际需求添加适当的货币名称
+      switch (currency) {
+        case 'EUR':
+          return '欧元';
+        case 'USD':
+          return '美元';
+        case 'CAD':
+          return '加元';
+        case 'GBP':
+          return '英镑';
+        case 'AUD':
+          return '澳元';
+        case 'KRW':
+          return '韩元';     
+        case 'HKD':
+          return '港元';
+        case 'JPY':
+          return '日元';
+        case 'SGD':
+          return '新加坡元';
+        case 'NZD':
+          return '新西兰元';       
+        default:
+          return '';
+      }
+    }
+
+    // 获取货币代码
+    function getCurrencyCode(currency) {
+      // 在这里根据货币代码返回对应的货币代码
+      // 这里只是一个示例，你需要根据实际需求添加适当的货币代码
+      switch (currency) {
+        case 'EUR':
+          return 'EUR';
+        case 'USD':
+          return 'USD';
+        case 'CAD':
+          return 'CAD';
+        case 'GBP':
+          return 'GBP';
+        case 'AUD':
+          return 'AUD';
+        case 'KRW':
+          return 'KRW';     
+        case 'HKD':
+          return 'HKD';
+        case 'JPY':
+          return 'JPY';
+        case 'SGD':
+          return 'SGD';
+        case 'NZD':
+          return 'NZD';  
+        default:
+          return '';
+      }
+    }
+
+    // 当页面加载完成后获取汇率数据
+    $(document).ready(function() {
+      getExchangeRates();
+    });
+  </script>
