@@ -1,0 +1,832 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5HK5SHKZ7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G5HK5SHKZ7');
+</script>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <title>方浩 | Hao Fang</title>
+
+  <meta charset="utf-8" />
+
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/resources/jt.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+    body {
+      font-family: 'DM Sans', sans-serif !important;
+    }
+
+    a:link,
+    a:hover,
+    a:visited,
+    a:active {
+      color: #306BAC !important;
+    }
+
+    .nodecor:link,
+    .nodecor:hover,
+    .nodecor:visited,
+    .nodecor:active {
+      color: #333 !important;
+      text-decoration: none;
+    }
+
+    .boldtext {
+      font-weight: 700 !important;
+    }
+
+    .semiboldtext {
+      font-weight: 500 !important;
+    }
+
+    .smalltext {
+      font-size: .8em;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    #name {
+      font-size: 3.6em;
+      line-height: 1em;
+      margin-top: .5em;
+      margin-bottom: .2em;
+    }
+
+    #title {
+      font-size: 1.2em;
+    }
+
+    #email {
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: .9em;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    #picpad {
+      margin-top: .5em;
+      margin-bottom: .5em;
+    }
+
+    #overview {
+      font-size: 1.2em;
+    }
+
+    #projects {
+      font-size: 1.1em;
+    }
+
+    #projects li {
+      margin-top: .5em;
+    }
+
+    @media only screen and (max-width: 750px) {
+      #fadeshow1 {
+        display: none;
+      }
+    }
+
+    .content {
+      margin: auto;
+      max-width: 800px;
+      padding: 10px;
+    }
+
+    .subcontent {
+      margin-top: 1em;
+      margin-bottom: 1.5em;
+    }
+
+    .pubtitle {
+      font-weight: 500;
+    }
+
+
+    .pubyear {
+      margin-top: 12px;
+      clear: both;
+      font-size: 1.2em;
+      color: 222;
+    }
+
+    .pubaward {
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    /* Add a card effect for articles */
+    .card {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .authlist {
+      font-size: 12px;
+      color: gray;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .date {
+      font-size: 12px;
+    }
+
+    .abstract {
+      font-size: 14px;
+    }
+
+    [data-lang="en"] {
+            display: block; /* show English content by default */
+        }
+        [data-lang="zh"] {
+            display: none; /* hide Chinese content by default */
+        }
+
+        #languageButton {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+  </style>
+
+<link rel="stylesheet" href="assets/font-awesome.min.css">
+<link rel="stylesheet" href="assets/semantic.min.css">
+</head>
+
+<body>
+  <button id="languageButton">中文/English</button>
+
+  <div class="center-text" data-lang="zh">
+    节点切换：<a href="https://fanghao0506.gitee.io/">中国大陆</a> / <a href="https://fanghao0506.github.io/">海外</a>（如果您访问卡顿，请根据您所在地区切换节点）<br>
+  </div>
+
+  <div class="center-text" data-lang="en">
+    Node switch: <a href="https://fanghao0506.gitee.io/">Mainland China</a> / <a href="https://fanghao0506.github.io/">Overseas</a> (If you are experiencing lag, please switch nodes based on your location).
+  </div>
+
+  <div class="content" style="margin-top: 5.5rem;">
+
+    <div class="row">
+      <div class="col-sm-offset-5 col-sm-8">
+        <div id="name">
+          <div class="semiboldtext" data-lang="zh">方浩</div>
+          <div class="semiboldtext" data-lang="en">Hao Fang</div>
+        </div>
+        <div id="title" style="margin-top: 1.5rem;">
+
+          <div style="margin-top: 1rem;"></div>
+          <div id="email" data-lang="zh">
+            <a href="resources/wechat.jpg">微信: fh990506</a><br>
+            <a href="mailto:H.Fang@ed.ac.uk" >邮箱: H.Fang@ed.ac.uk</a><br>
+            <a href="tel:13258283318">电话: 86 13258283318</a><br>
+          </div>
+          <div id="email" data-lang="en">
+            <a href="resources/wechat.jpg">wechat: fh990506</a><br>
+            <a href="mailto:H.Fang@ed.ac.uk" >email: H.Fang@ed.ac.uk</a><br>
+            <a href="tel:13258283318">tel: 86 13258283318</a><br>
+          </div><br>
+
+          <div style="font-size: 1em;" data-lang="zh"><a href="resources/FANG_H_CV_Combine.pdf">简历</a> · <a
+            href="https://scholar.google.com/citations?user=WyRCGEQAAAAJ&hl">谷歌学者</a> · <a
+            href="https://orcid.org/0009-0002-5030-5059">ORCID</a> ·
+              <!-- <a href="">scholar</a> ·  -->
+              <a href="https://github.com/fanghao0506">GitHub</a><br><br>
+
+              <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU3MTkyNzE0NA==&action=getalbum&album_id=2903401443615850496&scene=173&from_msgid=2247483810&from_itemidx=1&count=3&nolastread=1#wechat_redirect">微信公众号</a> | 
+              <a href="https://v.douyin.com/Ub839tJ/">抖音</a> |
+              <a href="https://space.bilibili.com/249688004?spm_id_from=333.1007.0.0">b站</a><br><br>
+              <a href="timesilhouette/index.html">摄影作品</a> | 
+              <a href="poem/index.html">诗歌随笔</a> | 
+              <a href="tools/index.html">我的收藏</a>
+              <br><br> 
+            </div>
+
+          <div style="font-size: 1em;" data-lang="en"><a href="resources/FANG_H_CV_Combine.pdf">CV</a> · <a
+            href="https://scholar.google.com/citations?user=WyRCGEQAAAAJ&hl">Google Scholar</a> · <a
+            href="https://orcid.org/0009-0002-5030-5059">ORCID</a> · 
+              <!-- <a href="">scholar</a> ·  -->
+              <a href="https://github.com/fanghao0506">GitHub</a><br><br>
+
+              <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU3MTkyNzE0NA==&action=getalbum&album_id=2903401443615850496&scene=173&from_msgid=2247483810&from_itemidx=1&count=3&nolastread=1#wechat_redirect">WeChat Official Account</a> | 
+              <a href="https://v.douyin.com/Ub839tJ/">Douyin</a> |
+              <a href="https://space.bilibili.com/249688004?spm_id_from=333.1007.0.0">bilibili</a><br><br>
+              <a href="timesilhouette/index.html">Photography Works</a> | 
+              <a href="poem/index.html">My Poems</a> | 
+              <a href="tools/index.html">Online Tools</a>
+              <br><br> 
+            </div>
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <img class="float-right" src="resources/fanghao.jpg" id="fadeshow1" alt="pdb" id="pdb-pic"
+          style="height: 220px; margin-top: 10px;">
+      </div>
+
+    </div>
+
+    <div class="col-sm-offset-2" data-lang="zh">
+      <div id="overview" style="margin-top: 1.5rem;">
+
+        <hr>
+
+        <p>
+          我目前是爱丁堡大学的一名在读博士研究生，我的导师是<a
+          href="https://scholar.google.co.uk/citations?user=WtdBq3oAAAAJ&hl=en">Dr. Yang</a>。
+        </p>
+
+        <p>
+          此前，我是江苏省产业技术研究院脑机融合智能技术研究所的一名软件算法工程师。我的主要工作包括闭环脑机接口（BCI）算法设计和图像处理相关应用的开发。
+        </p>
+        
+        <p>
+         更早的时候，我在<a
+         href="resources/Edinburgh.pdf">爱丁堡大学</a>的通信与信号处理专业完成了我的硕士学位, 我的导师是<a
+            href="https://elliotjcrowley.github.io">Dr. Elliot J. Crowley</a>。在取得硕士学位之前，我分别获得了<a
+            href="resources/Leeds.pdf">利兹大学</a>和<a
+            href="resources/SWJTU.pdf">西南交通大学</a>电子信息工程的工学学士学位。我本科期间的导师是<a
+            href="https://faculty.swjtu.edu.cn/huangdeqing">黄德青</a>教授。
+          
+        </p>
+
+        <p>
+          我的研究方向包括但不限于：
+        <ul>
+          <li> 深度学习
+          <li> 生物医学信号处理
+          <li> 图像处理
+          <li> 脑机接口
+        </ul>
+        </p>
+
+        <p>
+          在我的空闲时间，我喜欢摄影和户外运动，我还是一个op。
+        </p>
+      </div>
+    </div>
+
+    <div class="col-sm-offset-2" data-lang="en">
+      <div id="overview" style="margin-top: 1.5rem;">
+
+        <hr>
+
+        <p>
+          I am currently a PhD student at <a href="https://www.eng.ed.ac.uk/research/institutes/idcom">the Institute for Imaging, Data and Communications (IDCOM)</a>, the School of Engineering, 
+          the University of Edinburgh. My principal supervisor is <a href="https://scholar.google.co.uk/citations?user=WtdBq3oAAAAJ&hl=en">Dr. Yang</a>. 
+          </p>
+
+        <p>
+          Prior to this, I was an algorithm engineer at JITRI Brain-Machine Fusion Intelligence Institute, Jiangsu Industrial Technology Research Institute. 
+          I was responsible for brain-computer interface algorithm development.
+        </p>
+        
+        <p>
+         Before that, I completed my M.S. in Signal Processing and Communications at <a
+         href="resources/Edinburgh.pdf">the University of Edinburgh</a>, advised by <a
+            href="https://elliotjcrowley.github.io">Dr. Elliot J. Crowley</a>. Prior to my MSc, I pursued a 
+            BEng in Electronic and Electrical Engineering from <a
+            href="resources/Leeds.pdf">the University of Leeds</a> and <a
+            href="resources/SWJTU.pdf">Southwest Jiaotong University</a>. My undergraduate 
+            supervisor was  <a
+            href="https://faculty.swjtu.edu.cn/huangdeqing">Prof. Huang.</a>
+          
+        </p>
+
+        <p>
+          My research interests include (but are not limited to):
+        <ul>
+          <li> Deep learning
+          <li> Tomography
+          <li> Medical Imaging
+          <li> Inverse Problem
+          <li> BCI
+        </ul>
+        </p>
+
+        <p>
+          In my leisure time, I enjoy photography, outdoor activities, and playing Genshin Impact.
+        </p>
+      </div>
+    </div>
+
+
+
+    <div class="col-sm-offset-2" >
+      <div style="margin-top: 3.5rem;"></div>
+      <div>
+        <h3 data-lang="en">Recent Works</h3>
+        <h3 data-lang="zh">最近工作</h3>
+
+
+          <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="images/emotion_recognition_bci.png" id="fadeshow1" style="width:120px;margin-left:2.0em;">
+                </div>
+                <div class="col-sm-9">
+                  <style>
+                    p {
+                      margin-top: 0em ;
+                      margin-bottom: 0.4em ;
+                    }
+                  </style>
+                    <p class="title">
+                      <a class="pubtitle" style="font-weight: bold;"><a
+                        href="https://ieeexplore.ieee.org/abstract/document/10499167">Minimal Electrode EEG for BCI Emotion Detection</a></a>
+                    </p>
+                    <p class="conference"> NNICE 2024<a class="pubtitle" href="" style="font-weight: bold;"></a></p>
+                  <p class="authlist">Yuxin Li, Hao Fang, Wen Liu, Chuantong Cheng, Hongda Chen</p>
+                  <p class="abstract">
+                    This study achieves high-accuracy EEG-based emotion recognition (92.8%) using minimal electrode configuration (T7 and T8), advancing efficient and cost-effective BCI device development.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="images/fNIRs2.png" id="fadeshow1" style="width:180px;margin-top:5.8em;">
+                </div>
+                <div class="col-sm-9">
+                  <style>
+                    p {
+                      margin-top: 0em ;
+                      margin-bottom: 0.4em ;
+                    }
+                  </style>
+                    <p class="title">
+                      <a class="pubtitle" style="font-weight: bold;">Advancing Brain-Computer Interfaces: An Innovative Optimization Approach for fNIRS-Based Binary Classification</a>
+                    </p>
+                    <p class="conference"> Journal of Neural Engineering (under review) <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
+                  <p class="authlist">Yuxin Li, Hao Fang, Wen Liu, Chuantong Cheng, Hongda Chen</p>
+                  <p class="abstract">
+                    Achieving high subject-independent accuracy in online classification is an important part in the field of 
+                    functional near-infrared spectroscopy (fNIRS) based Brain-computer Interface (BCI), especially with a reduced number of channels. 
+                    However, it is often not possible to achieve both of them. In this paper, we proposed a novel feature extraction scheme for fNIRS dataset to improve the subject-independent accuracy. 
+                    Additionally, we proposed a channel selection algorithm to locate the ROI (Region of Interest) channels, 
+                    reducing the number of channels required for such classification tasks. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="images/V-SWIR-IF.png" id="fadeshow1" style="width:170px;margin-top:1.8em;">
+                </div>
+                <div class="col-sm-9">
+                  <style>
+                    p {
+                      margin-top: 0em ;
+                      margin-bottom: 0.4em ;
+                    }
+                  </style>
+                    <p class="title">
+                      <a class="pubtitle" style="font-weight: bold;"><a
+                        href="https://ieeexplore.ieee.org/document/10271197">V-SWIR-IF: Visible and Short-Wave Infrared Image
+                        Fusion</a></a>
+                    </p>
+                    <p class="conference"> ISCEIC 2023 <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
+                  <p class="authlist">Hao Fang, Guanjie Xu, Gaomin Su, Chuantong Cheng </p>
+                  <p class="abstract">
+                    An image fusion algorithm for fusing visible light and short-wave infrared (SWIR) images. This work was supported by the National Key R&D Program of China (Grant No.2021YFB3601201).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="images/STI01_tES.jpg" id="fadeshow1" style="width:170px;margin-top:1.8em;">
+                </div>
+                <div class="col-sm-9">
+                  <style>
+                    p {
+                      margin-top: 0em ;
+                      margin-bottom: 0.4em ;
+                    }
+                  </style>
+                    <p class="title">
+                      <a class="pubtitle" style="font-weight: bold;"><a
+                        href="https://ieeexplore.ieee.org/document/10212634">Enabling Transcranial Electrical Stimulation via STI01: Experimental 
+                        Simulations and Hardware Circuit Implementation</a></a>
+                    </p>
+                    <p class="conference"> EEI 2023 <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
+                  <p class="authlist">Guanjie Xu, Gaomin Su, Hao Fang, Yue Li</p>
+                  <p class="abstract">
+                    A novel utilization of a chip, STI01, 
+                    developed in China and traditionally used for muscle stimulation, 
+                    to meet the demands of transcranial electrical stimulation (tES).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="images/edinburgh_arts.jpg" id="fadeshow1" style="width:170px;margin-top:1.8em;">
+                </div>
+                <div class="col-sm-9">
+                  <style>
+                    p {
+                      margin-top: 0em ;
+                      margin-bottom: 0.4em ;
+                    }
+                  </style>
+                    <p class="title">
+                      <a class="pubtitle" href="edinburgh_arts/index.html" style="font-weight: bold;">Neural Art meets Edinburgh</a>
+                    </p>
+                    <p class="conference"> M.Sc final project <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
+                  <p class="authlist">Hao Fang</p>
+                  <p class="abstract">
+                   I employed deep learning algorithms such as fast style transfer, VQGAN-CLIP, DALLE-2, and Stable Diffusion to 
+                   generate amazing artworks in various styles that depict the landscapes in Edinburgh. 
+                   Besides, I set up an online art gallery on GitHub Pages to display these art creations. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="images/face_covering_detection.png" id="fadeshow1" style="width:170px;margin-top:1.8em;">
+                </div>
+                <div class="col-sm-9">
+                  <style>
+                    p {
+                      margin-top: 0em ;
+                      margin-bottom: 0.4em ;
+                    }
+                  </style>
+                    <p class="title">
+                      <a class="pubtitle" style="font-weight: bold;">Real-time Face Covering Detection Based on Deep Learning </a>
+                    </p>
+                    <p class="conference"> B.Eng final project <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
+                  <p class="authlist">Hao Fang</p>
+                  <p class="abstract">
+                    A three-class object detection problem using the YOLOv5 deep learning algorithm. 
+                    The aim was to check if individuals wear their masks correctly. This real-time detection 
+                    system has significant potential for practical use and commercial value during the pandemic. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="images/BrainTunes.png" id="fadeshow1" style="width:70px;margin-left: 3.3em;">
+                </div>
+                <div class="col-sm-9">
+                  <style>
+                    p {
+                      margin-top: 0em ;
+                      margin-bottom: 0.4em ;
+                    }
+                  </style>
+                    <p class="title">
+                      <a class="pubtitle" style="font-weight: bold;">BrainTunes</a>
+                    </p>
+                    <p class="conference"> Wechat mini program <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
+                  <p class="authlist">Hao Fang</p>
+                  <p class="abstract">
+                    A WeChat mini-program I developed for our BCI device. You can access my mini-program by searching for "BrainTunes" in the WeChat client.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div id="publist">
+            <div class="container card">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="images/STI01_tES.jpg" id="fadeshow1" style="width:170px;margin-top:1.8em;">
+                </div>
+                <div class="col-sm-9">
+                  <style>
+                    p {
+                      margin-top: 0em ;
+                      margin-bottom: 0.4em ;
+                    }
+                  </style>
+                    <p class="title">
+                      <a class="pubtitle" href="" style="font-weight: bold;">Enabling Transcranial Electrical Stimulation via STI01: Experimental 
+                        Simulations and Hardware Circuit Implementation</a>
+                    </p>
+                    <p class="conference"> EEI 2023 <a class="pubtitle" href="" style="font-weight: bold;"><img src="resources/github.svg" style="margin-bottom: 0.3em;width:28px;height:28px;"></a></p>
+                  <p class="authlist">Guanjie Xu, Gaomin Su, Hao Fang, Yue Li</p>
+                  <p class="abstract">
+                    A novel utilization of a chip, STI01, 
+                    developed in China and traditionally used formuscle stimulation, 
+                    to meet the demands of transcranial electrical stimulation (tES).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+  <script src="assets/jquery.min.js"></script>
+	<script src="assets/semantic.min.js"></script>
+	<script src="assets/jquery.scrollTo.min.js"></script>
+	<script src="assets/autoload.js"></script>
+
+  <script>
+    document.getElementById('languageButton').addEventListener('click', function() {
+        var enElements = document.querySelectorAll('[data-lang="en"]');
+        var zhElements = document.querySelectorAll('[data-lang="zh"]');
+        for (var i = 0; i < enElements.length; i++) {
+            if (enElements[i].style.display === 'none') {
+                enElements[i].style.display = 'block';
+                zhElements[i].style.display = 'none';
+            } else {
+                enElements[i].style.display = 'none';
+                zhElements[i].style.display = 'block';
+            }
+        }
+    });
+</script>
+
+</body>
+
+</html>
+
+<script>
+	!function () {
+    function n(n, e, t) {
+        return n.getAttribute(e) || t
+    }
+ 
+    function e(n) {
+        return document.getElementsByTagName(n)
+    }
+ 
+    function t() {
+        var t = e("script"), o = t.length, i = t[o - 1];
+        return {l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,0,0"), n: n(i, "count", 99)}
+    }
+ 
+    function o() {
+        a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    }
+ 
+    function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function (i, x) {
+            for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e], null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
+        }), x(i)
+    }
+ 
+    var a, c, u, m = document.createElement("canvas"), d = t(), l = "c_n" + d.l, r = m.getContext("2d"),
+        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (n) {
+            window.setTimeout(n, 1e3 / 45)
+        }, w = Math.random, y = {x: null, y: null, max: 2e4};
+    m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o, window.onmousemove = function (n) {
+        n = n || window.event, y.x = n.clientX, y.y = n.clientY
+    }, window.onmouseout = function () {
+        y.x = null, y.y = null
+    };
+    for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1;
+        s.push({x: h, y: g, xa: v, ya: p, max: 6e3})
+    }
+    u = s.concat([y]), setTimeout(function () {
+        i()
+    }, 100)
+}();
+</script>
+
+
+    <!-- 网页鼠标点击特效（爱心） -->
+    <script type="text/javascript">
+      ! function (e, t, a) {
+         function r() {
+             for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[
+                     e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x +
+                 "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e]
+                 .scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+             requestAnimationFrame(r)
+         }
+
+         function n() {
+             var t = "function" == typeof e.onclick && e.onclick;
+             e.onclick = function (e) {
+                 t && t(), o(e)
+             }
+         }
+
+         function o(e) {
+             var a = t.createElement("div");
+             a.className = "heart", s.push({
+                 el: a,
+                 x: e.clientX - 5,
+                 y: e.clientY - 5,
+                 scale: 1,
+                 alpha: 1,
+                 color: c()
+             }), t.body.appendChild(a)
+         }
+
+         function i(e) {
+             var a = t.createElement("style");
+             a.type = "text/css";
+             try {
+                 a.appendChild(t.createTextNode(e))
+             } catch (t) {
+                 a.styleSheet.cssText = e
+             }
+             t.getElementsByTagName("head")[0].appendChild(a)
+         }
+
+         function c() {
+             return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math
+                 .random()) + ")"
+         }
+         var s = [];
+         e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e
+             .mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+                 setTimeout(e, 1e3 / 60)
+             }, i(
+                 ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
+             ), n(), r()
+     }(window, document);
+ </script>
+
+<!-- 粒子拖尾 -->
+<span class="js-cursor-container"></span>
+<script>
+  (function fairyDustCursor() {
+
+      var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      var cursor = { x: width / 2, y: width / 2 };
+      var particles = [];
+
+      function init() {
+          bindEvents();
+          loop();
+      }
+
+      // Bind events that are needed
+      function bindEvents() {
+          document.addEventListener('mousemove', onMouseMove);
+          window.addEventListener('resize', onWindowResize);
+      }
+
+      function onWindowResize(e) {
+          width = window.innerWidth;
+          height = window.innerHeight;
+      }
+
+      function onMouseMove(e) {
+          cursor.x = e.clientX;
+          cursor.y = e.clientY;
+
+          addParticle(cursor.x, cursor.y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
+      }
+
+      function addParticle(x, y, color) {
+          var particle = new Particle();
+          particle.init(x, y, color);
+          particles.push(particle);
+      }
+
+      function updateParticles() {
+
+          // Updated
+          for (var i = 0; i < particles.length; i++) {
+              particles[i].update();
+          }
+
+          // Remove dead particles
+          for (var i = particles.length - 1; i >= 0; i--) {
+              if (particles[i].lifeSpan < 0) {
+                  particles[i].die();
+                  particles.splice(i, 1);
+              }
+          }
+
+      }
+
+      function loop() {
+          requestAnimationFrame(loop);
+          updateParticles();
+      }
+
+      /**
+       * Particles
+       */
+
+      function Particle() {
+
+          this.character = "*";
+          this.lifeSpan = 120; //ms
+          this.initialStyles = {
+              "position": "fixed",
+              "display": "inline-block",
+              "top": "0px",
+              "left": "0px",
+              "pointerEvents": "none",
+              "touch-action": "none",
+              "z-index": "10000000",
+              "fontSize": "25px",
+              "will-change": "transform"
+          };
+
+          // Init, and set properties
+          this.init = function (x, y, color) {
+
+              this.velocity = {
+                  x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
+                  y: 1
+              };
+
+              this.position = { x: x + 10, y: y + 10 };
+              this.initialStyles.color = color;
+
+              this.element = document.createElement('span');
+              this.element.innerHTML = this.character;
+              applyProperties(this.element, this.initialStyles);
+              this.update();
+
+              document.querySelector('.js-cursor-container').appendChild(this.element);
+          };
+
+          this.update = function () {
+              this.position.x += this.velocity.x;
+              this.position.y += this.velocity.y;
+              this.lifeSpan--;
+
+              this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px, 0) scale(" + (this.lifeSpan / 120) + ")";
+          }
+
+          this.die = function () {
+              this.element.parentNode.removeChild(this.element);
+          }
+
+      }
+
+      /**
+       * Utils
+       */
+
+      // Applies css `properties` to an element.
+      function applyProperties(target, properties) {
+          for (var key in properties) {
+              target.style[key] = properties[key];
+          }
+      }
+
+      if (!('ontouchstart' in window || navigator.msMaxTouchPoints)) init();
+  })();    
+</script>
+

@@ -1,832 +1,287 @@
 <!doctype html>
-<html>
-
+<html lang="zh-CN">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5HK5SHKZ7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G5HK5SHKZ7');
-</script>
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-  <title>方浩 | Hao Fang</title>
-
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>方浩 | Hao Fang</title>
+  <meta name="description" content="Hao Fang — PhD at the University of Edinburgh." />
+  <meta name="author" content="Hao Fang" />
 
-  <meta name=viewport content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/resources/jt.png">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="方浩 | Hao Fang" />
+  <meta property="og:description" content="PhD at the University of Edinburgh." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/" />
+  <meta property="og:image" content="https://YOUR-USERNAME.github.io/assets/og-card.png" />
 
-  <style type="text/css">
-    body {
-      font-family: 'DM Sans', sans-serif !important;
+  <!-- Favicon (可换成本地文件) -->
+  <link rel="icon" href="images/favicon.ico" />
+
+  <!-- 颜色方案 -->
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- 字体（可替换为本地字体） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --card: #f8fafc;  /* slate-50 */
+      --border: #e2e8f0; /* slate-200 */
+      --link: #2563eb;  /* blue-600 */
+      --ring: rgba(37, 99, 235, .35);
+      --maxw: 1080px;
+      --radius: 16px;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.06);
     }
-
-    a:link,
-    a:hover,
-    a:visited,
-    a:active {
-      color: #306BAC !important;
-    }
-
-    .nodecor:link,
-    .nodecor:hover,
-    .nodecor:visited,
-    .nodecor:active {
-      color: #333 !important;
-      text-decoration: none;
-    }
-
-    .boldtext {
-      font-weight: 700 !important;
-    }
-
-    .semiboldtext {
-      font-weight: 500 !important;
-    }
-
-    .smalltext {
-      font-size: .8em;
-    }
-
-    .center-text {
-      text-align: center;
-    }
-
-    #name {
-      font-size: 3.6em;
-      line-height: 1em;
-      margin-top: .5em;
-      margin-bottom: .2em;
-    }
-
-    #title {
-      font-size: 1.2em;
-    }
-
-    #email {
-      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-      font-size: .9em;
-      margin-top: 2px;
-      margin-bottom: 2px;
-    }
-
-    #picpad {
-      margin-top: .5em;
-      margin-bottom: .5em;
-    }
-
-    #overview {
-      font-size: 1.2em;
-    }
-
-    #projects {
-      font-size: 1.1em;
-    }
-
-    #projects li {
-      margin-top: .5em;
-    }
-
-    @media only screen and (max-width: 750px) {
-      #fadeshow1 {
-        display: none;
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #0b1220;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --card: #0f172a;
+        --border: #1f2937;
+        --link: #60a5fa;
+        --ring: rgba(96,165,250,.35);
+        --shadow: 0 1px 2px rgba(0,0,0,.35), 0 8px 28px rgba(0,0,0,.35);
       }
     }
-
-    .content {
-      margin: auto;
-      max-width: 800px;
-      padding: 10px;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6; background:var(--bg); color:var(--text);
     }
-
-    .subcontent {
-      margin-top: 1em;
-      margin-bottom: 1.5em;
+    a{color:var(--link); text-decoration: none}
+    a:hover{text-decoration: underline}
+    .container{max-width:var(--maxw); margin:0 auto; padding:24px}
+    header{
+      position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      z-index:10;
     }
-
-    .pubtitle {
-      font-weight: 500;
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 24px}
+    .nav a.logo{font-weight:700; letter-spacing:.2px}
+    .nav .right{display:flex; gap:14px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border);
+      border-radius:999px; background:var(--card); box-shadow: var(--shadow);
     }
+    .btn:focus{outline: none; box-shadow:0 0 0 4px var(--ring)}
+    .hero{display:grid; grid-template-columns: 140px 1fr; gap:24px; align-items:center; padding:40px 0}
+    .avatar{width:140px; height:140px; border-radius:50%; object-fit:cover; border:1px solid var(--border); box-shadow: var(--shadow)}
+    h1{font-size: clamp(28px, 3.2vw, 40px); line-height:1.15; margin:0 0 6px 0}
+    .subtitle{color:var(--muted); margin:0 0 12px 0}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0}
+    .chip{padding:6px 10px; background:var(--card); border:1px solid var(--border); border-radius:999px; font-size:14px}
 
+    section{margin:40px 0}
+    .sec-title{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px}
+    .sec-title h2{font-size:clamp(20px,2.2vw,26px); margin:0}
+    .grid{display:grid; gap:16px}
+    .grid.cards{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+    .card{background:var(--card); border:1px solid var(--border); border-radius: var(--radius); padding:16px; box-shadow: var(--shadow)}
+    .card h3{margin:0 0 6px 0; font-size:18px}
+    .meta{font-size:14px; color:var(--muted)}
+    .pub li{margin:10px 0}
+    .pub .venue{font-weight:600}
 
-    .pubyear {
-      margin-top: 12px;
-      clear: both;
-      font-size: 1.2em;
-      color: 222;
+    footer{border-top:1px solid var(--border); padding:24px; color:var(--muted)}
+
+    .skip-link{position:absolute; left:-9999px}
+    .skip-link:focus{left:24px; top:12px; background:var(--card); border:1px solid var(--border); padding:6px 10px; border-radius:8px; box-shadow:var(--shadow)}
+
+    .kbar{display:flex; gap:8px; flex-wrap:wrap}
+    .kbar a{padding:6px 10px; border:1px dashed var(--border); border-radius:999px}
+
+    .toc{font-size:14px; color:var(--muted)}
+
+    /* 小屏优化 */
+    @media (max-width: 640px){
+      .hero{grid-template-columns: 1fr; text-align:center}
+      .avatar{margin: 0 auto}
+      .nav .right{gap:8px}
     }
-
-    .pubaward {
-      font-weight: 600;
-      font-style: italic;
-    }
-
-    /* Add a card effect for articles */
-    .card {
-      background-color: white;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .authlist {
-      font-size: 12px;
-      color: gray;
-    }
-
-    .title {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .date {
-      font-size: 12px;
-    }
-
-    .abstract {
-      font-size: 14px;
-    }
-
-    [data-lang="en"] {
-            display: block; /* show English content by default */
-        }
-        [data-lang="zh"] {
-            display: none; /* hide Chinese content by default */
-        }
-
-        #languageButton {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-        }
   </style>
 
-<link rel="stylesheet" href="assets/font-awesome.min.css">
-<link rel="stylesheet" href="assets/semantic.min.css">
+  <script>
+    // 简单暗色模式切换
+    const THEME_KEY = 'hf-theme';
+    function setTheme(t){
+      if(t==='dark'){ document.documentElement.classList.add('dark'); }
+      else{ document.documentElement.classList.remove('dark'); }
+      localStorage.setItem(THEME_KEY, t);
+    }
+    function toggleTheme(){
+      const isDark = document.documentElement.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    }
+    (function initTheme(){
+      const saved = localStorage.getItem(THEME_KEY);
+      if(saved){ setTheme(saved); }
+      else{ // 跟随系统
+        if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ setTheme('dark'); }
+      }
+    })();
+  </script>
+
+  <!-- 结构化数据（SEO） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hao Fang",
+    "url": "https://YOUR-USERNAME.github.io/",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "University of Edinburgh"
+    },
+    "sameAs": [
+      "https://scholar.google.com/", 
+      "https://www.linkedin.com/",
+      "https://github.com/YOUR-USERNAME"
+    ]
+  }
+  </script>
 </head>
-
 <body>
-  <button id="languageButton">中文/English</button>
+  <a class="skip-link" href="#main">跳到主要内容</a>
 
-  <div class="center-text" data-lang="zh">
-    节点切换：<a href="https://fanghao0506.gitee.io/">中国大陆</a> / <a href="https://fanghao0506.github.io/">海外</a>（如果您访问卡顿，请根据您所在地区切换节点）<br>
-  </div>
-
-  <div class="center-text" data-lang="en">
-    Node switch: <a href="https://fanghao0506.gitee.io/">Mainland China</a> / <a href="https://fanghao0506.github.io/">Overseas</a> (If you are experiencing lag, please switch nodes based on your location).
-  </div>
-
-  <div class="content" style="margin-top: 5.5rem;">
-
-    <div class="row">
-      <div class="col-sm-offset-5 col-sm-8">
-        <div id="name">
-          <div class="semiboldtext" data-lang="zh">方浩</div>
-          <div class="semiboldtext" data-lang="en">Hao Fang</div>
-        </div>
-        <div id="title" style="margin-top: 1.5rem;">
-
-          <div style="margin-top: 1rem;"></div>
-          <div id="email" data-lang="zh">
-            <a href="resources/wechat.jpg">微信: fh990506</a><br>
-            <a href="mailto:H.Fang@ed.ac.uk" >邮箱: H.Fang@ed.ac.uk</a><br>
-            <a href="tel:13258283318">电话: 86 13258283318</a><br>
-          </div>
-          <div id="email" data-lang="en">
-            <a href="resources/wechat.jpg">wechat: fh990506</a><br>
-            <a href="mailto:H.Fang@ed.ac.uk" >email: H.Fang@ed.ac.uk</a><br>
-            <a href="tel:13258283318">tel: 86 13258283318</a><br>
-          </div><br>
-
-          <div style="font-size: 1em;" data-lang="zh"><a href="resources/FANG_H_CV_Combine.pdf">简历</a> · <a
-            href="https://scholar.google.com/citations?user=WyRCGEQAAAAJ&hl">谷歌学者</a> · <a
-            href="https://orcid.org/0009-0002-5030-5059">ORCID</a> ·
-              <!-- <a href="">scholar</a> ·  -->
-              <a href="https://github.com/fanghao0506">GitHub</a><br><br>
-
-              <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU3MTkyNzE0NA==&action=getalbum&album_id=2903401443615850496&scene=173&from_msgid=2247483810&from_itemidx=1&count=3&nolastread=1#wechat_redirect">微信公众号</a> | 
-              <a href="https://v.douyin.com/Ub839tJ/">抖音</a> |
-              <a href="https://space.bilibili.com/249688004?spm_id_from=333.1007.0.0">b站</a><br><br>
-              <a href="timesilhouette/index.html">摄影作品</a> | 
-              <a href="poem/index.html">诗歌随笔</a> | 
-              <a href="tools/index.html">我的收藏</a>
-              <br><br> 
-            </div>
-
-          <div style="font-size: 1em;" data-lang="en"><a href="resources/FANG_H_CV_Combine.pdf">CV</a> · <a
-            href="https://scholar.google.com/citations?user=WyRCGEQAAAAJ&hl">Google Scholar</a> · <a
-            href="https://orcid.org/0009-0002-5030-5059">ORCID</a> · 
-              <!-- <a href="">scholar</a> ·  -->
-              <a href="https://github.com/fanghao0506">GitHub</a><br><br>
-
-              <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU3MTkyNzE0NA==&action=getalbum&album_id=2903401443615850496&scene=173&from_msgid=2247483810&from_itemidx=1&count=3&nolastread=1#wechat_redirect">WeChat Official Account</a> | 
-              <a href="https://v.douyin.com/Ub839tJ/">Douyin</a> |
-              <a href="https://space.bilibili.com/249688004?spm_id_from=333.1007.0.0">bilibili</a><br><br>
-              <a href="timesilhouette/index.html">Photography Works</a> | 
-              <a href="poem/index.html">My Poems</a> | 
-              <a href="tools/index.html">Online Tools</a>
-              <br><br> 
-            </div>
-
-        </div>
+  <header>
+    <nav class="nav" aria-label="主导航">
+      <a class="logo" href="#">Hao Fang</a>
+      <div class="right">
+        <a class="btn" href="tools/index.html" aria-label="跳转到Tools">Tools</a>
+        <a class="btn" href="timesilhouette/index.html" aria-label="Gallery">Gallery</a>
+        <!-- <a class="btn" href="#publications" aria-label="跳转到论文">Publications</a>
+        <a class="btn" href="#projects" aria-label="跳转到项目">Projects</a>
+        <button class="btn" onclick="toggleTheme()" aria-label="切换明暗模式">🌗 主题</button>
+        <a class="btn" href="mailto:h.fang@ed.ac.uk" aria-label="邮件联系">✉️ 联系</a> -->
       </div>
+    </nav>
+  </header>
 
-      <div class="col-sm-4">
-        <img class="float-right" src="resources/fanghao.jpg" id="fadeshow1" alt="pdb" id="pdb-pic"
-          style="height: 220px; margin-top: 10px;">
-      </div>
-
-    </div>
-
-    <div class="col-sm-offset-2" data-lang="zh">
-      <div id="overview" style="margin-top: 1.5rem;">
-
-        <hr>
-
-        <p>
-          我目前是爱丁堡大学的一名在读博士研究生，我的导师是<a
-          href="https://scholar.google.co.uk/citations?user=WtdBq3oAAAAJ&hl=en">Dr. Yang</a>。
-        </p>
-
-        <p>
-          此前，我是江苏省产业技术研究院脑机融合智能技术研究所的一名软件算法工程师。我的主要工作包括闭环脑机接口（BCI）算法设计和图像处理相关应用的开发。
-        </p>
-        
-        <p>
-         更早的时候，我在<a
-         href="resources/Edinburgh.pdf">爱丁堡大学</a>的通信与信号处理专业完成了我的硕士学位, 我的导师是<a
-            href="https://elliotjcrowley.github.io">Dr. Elliot J. Crowley</a>。在取得硕士学位之前，我分别获得了<a
-            href="resources/Leeds.pdf">利兹大学</a>和<a
-            href="resources/SWJTU.pdf">西南交通大学</a>电子信息工程的工学学士学位。我本科期间的导师是<a
-            href="https://faculty.swjtu.edu.cn/huangdeqing">黄德青</a>教授。
-          
-        </p>
-
-        <p>
-          我的研究方向包括但不限于：
-        <ul>
-          <li> 深度学习
-          <li> 生物医学信号处理
-          <li> 图像处理
-          <li> 脑机接口
-        </ul>
-        </p>
-
-        <p>
-          在我的空闲时间，我喜欢摄影和户外运动，我还是一个op。
-        </p>
-      </div>
-    </div>
-
-    <div class="col-sm-offset-2" data-lang="en">
-      <div id="overview" style="margin-top: 1.5rem;">
-
-        <hr>
-
-        <p>
-          I am currently a PhD student at <a href="https://www.eng.ed.ac.uk/research/institutes/idcom">the Institute for Imaging, Data and Communications (IDCOM)</a>, the School of Engineering, 
-          the University of Edinburgh. My principal supervisor is <a href="https://scholar.google.co.uk/citations?user=WtdBq3oAAAAJ&hl=en">Dr. Yang</a>. 
-          </p>
-
-        <p>
-          Prior to this, I was an algorithm engineer at JITRI Brain-Machine Fusion Intelligence Institute, Jiangsu Industrial Technology Research Institute. 
-          I was responsible for brain-computer interface algorithm development.
-        </p>
-        
-        <p>
-         Before that, I completed my M.S. in Signal Processing and Communications at <a
-         href="resources/Edinburgh.pdf">the University of Edinburgh</a>, advised by <a
-            href="https://elliotjcrowley.github.io">Dr. Elliot J. Crowley</a>. Prior to my MSc, I pursued a 
-            BEng in Electronic and Electrical Engineering from <a
-            href="resources/Leeds.pdf">the University of Leeds</a> and <a
-            href="resources/SWJTU.pdf">Southwest Jiaotong University</a>. My undergraduate 
-            supervisor was  <a
-            href="https://faculty.swjtu.edu.cn/huangdeqing">Prof. Huang.</a>
-          
-        </p>
-
-        <p>
-          My research interests include (but are not limited to):
-        <ul>
-          <li> Deep learning
-          <li> Tomography
-          <li> Medical Imaging
-          <li> Inverse Problem
-          <li> BCI
-        </ul>
-        </p>
-
-        <p>
-          In my leisure time, I enjoy photography, outdoor activities, and playing Genshin Impact.
-        </p>
-      </div>
-    </div>
-
-
-
-    <div class="col-sm-offset-2" >
-      <div style="margin-top: 3.5rem;"></div>
+  <main id="main" class="container">
+    <!-- Hero -->
+    <section class="hero" id="about">
+      <img class="avatar" src="resources/fanghao.jpg" alt="Portrait of Hao Fang" />
       <div>
-        <h3 data-lang="en">Recent Works</h3>
-        <h3 data-lang="zh">最近工作</h3>
+        <h1>Hao Fang</h1>
+        <p class="subtitle">PhD Researcher · SMART Group · University of Edinburgh</p>
+        <p>
+          I am a PhD candidate at the Institute for Imaging, Data and Communications (IDCOM), School of Engineering, University of Edinburgh, supervised by Dr. Yang. Previously, I was an algorithm engineer at the Brain-Machine Fusion Intelligence Institute, JITRI, focusing on brain-computer interface algorithms. I hold an M.S. in Signal Processing and Communications from the University of Edinburgh (with Dr. Elliot J. Crowley) and a B.Eng. in Electronic and Electrical Engineering from the joint program of the University of Leeds and Southwest Jiaotong University (with Prof. Huang).
+        </p>
 
-
-          <div id="publist">
-            <div class="container card">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img src="images/emotion_recognition_bci.png" id="fadeshow1" style="width:120px;margin-left:2.0em;">
-                </div>
-                <div class="col-sm-9">
-                  <style>
-                    p {
-                      margin-top: 0em ;
-                      margin-bottom: 0.4em ;
-                    }
-                  </style>
-                    <p class="title">
-                      <a class="pubtitle" style="font-weight: bold;"><a
-                        href="https://ieeexplore.ieee.org/abstract/document/10499167">Minimal Electrode EEG for BCI Emotion Detection</a></a>
-                    </p>
-                    <p class="conference"> NNICE 2024<a class="pubtitle" href="" style="font-weight: bold;"></a></p>
-                  <p class="authlist">Yuxin Li, Hao Fang, Wen Liu, Chuantong Cheng, Hongda Chen</p>
-                  <p class="abstract">
-                    This study achieves high-accuracy EEG-based emotion recognition (92.8%) using minimal electrode configuration (T7 and T8), advancing efficient and cost-effective BCI device development.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="publist">
-            <div class="container card">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img src="images/fNIRs2.png" id="fadeshow1" style="width:180px;margin-top:5.8em;">
-                </div>
-                <div class="col-sm-9">
-                  <style>
-                    p {
-                      margin-top: 0em ;
-                      margin-bottom: 0.4em ;
-                    }
-                  </style>
-                    <p class="title">
-                      <a class="pubtitle" style="font-weight: bold;">Advancing Brain-Computer Interfaces: An Innovative Optimization Approach for fNIRS-Based Binary Classification</a>
-                    </p>
-                    <p class="conference"> Journal of Neural Engineering (under review) <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
-                  <p class="authlist">Yuxin Li, Hao Fang, Wen Liu, Chuantong Cheng, Hongda Chen</p>
-                  <p class="abstract">
-                    Achieving high subject-independent accuracy in online classification is an important part in the field of 
-                    functional near-infrared spectroscopy (fNIRS) based Brain-computer Interface (BCI), especially with a reduced number of channels. 
-                    However, it is often not possible to achieve both of them. In this paper, we proposed a novel feature extraction scheme for fNIRS dataset to improve the subject-independent accuracy. 
-                    Additionally, we proposed a channel selection algorithm to locate the ROI (Region of Interest) channels, 
-                    reducing the number of channels required for such classification tasks. 
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="publist">
-            <div class="container card">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img src="images/V-SWIR-IF.png" id="fadeshow1" style="width:170px;margin-top:1.8em;">
-                </div>
-                <div class="col-sm-9">
-                  <style>
-                    p {
-                      margin-top: 0em ;
-                      margin-bottom: 0.4em ;
-                    }
-                  </style>
-                    <p class="title">
-                      <a class="pubtitle" style="font-weight: bold;"><a
-                        href="https://ieeexplore.ieee.org/document/10271197">V-SWIR-IF: Visible and Short-Wave Infrared Image
-                        Fusion</a></a>
-                    </p>
-                    <p class="conference"> ISCEIC 2023 <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
-                  <p class="authlist">Hao Fang, Guanjie Xu, Gaomin Su, Chuantong Cheng </p>
-                  <p class="abstract">
-                    An image fusion algorithm for fusing visible light and short-wave infrared (SWIR) images. This work was supported by the National Key R&D Program of China (Grant No.2021YFB3601201).
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="publist">
-            <div class="container card">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img src="images/STI01_tES.jpg" id="fadeshow1" style="width:170px;margin-top:1.8em;">
-                </div>
-                <div class="col-sm-9">
-                  <style>
-                    p {
-                      margin-top: 0em ;
-                      margin-bottom: 0.4em ;
-                    }
-                  </style>
-                    <p class="title">
-                      <a class="pubtitle" style="font-weight: bold;"><a
-                        href="https://ieeexplore.ieee.org/document/10212634">Enabling Transcranial Electrical Stimulation via STI01: Experimental 
-                        Simulations and Hardware Circuit Implementation</a></a>
-                    </p>
-                    <p class="conference"> EEI 2023 <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
-                  <p class="authlist">Guanjie Xu, Gaomin Su, Hao Fang, Yue Li</p>
-                  <p class="abstract">
-                    A novel utilization of a chip, STI01, 
-                    developed in China and traditionally used for muscle stimulation, 
-                    to meet the demands of transcranial electrical stimulation (tES).
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div id="publist">
-            <div class="container card">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img src="images/edinburgh_arts.jpg" id="fadeshow1" style="width:170px;margin-top:1.8em;">
-                </div>
-                <div class="col-sm-9">
-                  <style>
-                    p {
-                      margin-top: 0em ;
-                      margin-bottom: 0.4em ;
-                    }
-                  </style>
-                    <p class="title">
-                      <a class="pubtitle" href="edinburgh_arts/index.html" style="font-weight: bold;">Neural Art meets Edinburgh</a>
-                    </p>
-                    <p class="conference"> M.Sc final project <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
-                  <p class="authlist">Hao Fang</p>
-                  <p class="abstract">
-                   I employed deep learning algorithms such as fast style transfer, VQGAN-CLIP, DALLE-2, and Stable Diffusion to 
-                   generate amazing artworks in various styles that depict the landscapes in Edinburgh. 
-                   Besides, I set up an online art gallery on GitHub Pages to display these art creations. 
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="publist">
-            <div class="container card">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img src="images/face_covering_detection.png" id="fadeshow1" style="width:170px;margin-top:1.8em;">
-                </div>
-                <div class="col-sm-9">
-                  <style>
-                    p {
-                      margin-top: 0em ;
-                      margin-bottom: 0.4em ;
-                    }
-                  </style>
-                    <p class="title">
-                      <a class="pubtitle" style="font-weight: bold;">Real-time Face Covering Detection Based on Deep Learning </a>
-                    </p>
-                    <p class="conference"> B.Eng final project <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
-                  <p class="authlist">Hao Fang</p>
-                  <p class="abstract">
-                    A three-class object detection problem using the YOLOv5 deep learning algorithm. 
-                    The aim was to check if individuals wear their masks correctly. This real-time detection 
-                    system has significant potential for practical use and commercial value during the pandemic. 
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="publist">
-            <div class="container card">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img src="images/BrainTunes.png" id="fadeshow1" style="width:70px;margin-left: 3.3em;">
-                </div>
-                <div class="col-sm-9">
-                  <style>
-                    p {
-                      margin-top: 0em ;
-                      margin-bottom: 0.4em ;
-                    }
-                  </style>
-                    <p class="title">
-                      <a class="pubtitle" style="font-weight: bold;">BrainTunes</a>
-                    </p>
-                    <p class="conference"> Wechat mini program <a class="pubtitle" href="" style="font-weight: bold;"></a></p>
-                  <p class="authlist">Hao Fang</p>
-                  <p class="abstract">
-                    A WeChat mini-program I developed for our BCI device. You can access my mini-program by searching for "BrainTunes" in the WeChat client.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div id="publist">
-            <div class="container card">
-              <div class="row">
-                <div class="col-sm-3">
-                  <img src="images/STI01_tES.jpg" id="fadeshow1" style="width:170px;margin-top:1.8em;">
-                </div>
-                <div class="col-sm-9">
-                  <style>
-                    p {
-                      margin-top: 0em ;
-                      margin-bottom: 0.4em ;
-                    }
-                  </style>
-                    <p class="title">
-                      <a class="pubtitle" href="" style="font-weight: bold;">Enabling Transcranial Electrical Stimulation via STI01: Experimental 
-                        Simulations and Hardware Circuit Implementation</a>
-                    </p>
-                    <p class="conference"> EEI 2023 <a class="pubtitle" href="" style="font-weight: bold;"><img src="resources/github.svg" style="margin-bottom: 0.3em;width:28px;height:28px;"></a></p>
-                  <p class="authlist">Guanjie Xu, Gaomin Su, Hao Fang, Yue Li</p>
-                  <p class="abstract">
-                    A novel utilization of a chip, STI01, 
-                    developed in China and traditionally used formuscle stimulation, 
-                    to meet the demands of transcranial electrical stimulation (tES).
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-
-
+        <div class="chips" aria-label="研究方向">
+          <span class="chip">Deep Learning</span>
+          <span class="chip">Electrical Impedance Tomography</span>
+          <span class="chip">Inverse Problems</span>
+          <span class="chip">Medical Imaging</span>
+          <span class="chip">Soft Robotics</span>
+        </div>
+        <div class="kbar" aria-label="快速链接">
+          <a href="https://github.com/fanghao0506" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=WyRCGEQAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a href="https://ieeexplore.ieee.org/author/394425319528970" target="_blank" rel="noreferrer">IEEE Profile</a>
+          <a href="https://www.researchgate.net/profile/Hao-Fang-38" target="_blank" rel="noreferrer">ResearchGate</a>
+          <a href="assets/HaoFang_CV.pdf" target="_blank" rel="noreferrer">CV</a>
+        </div>
       </div>
-    </div>
+    </section>
 
+    <!-- News -->
+    <!-- <section id="news">
+      <div class="sec-title">
+        <h2>News</h2>
+        <span class="toc">Last updated: <time id="last-updated"></time></span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="meta">2025‑07</div>
+          <p>IoT‑J major revision submitted: <em>MAIP: Multi‑Branch Attention Image Prior for mfEIT</em>.</p>
+        </div>
+        <div class="card">
+          <div class="meta">2025‑05</div>
+          <p>Preprint: <em>DDIP for 3D time‑sequence pulmonary EIT</em>.</p>
+        </div>
+      </div>
+    </section> -->
 
+    <!-- Publications -->
+    <!-- <section id="publications">
+      <div class="sec-title">
+        <h2>Selected Publications</h2>
+        <a class="toc" href="#">Full list →</a>
+      </div>
+      <ol class="pub">
+        <li>
+          <span class="venue">IEEE TMI (under review)</span> — H. Fang, <em>Deep Dynamic Image Prior for 3D Time‑sequence EIT Reconstruction</em>, 2025. <a href="#">PDF</a> · <a href="#">Code</a>
+        </li>
+        <li>
+          <span class="venue">IEEE IoT‑J (R1)</span> — H. Fang et al., <em>Multi‑frequency EIT Reconstruction with Multi‑Branch Attention Image Prior</em>, 2025. <a href="#">PDF</a>
+        </li>
+        <li>
+          <span class="venue">IEEE Sensors</span> — <em>Multi‑modal EIT using Lens‑free & Flexible Impedance Sensor</em>, 2024. <a href="#">Poster</a>
+        </li>
+      </ol>
+    </section> -->
 
+    <!-- Projects -->
+    <!-- <section id="projects">
+      <div class="sec-title"><h2>Projects</h2></div>
+      <div class="grid cards">
+        <article class="card">
+          <h3>DDIP — Deep Dynamic Image Prior</h3>
+          <p class="meta">Python · PyTorch · 3D UNet++ · 4D‑TV</p>
+          <p>Unsupervised 3D time‑sequence reconstruction with physics‑informed priors and warm‑start acceleration.</p>
+          <p><a href="#">Repo</a> · <a href="#">Demo</a></p>
+        </article>
+        <article class="card">
+          <h3>MAIP — Multi‑Branch Attention Image Prior</h3>
+          <p class="meta">mfEIT · Stability · Sensitivity‑guided</p>
+          <p>Model‑based unsupervised learning for multi‑frequency EIT with state‑of‑the‑art results.</p>
+          <p><a href="#">Repo</a> · <a href="#">Preprint</a></p>
+        </article>
+        <article class="card">
+          <h3>Lens‑free × Flexible Sensor</h3>
+          <p class="meta">Hardware · Biosensing</p>
+          <p>High‑throughput dynamic biological monitoring via hybrid optical‑impedance sensing.</p>
+          <p><a href="#">Poster</a></p>
+        </article>
+      </div>
+    </section> -->
 
+    <!-- Teaching / Service -->
+    <!-- <section id="service">
+      <div class="sec-title"><h2>Teaching & Service</h2></div>
+      <ul>
+        <li>EIT 2024 — Oral presentation.</li>
+        <li>IEEE Sensors 2024 — Poster.</li>
+        <li>Reviewer — IEEE TMI, TIP (invited).</li>
+      </ul>
+    </section> -->
 
-  </div>
+    <!-- Contact -->
+    <section id="contact">
+      <div class="sec-title"><h2>Contact</h2></div>
+      <p>📧 <a href="mailto:h.fang@ed.ac.uk">h.fang@ed.ac.uk</a> · 🔗 <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noreferrer">GitHub</a> · 🔗 <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">Google Scholar</a></p>
+      <p class="meta">This website is static and privacy‑friendly; no cookies, no trackers.</p>
+    </section>
+  </main>
 
-  <script src="assets/jquery.min.js"></script>
-	<script src="assets/semantic.min.js"></script>
-	<script src="assets/jquery.scrollTo.min.js"></script>
-	<script src="assets/autoload.js"></script>
+  <footer class="container">
+    <small>© <span id="year"></span> Hao Fang. Built with GitHub Pages. <a href="#" aria-label="返回顶部">Back to top ↑</a></small>
+  </footer>
 
   <script>
-    document.getElementById('languageButton').addEventListener('click', function() {
-        var enElements = document.querySelectorAll('[data-lang="en"]');
-        var zhElements = document.querySelectorAll('[data-lang="zh"]');
-        for (var i = 0; i < enElements.length; i++) {
-            if (enElements[i].style.display === 'none') {
-                enElements[i].style.display = 'block';
-                zhElements[i].style.display = 'none';
-            } else {
-                enElements[i].style.display = 'none';
-                zhElements[i].style.display = 'block';
-            }
-        }
-    });
-</script>
-
+    // 更新“Last updated”与年份
+    document.getElementById('last-updated').textContent = new Date().toISOString().slice(0,10);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
-
-<script>
-	!function () {
-    function n(n, e, t) {
-        return n.getAttribute(e) || t
-    }
- 
-    function e(n) {
-        return document.getElementsByTagName(n)
-    }
- 
-    function t() {
-        var t = e("script"), o = t.length, i = t[o - 1];
-        return {l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,0,0"), n: n(i, "count", 99)}
-    }
- 
-    function o() {
-        a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-    }
- 
-    function i() {
-        r.clearRect(0, 0, a, c);
-        var n, e, t, o, m, l;
-        s.forEach(function (i, x) {
-            for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e], null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
-        }), x(i)
-    }
- 
-    var a, c, u, m = document.createElement("canvas"), d = t(), l = "c_n" + d.l, r = m.getContext("2d"),
-        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (n) {
-            window.setTimeout(n, 1e3 / 45)
-        }, w = Math.random, y = {x: null, y: null, max: 2e4};
-    m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o, window.onmousemove = function (n) {
-        n = n || window.event, y.x = n.clientX, y.y = n.clientY
-    }, window.onmouseout = function () {
-        y.x = null, y.y = null
-    };
-    for (var s = [], f = 0; d.n > f; f++) {
-        var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1;
-        s.push({x: h, y: g, xa: v, ya: p, max: 6e3})
-    }
-    u = s.concat([y]), setTimeout(function () {
-        i()
-    }, 100)
-}();
-</script>
-
-
-    <!-- 网页鼠标点击特效（爱心） -->
-    <script type="text/javascript">
-      ! function (e, t, a) {
-         function r() {
-             for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[
-                     e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x +
-                 "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e]
-                 .scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-             requestAnimationFrame(r)
-         }
-
-         function n() {
-             var t = "function" == typeof e.onclick && e.onclick;
-             e.onclick = function (e) {
-                 t && t(), o(e)
-             }
-         }
-
-         function o(e) {
-             var a = t.createElement("div");
-             a.className = "heart", s.push({
-                 el: a,
-                 x: e.clientX - 5,
-                 y: e.clientY - 5,
-                 scale: 1,
-                 alpha: 1,
-                 color: c()
-             }), t.body.appendChild(a)
-         }
-
-         function i(e) {
-             var a = t.createElement("style");
-             a.type = "text/css";
-             try {
-                 a.appendChild(t.createTextNode(e))
-             } catch (t) {
-                 a.styleSheet.cssText = e
-             }
-             t.getElementsByTagName("head")[0].appendChild(a)
-         }
-
-         function c() {
-             return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math
-                 .random()) + ")"
-         }
-         var s = [];
-         e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e
-             .mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-                 setTimeout(e, 1e3 / 60)
-             }, i(
-                 ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
-             ), n(), r()
-     }(window, document);
- </script>
-
-<!-- 粒子拖尾 -->
-<span class="js-cursor-container"></span>
-<script>
-  (function fairyDustCursor() {
-
-      var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
-      var width = window.innerWidth;
-      var height = window.innerHeight;
-      var cursor = { x: width / 2, y: width / 2 };
-      var particles = [];
-
-      function init() {
-          bindEvents();
-          loop();
-      }
-
-      // Bind events that are needed
-      function bindEvents() {
-          document.addEventListener('mousemove', onMouseMove);
-          window.addEventListener('resize', onWindowResize);
-      }
-
-      function onWindowResize(e) {
-          width = window.innerWidth;
-          height = window.innerHeight;
-      }
-
-      function onMouseMove(e) {
-          cursor.x = e.clientX;
-          cursor.y = e.clientY;
-
-          addParticle(cursor.x, cursor.y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
-      }
-
-      function addParticle(x, y, color) {
-          var particle = new Particle();
-          particle.init(x, y, color);
-          particles.push(particle);
-      }
-
-      function updateParticles() {
-
-          // Updated
-          for (var i = 0; i < particles.length; i++) {
-              particles[i].update();
-          }
-
-          // Remove dead particles
-          for (var i = particles.length - 1; i >= 0; i--) {
-              if (particles[i].lifeSpan < 0) {
-                  particles[i].die();
-                  particles.splice(i, 1);
-              }
-          }
-
-      }
-
-      function loop() {
-          requestAnimationFrame(loop);
-          updateParticles();
-      }
-
-      /**
-       * Particles
-       */
-
-      function Particle() {
-
-          this.character = "*";
-          this.lifeSpan = 120; //ms
-          this.initialStyles = {
-              "position": "fixed",
-              "display": "inline-block",
-              "top": "0px",
-              "left": "0px",
-              "pointerEvents": "none",
-              "touch-action": "none",
-              "z-index": "10000000",
-              "fontSize": "25px",
-              "will-change": "transform"
-          };
-
-          // Init, and set properties
-          this.init = function (x, y, color) {
-
-              this.velocity = {
-                  x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
-                  y: 1
-              };
-
-              this.position = { x: x + 10, y: y + 10 };
-              this.initialStyles.color = color;
-
-              this.element = document.createElement('span');
-              this.element.innerHTML = this.character;
-              applyProperties(this.element, this.initialStyles);
-              this.update();
-
-              document.querySelector('.js-cursor-container').appendChild(this.element);
-          };
-
-          this.update = function () {
-              this.position.x += this.velocity.x;
-              this.position.y += this.velocity.y;
-              this.lifeSpan--;
-
-              this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px, 0) scale(" + (this.lifeSpan / 120) + ")";
-          }
-
-          this.die = function () {
-              this.element.parentNode.removeChild(this.element);
-          }
-
-      }
-
-      /**
-       * Utils
-       */
-
-      // Applies css `properties` to an element.
-      function applyProperties(target, properties) {
-          for (var key in properties) {
-              target.style[key] = properties[key];
-          }
-      }
-
-      if (!('ontouchstart' in window || navigator.msMaxTouchPoints)) init();
-  })();    
-</script>
-
