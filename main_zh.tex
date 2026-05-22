@@ -1,0 +1,457 @@
+%
+% 中文版 Academic CV LaTeX
+% 建议使用 XeLaTeX 编译，需系统已安装思源宋体 / 思源黑体
+%
+
+\documentclass[a4paper,11pt]{article}
+
+% 基础包
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{array} 
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage{fontawesome5}
+
+% -------- 中文与字体设置（需 XeLaTeX） --------
+\usepackage{CJKutf8}
+% -------------------------------------------
+
+% 超链接
+\usepackage[hidelinks]{hyperref}
+
+% 字符编码
+\usepackage[T1]{fontenc}
+
+% 颜色
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% 页面布局
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % 清空页眉页脚
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt}
+
+% 超链接颜色
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% 自定义盒子
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL 风格
+\urlstyle{same}
+
+% 文本对齐
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section 标题格式
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% 自定义命令（与原版保持一致）
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% --- 自动化论文编号逻辑 ---
+\newcounter{jcount} % 期刊计数器
+\newcounter{ccount} % 会议计数器
+\newcounter{pcount} % 专利计数器
+
+% 定义自动编号命令
+\newcommand{\jitem}{\refstepcounter{jcount}\item[\textbf{[J.\thejcount]}]}
+\newcommand{\citem}{\refstepcounter{ccount}\item[\textbf{[C.\theccount]}]}
+\newcommand{\pitem}{\refstepcounter{pcount}\item[\textbf{[P.\thepcount]}]}
+
+% 图标尺寸
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% 头部字体（保留原设定）
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont}
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont}
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont}
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont}
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont}
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont}
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont}
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont}
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont}
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont}
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\headerfontiii
+
+% 头部姓名
+\begin{center}
+    {\Large\textbf{方浩（Hao Fang）}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    +86 13258283318 \;|\; \href{mailto:h.fang@ed.ac.uk}{H.Fang@ed.ac.uk} \;|\; 
+    \href{mailto:fanghao0506@icloud.com}{fanghao0506@icloud.com}
+    }
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    \href{https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=WyRCGEQAAAAJ&sortby=pubdate}{谷歌学术主页} \;|\;
+    \href{https://edwebprofiles.ed.ac.uk/profile/fanghao}{个人主页}
+    }
+\end{center}
+\vspace{-6mm}
+\begin{center}
+    \small{英国·爱丁堡（Edinburgh, UK）}
+\end{center}
+
+\vspace{-4mm}
+
+\section{\textbf{研究兴趣}}
+\vspace{1mm}
+\small{
+数字孪生、医学成像、时序重建、电阻抗成像（EIT）、深度学习、电子皮肤柔性感知、计算机视觉
+}
+\vspace{-2mm}
+
+\section{\textbf{教育背景}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{西南交通大学}{成都，中国}
+{工学学士，电子信息工程}{2017年9月 -- 2021年6月}
+\resumeItemListStart
+\item 工学学士，加权平均分 90.36/100（前3\%）
+\resumeItemListEnd
+
+\resumeSubheading
+{爱丁堡大学（The University of Edinburgh）}{爱丁堡，英国}
+{理学硕士，通信与信号处理}{2021年9月 -- 2022年9月}
+% \resumeItemListStart
+% \resumeItemListEnd
+
+\resumeSubheading
+{爱丁堡大学（The University of Edinburgh）}{爱丁堡，英国}
+{哲学博士（在读），工程学院}{2023年10月 -- 至今}
+\resumeItemListStart
+\item 面向下一代肺部电阻抗成像（EIT）的机器学习方法研究
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{工作与科研经历}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{江苏省产业技术研究院 [\href{https://www.jitri.cn/}{\faIcon{globe}}]}{苏州，中国}
+{脑机融合智能技术研究所-软件与算法工程师}{2022年11月 -- 2023年9月}
+\resumeItemListStart
+  \item 负责脑机接口（BCI）相关的软件及算法开发。
+  \item 指导联合培养硕士生完成毕业课题，参与项目方案设计与技术支持。
+\resumeItemListEnd
+
+\resumeSubheading
+{爱丁堡大学（The University of Edinburgh）[\href{https://eng.ed.ac.uk/}{\faIcon{globe}}]}{爱丁堡，英国}
+{研究助理}{2024年3月 -- 至今}
+\resumeItemListStart
+  \item 担任课程 Tutor 与 Demonstrator，协助本科及硕士课程教学与实验指导。
+\resumeItemListEnd
+
+\resumeSubheading
+{学术服务}{}
+{期刊审稿人}{2023年 -- 至今}
+\resumeItemListStart
+  \item 期刊审稿：IEEE Transactions on Instrumentation and Measurement (TIM)、IEEE Transactions on Computational Imaging (TCI)、Measurement 等。
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{项目}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+  {面向购物场景的LLM/Agent自动化评估框架}
+  {独立研究项目（LLM Evaluation + Agent评估 + 商业场景落地）}
+  {2026年}
+  {{}}
+\resumeItemListStart
+  \item 调研OpenAI、Google、Anthropic等前沿LLM/Agent评估工作，梳理2024--2026年评估范式从静态QA benchmark向真实任务、过程轨迹与业务结果评估的演化路径。
+  \item 设计电商导购Agent自动评估指标体系，覆盖约束满足、商品grounding、事实准确性、比较质量、解释质量、可信性、trajectory质量与outcome质量。
+  \item 从零实现Python评估原型与Web Demo，支持规则校验、本地Qwen语义评估、结构化JSON输出，并可对比不同大模型在同一购物任务下的回答质量。
+\resumeItemListEnd
+
+\resumeProject
+  {精准四维肺功能成像（Sim2Clinic框架）}
+  {科研项目（医学成像 + 机器学习 + 数字孪生）}
+  {2023年 -- 至今}
+  {{}}
+\resumeItemListStart
+\item 构建Sim2Clinic数据闭环（CT建模 + 呼吸仿真 + FEM前向），生成大规模4D EIT数据集。
+\item 设计模块化训练范式，多模态单帧重建模型以及时序自回归深度重建模型，实现从低维电压序列到3D/4D肺功能图像的高质量重建。
+\item 建模真实测量扰动并提出个体自适应策略，在多中心临床数据上验证算法的鲁棒性与泛化能力。
+\resumeItemListEnd
+
+\resumeProject
+  {重大慢性非传染性疾病成像项目}
+  {科研项目（算法与生物医学成像）}
+  {2024年 -- 至今}
+  {{}}
+\resumeItemListStart
+  \item 项目由国家科技重大专项支持（项目编号：2024ZD0522700）。
+  \item 开发面向连续呼吸功能监测的医学成像算法，聚焦肺功能评估与床旁监护场景。
+\resumeItemListEnd
+
+\resumeProject
+  {重症监护床旁实时医学成像系统}
+  {产学研联合项目(图像重建算法)}
+  {2024年 -- 至今}
+  {{}}
+\resumeItemListStart
+  \item Prunus Medical — 爱丁堡大学联合研究项目。
+  \item 开展三维肺部电阻抗成像（3D EIT）算法研究，面向重症监护（ICU）的实时床旁成像应用。
+\resumeItemListEnd
+
+\resumeProject
+  {SELECT 项目：新一代软体机器人}
+  {科研项目（机器人感知算法）}
+  {2024年 -- 至今}
+  {{}}
+\resumeItemListStart
+  \item 项目由欧洲研究委员会（ERC）Starting Grant 资助（项目编号：101165927）。
+  \item 研究基于 EIT 的重建算法，以增强软体机器人系统的触觉感知与本体感知能力。
+\resumeItemListEnd
+
+\resumeProject
+  {FLEX-AI 项目：用于软体机器人自主智能的可扩展电子皮肤}
+  {科研项目（算法与感知）}
+  {2026年 -- 至今}
+  {{}}
+\resumeItemListStart
+  \item 项目由欧洲研究委员会（ERC）Proof of Concept Grant 资助（项目编号：101292593）。
+  \item 软体机器人的感知算法开发。
+\resumeItemListEnd
+
+\resumeProject
+  {BrainTunes 脑机音乐交互小程序}
+  {企业项目（软件及算法开发）}
+  {2022年 -- 2023年}
+  {{}}
+\resumeItemListStart
+  \item 设计与开发并实现面向闭环脑机接口设备的轻量级微信小程序，实现生理信号采集和可视化以及对应的音乐闭环反馈。
+\resumeItemListEnd
+
+% \resumeProject
+%   {短波红外成像传感器与图像融合算法}
+%   {科研项目（算法与软件开发）}
+%   {2022年 -- 2023年}
+%   {{}}
+% \resumeItemListStart
+%   \item 项目由国家重点研发计划支持（项目编号：2021YFB3601201）。
+%   \item 开发双模态图像融合算法及基于 MATLAB 的交互式可视化应用程序。
+% \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{\textbf{论文与专利} \hfill \textcolor{darkblue}{\scriptsize J = 期刊论文，C = 会议论文，P = 专利}}
+\vspace{0.2mm}
+\small{
+\begin{enumerate}[leftmargin=*, labelsep=0.5em, align=left, widest={[\textbf{S.1}]}, itemindent=0em, label={\textbf{[\arabic*]}}]
+
+\jitem \textbf{H Fang}, et al. (2026). \href{https://www.sciencedirect.com/science/article/pii/S0952197625035523}{\textbf{Deep Dynamic Image Prior for Three-dimensional Time-sequence Pulmonary Electrical Impedance Tomography}}, \textit{Engineering Applications of Artificial Intelligence}, DOI: 10.1016/j.engappai.2025.113521, (第一作者，1区top, IF:8.0)
+
+\jitem \textbf{H Fang}, et al. (2025). \href{https://ieeexplore.ieee.org/document/11214340/}{\textbf{Multifrequency Electrical Impedance Tomography Reconstruction with Multibranch Attention Image Prior}}, \textit{IEEE Internet of Things Journal}, DOI:  10.1109/JIOT.2025.3624228, (第一作者，1区top, IF:8.9)
+
+\jitem \textbf{H Fang}, et al. (2025). \href{https://arxiv.org/abs/2507.14031}{\textbf{QuantEIT: Ultra-Lightweight Quantum-Inspired Inference for Electrical Impedance Tomography}}, \textit{IEEE Transactions on Industrial Informatics}, (第一作者，Minor Revision, 1区top, IF:9.9)
+
+\jitem \textbf{H Fang}, et al. (2026). \href{https://fanghao0506.github.io/resources/TMI_Self_Balancing_Directional_Gradient_Projection_for_Lung_Electrical_Impedance_Tomography_ur.pdf}{\textbf{DRGP-$\pmb{\theta}$: Self-Balancing Directional Gradient Projection for Lung Electrical Impedance Tomography}}, \textit{IEEE Transactions on Medical Imaging}, (第一作者，Under Review, 1区top, IF:9.8)
+
+\jitem \textbf{H Fang}, et al. (2026). {\textbf{Robust three-dimensional pulmonary electrical impedance tomography via training-free dual-frame network prior}}, \textit{Engineering Applications of Artificial Intelligence}, (第一作者，Under Review, 1区top, IF:8.0)
+
+\jitem \textbf{H Fang}, et al. (2026). {\textbf{Precision 4D Respirstory Imaging}}, \textit{Nature}, (第一作者，In Progress, 1区top, IF:48.5)
+
+\jitem L Li, \textbf{H Fang}, et al. (2026). {\textbf{DAVD: Density-Aware Versatile Descriptors and Progressive Correspondence Pruning for Robust Point Cloud Registration}}, \textit{IEEE Transactions on Pattern Analysis and Machine Intelligence}, (通讯作者，Under Review, 1区top, IF:18.6)
+
+\jitem L Li, \textbf{H Fang}, et al. (2026).\href{https://ieeexplore.ieee.org/document/11435234} {\textbf{Self-Supervised Cross-Source Point Cloud Registration Framework with Geometric Tree Transformer for HMD 6D Pose Estimation}}, \textit{IEEE Transactions on Industrial Electronics}, DOI: 10.1109/TIE.2026.3670314, (第二作者，1区top,IF:7.2)
+
+
+\jitem S Teng, \textbf{H Fang}, et al. (2026). {\textbf{Tracking-Assisted Flexible Electrical Impedance Tomography for Deformation-Aware Tactile Sensing}}, \textit{IEEE Transactions on Robotics}, (第二作者，Under Review, 1区top, IF:10.5)
+
+\jitem Z Liu, \textbf{H Fang}, et al. (2026). {\textbf{Monolithic perceptive soft machines via volumetric body-field coupling}}, \textit{Nature}, (Under Review, 1区top, IF:48.5)
+
+\jitem Z Liu, \textbf{H Fang}, et al. (2025). \href{https://ieeexplore.ieee.org/abstract/document/10902455}{\textbf{Regularized Shallow Image Prior for Electrical Impedance Tomography}}. In \textit{IEEE Transactions on Instrumentation and Measurement}, DOI: 10.1109/TIM.2025.3545548 (2区top, IF:5.9)
+
+% \jitem Y Li, \textbf{H Fang}, et al. (2025). \href{https://arxiv.org/abs/2502.18719}{\textbf{Enhancing Subject-Independent Accuracy in fNIRS-based Brain-Computer Interfaces with Optimized Channel Selection}}, arXiv preprint arXiv:2502.18719
+
+\citem \textbf{H Fang}, et al. (2026). {\textbf{Dual-branch Attention Regularization for Clinical 3D Pulmonary Electrical Impedance Tomography}}. In \textit{IEEE I2MTC 2026} (Accepted, Oral)
+
+\citem \textbf{H Fang}, et al. (2024). \href{https://ieeexplore.ieee.org/abstract/document/10784633}{\textbf{Multi-Modal EIT Imaging Using Lensfree and Flexible Impedance Sensor}}. In \textit{2024 IEEE SENSORS}, DOI: 10.1109/SENSORS60989.2024.10784633
+
+\citem \textbf{H Fang}, et al. (2024). \href{https://www.researchgate.net/publication/384107227_Frequency-difference_Cell_Imaging_with_Flexible_Micro-EIT_Sensor}{\textbf{Frequency-difference Cell Imaging with Flexible Micro-EIT Sensor}}. In \textit{EIT 2024}
+
+\citem \textbf{H Fang}, et al. (2023). \href{https://ieeexplore.ieee.org/abstract/document/10271197}{\textbf{V-SWIR-IF: Visible and Short-Wave Infrared Image Fusion}}. In \textit{ISCEIC 2023}, DOI: 10.1109/ISCEIC59030.2023.10271197
+
+
+\citem S Teng, \textbf{H Fang}, et al. (2026). {\textbf{Deformation-Insensitive EIT Electronic Skins via Honeycomb Lattices}}. In \textit{IEEE I2MTC 2026} (Accepted, Oral)
+
+\citem S Teng, \textbf{H Fang}, et al. (2025). {\textbf{Shape-constrained Electrical Impedance Tomography for Tactile Perception under Complex Deformations}}. In \textit{12th World Congress on Industrial Process Tomography}
+
+\citem RB Liu, \textbf{H Fang}, et al. (2024). \href{https://www.researchgate.net/publication/384106832_Multi-modal_EIT_Imaging_with_Hologram-Guided_Group_Sparsity}{\textbf{Multi-modal EIT Imaging with Hologram-Guided Group Sparsity}}. In \textit{EIT 2024}
+
+
+\citem Y Li, \textbf{H Fang}, et al. (2024). \href{https://ieeexplore.ieee.org/abstract/document/10499167}{\textbf{	
+Minimal Electrode EEG for BCI Emotion Detection}}. In \textit{NNICE 2024}, DOI: 10.1109/NNICE61279.2024.10499167
+
+\citem G Xu, \textbf{H Fang}, et al. (2023). \href{https://ieeexplore.ieee.org/abstract/document/10212634}{\textbf{	
+Enabling Transcranial Electrical Stimulation via STI01: Experimental Simulations and Hardware Circuit Implementation}}. In \textit{EEI 2023}, DOI: 10.1109/EEI59236.2023.10212634
+
+\citem J Sun, \textbf{H Fang}, et al. (2024). \href{https://ieeexplore.ieee.org/abstract/document/10560635}{\textbf{Multi-modal EIT Image Reconstruction Using Deep Similarity Prior}}. In \textit{IEEE I2MTC 2024}, DOI: 10.1109/I2MTC60896.2024.10560635
+
+\pitem {\textbf{多通道脑电信号采集装置}}. ，中国实用新型专利，专利号：CN219,147,613 U（2023）。
+
+\pitem {\textbf{一体化有源干电极及脑电采集装置}}，中国实用新型专利，专利号：CN219,270,940 U（2023）。
+
+\end{enumerate}
+
+}
+
+\section{\textbf{荣誉与奖项}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+% \resumeProject
+%   {第二届 Leeds Tech Month 电子工程赛道奖}
+%   {西南交通大学}
+%   {2020年}
+%   {{}}
+
+\resumeProject
+  {校“三好学生”}
+  {西南交通大学}
+  {2020年}
+  {{}}
+
+\resumeProject
+  {一等综合奖学金（前3\%）}
+  {西南交通大学}
+  {2020年}
+  {{}}
+
+% \resumeProject
+%   {苏州相城区重点产业高层次人才计划（认定人才）}
+%   {中国·苏州相城区人民政府}
+%   {2023年}
+%   {{}}
+
+\resumeProject
+{2025年度卓越审稿人, IEEE Transactions on Instrumentation and Measurement}
+{IEEE Instrumentation and Measurement Society}
+{2025年}
+{{}}
+
+\resumeProject
+{I2MTC 2026 Student Travel Grant (\$1,200 USD)}
+{IEEE Instrumentation and Measurement Society}
+{2026年}
+{{}}
+
+\resumeSubHeadingListEnd
+\end{CJK}
+\end{document}

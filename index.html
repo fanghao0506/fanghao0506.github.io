@@ -1,286 +1,709 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>方浩 | Hao Fang</title>
-  <meta name="description" content="Hao Fang — PhD at the University of Edinburgh." />
-  <meta name="author" content="Hao Fang" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="方浩 | Hao Fang" />
-  <meta property="og:description" content="PhD at the University of Edinburgh." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://YOUR-USERNAME.github.io/" />
-  <meta property="og:image" content="https://YOUR-USERNAME.github.io/assets/og-card.png" />
-
-  <!-- Favicon (可换成本地文件) -->
-  <link rel="icon" href="images/favicon.ico" />
-
-  <!-- 颜色方案 -->
-  <meta name="color-scheme" content="light dark" />
-
-  <!-- 字体（可替换为本地字体） -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <title>Hao Fang - Homepage</title>
+  <meta name="author" content="Hao Fang">
+  <meta name="description" content="Hao Fang, PhD candidate at the University of Edinburgh. Research in electrical impedance tomography, medical imaging, digital twins, deep learning, and soft robotic sensing.">
+  <meta property="og:locale" content="en">
+  <meta property="og:site_name" content="Hao Fang">
+  <meta property="og:title" content="Hao Fang">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fanghao0506.github.io/">
+  <meta property="og:description" content="PhD candidate at the University of Edinburgh working on next-generation pulmonary EIT, medical imaging, digital twins, and soft robotic sensing.">
+  <meta property="og:image" content="https://fanghao0506.github.io/resources/fanghao.jpg">
+  <link rel="canonical" href="https://fanghao0506.github.io/">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="assets/font-awesome.min.css">
+  <script>
+    document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  </script>
   <style>
-    :root{
-      --bg: #ffffff;
-      --text: #0f172a; /* slate-900 */
-      --muted: #475569; /* slate-600 */
-      --card: #f8fafc;  /* slate-50 */
-      --border: #e2e8f0; /* slate-200 */
-      --link: #2563eb;  /* blue-600 */
-      --ring: rgba(37, 99, 235, .35);
-      --maxw: 1080px;
-      --radius: 16px;
-      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.06);
+    :root {
+      --page-bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #1f2933;
+      --muted: #64748b;
+      --border: #d8dee9;
+      --link: #005eb8;
+      --accent: #b1282e;
+      --accent-soft: #fff3f0;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --max-width: 1180px;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg: #0b1220;
-        --text: #e5e7eb;
-        --muted: #9ca3af;
-        --card: #0f172a;
-        --border: #1f2937;
-        --link: #60a5fa;
-        --ring: rgba(96,165,250,.35);
-        --shadow: 0 1px 2px rgba(0,0,0,.35), 0 8px 28px rgba(0,0,0,.35);
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { font-weight: 700; }
+
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    .masthead__inner-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .greedy-nav {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .visible-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .masthead__menu-item a {
+      color: #27313f;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .masthead__menu-item--lg a {
+      font-size: 1.05rem;
+      color: #101827;
+    }
+
+    #main {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin: 34px auto 54px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 84px;
+      max-height: calc(100vh - 104px);
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .profile_box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .author__avatar {
+      display: block;
+      width: 172px;
+      height: 172px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .author__name {
+      margin: 0;
+      text-align: center;
+      font-size: 1.28rem;
+      line-height: 1.25;
+    }
+    .author__bio {
+      margin: 8px 0 18px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.96rem;
+    }
+    .author__urls {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+    .author__urls li {
+      margin: 9px 0;
+    }
+    .author__urls i {
+      width: 1.35em;
+      color: #475569;
+    }
+    .site-desc {
+      margin: 0 0 10px;
+      color: #334155;
+    }
+    .site-desc-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+    .author__urls_sm {
+      display: none;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 16px;
+      font-size: 1.15rem;
+    }
+
+    .page {
+      min-width: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 34px 38px;
+      box-shadow: var(--shadow);
+    }
+    .page__content h1 {
+      margin: 34px 0 14px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--border);
+      color: #111827;
+      font-size: 1.8rem;
+      line-height: 1.25;
+    }
+    .page__content h1:first-child { margin-top: 0; }
+    .page__content h2 {
+      margin: 22px 0 10px;
+      color: #243143;
+      font-size: 1.22rem;
+    }
+    .lead {
+      font-size: 1.02rem;
+    }
+    .research-list {
+      margin-top: -4px;
+      padding-left: 20px;
+    }
+    .research-list li {
+      margin: 6px 0;
+    }
+
+    .news-scroll {
+      max-height: 260px;
+      overflow-y: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      background: #fbfdff;
+    }
+    .news-item {
+      display: block;
+      padding: 7px 0;
+      border-bottom: 1px solid #eef2f7;
+    }
+    .news-item:last-child { border-bottom: 0; }
+
+    .paper-box {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 17px;
+      padding: 16px 0;
+      border-bottom: 1px solid #edf1f7;
+    }
+    .paper-box:first-of-type { padding-top: 4px; }
+    .paper-box-image {
+      min-height: 88px;
+      border-radius: 6px;
+      background: linear-gradient(145deg, #f7fbff, #eef4fb);
+      border: 1px solid #dce5ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 78px;
+      padding: 7px 9px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.15;
+    }
+    .paper-title {
+      margin: 0 0 4px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .paper-meta {
+      margin: 3px 0;
+      color: #334155;
+    }
+    .venue {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .status {
+      display: inline-block;
+      margin-left: 4px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      color: #8a1f24;
+      background: var(--accent-soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      padding-left: 0;
+      list-style: none;
+    }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 18px;
+      padding: 11px 0;
+      border-bottom: 1px solid #edf1f7;
+    }
+    .date {
+      color: var(--muted);
+      font-style: italic;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
+      margin-top: 14px;
+    }
+    .project-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 15px;
+      background: #fbfdff;
+    }
+    .project-card.featured {
+      grid-column: 1 / -1;
+    }
+    .project-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+    .project-card p {
+      margin: 6px 0;
+      color: #334155;
+      font-size: 0.95rem;
+    }
+    .compact-list {
+      padding-left: 20px;
+    }
+    .compact-list li {
+      margin: 8px 0;
+    }
+
+    .footer {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin: 0 auto 34px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .masthead__inner-wrap { padding: 0 18px; }
+      .visible-links {
+        gap: 13px;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      #main {
+        width: min(100% - 28px, var(--max-width));
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
+      }
+      .profile_box {
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr);
+        gap: 16px;
+        align-items: center;
+      }
+      .author__avatar {
+        width: 110px;
+        height: 110px;
+        margin: 0;
+      }
+      .author__name,
+      .author__bio {
+        text-align: left;
+      }
+      .author__urls-wrapper {
+        grid-column: 1 / -1;
+      }
+      .page {
+        padding: 26px 22px;
+      }
+      .project-grid {
+        grid-template-columns: 1fr;
       }
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      line-height:1.6; background:var(--bg); color:var(--text);
-    }
-    a{color:var(--link); text-decoration: none}
-    a:hover{text-decoration: underline}
-    .container{max-width:var(--maxw); margin:0 auto; padding:24px}
-    header{
-      position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px);
-      background: color-mix(in oklab, var(--bg) 92%, transparent);
-      border-bottom:1px solid var(--border);
-      z-index:10;
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 24px}
-    .nav a.logo{font-weight:700; letter-spacing:.2px}
-    .nav .right{display:flex; gap:14px; align-items:center}
-    .btn{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border);
-      border-radius:999px; background:var(--card); box-shadow: var(--shadow);
-    }
-    .btn:focus{outline: none; box-shadow:0 0 0 4px var(--ring)}
-    .hero{display:grid; grid-template-columns: 140px 1fr; gap:24px; align-items:center; padding:40px 0}
-    .avatar{width:140px; height:140px; border-radius:50%; object-fit:cover; border:1px solid var(--border); box-shadow: var(--shadow)}
-    h1{font-size: clamp(28px, 3.2vw, 40px); line-height:1.15; margin:0 0 6px 0}
-    .subtitle{color:var(--muted); margin:0 0 12px 0}
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0}
-    .chip{padding:6px 10px; background:var(--card); border:1px solid var(--border); border-radius:999px; font-size:14px}
-
-    section{margin:40px 0}
-    .sec-title{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px}
-    .sec-title h2{font-size:clamp(20px,2.2vw,26px); margin:0}
-    .grid{display:grid; gap:16px}
-    .grid.cards{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
-    .card{background:var(--card); border:1px solid var(--border); border-radius: var(--radius); padding:16px; box-shadow: var(--shadow)}
-    .card h3{margin:0 0 6px 0; font-size:18px}
-    .meta{font-size:14px; color:var(--muted)}
-    .pub li{margin:10px 0}
-    .pub .venue{font-weight:600}
-
-    footer{border-top:1px solid var(--border); padding:24px; color:var(--muted)}
-
-    .skip-link{position:absolute; left:-9999px}
-    .skip-link:focus{left:24px; top:12px; background:var(--card); border:1px solid var(--border); padding:6px 10px; border-radius:8px; box-shadow:var(--shadow)}
-
-    .kbar{display:flex; gap:8px; flex-wrap:wrap}
-    .kbar a{padding:6px 10px; border:1px dashed var(--border); border-radius:999px}
-
-    .toc{font-size:14px; color:var(--muted)}
-
-    /* 小屏优化 */
-    @media (max-width: 640px){
-      .hero{grid-template-columns: 1fr; text-align:center}
-      .avatar{margin: 0 auto}
-      .nav .right{gap:8px}
+    @media (max-width: 560px) {
+      body { font-size: 15px; }
+      .paper-box,
+      .timeline li {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .paper-box-image {
+        min-height: 54px;
+        justify-content: flex-start;
+      }
+      .profile_box {
+        display: block;
+      }
+      .author__avatar {
+        margin: 0 auto 14px;
+      }
+      .author__name,
+      .author__bio {
+        text-align: center;
+      }
     }
   </style>
-
-  <script>
-    // 简单暗色模式切换
-    const THEME_KEY = 'hf-theme';
-    function setTheme(t){
-      if(t==='dark'){ document.documentElement.classList.add('dark'); }
-      else{ document.documentElement.classList.remove('dark'); }
-      localStorage.setItem(THEME_KEY, t);
-    }
-    function toggleTheme(){
-      const isDark = document.documentElement.classList.contains('dark');
-      setTheme(isDark ? 'light' : 'dark');
-    }
-    (function initTheme(){
-      const saved = localStorage.getItem(THEME_KEY);
-      if(saved){ setTheme(saved); }
-      else{ // 跟随系统
-        if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ setTheme('dark'); }
-      }
-    })();
-  </script>
-
-  <!-- 结构化数据（SEO） -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Hao Fang",
-    "url": "https://YOUR-USERNAME.github.io/",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "University of Edinburgh"
-    },
-    "sameAs": [
-      "https://scholar.google.com/", 
-      "https://www.linkedin.com/",
-      "https://github.com/YOUR-USERNAME"
-    ]
-  }
-  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="masthead">
+    <div class="masthead__inner-wrap">
+      <nav id="site-nav" class="greedy-nav" aria-label="Main navigation">
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="#about-me" target="_self">Homepage</a></li>
+          <li class="masthead__menu-item"><a href="#about-me" target="_self">About Me</a></li>
+          <li class="masthead__menu-item"><a href="#news" target="_self">News</a></li>
+          <li class="masthead__menu-item"><a href="#publications" target="_self">Publications</a></li>
+          <li class="masthead__menu-item"><a href="#projects" target="_self">Projects</a></li>
+          <li class="masthead__menu-item"><a href="#education" target="_self">Educations</a></li>
+          <li class="masthead__menu-item"><a href="tools/index.html">Tools</a></li>
+          <li class="masthead__menu-item"><a href="timesilhouette/index.html">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 
-  <header>
-    <nav class="nav" aria-label="主导航">
-      <a class="logo" href="#">Hao Fang</a>
-      <div class="right">
-        <a class="btn" href="tools/index.html" aria-label="跳转到Tools">Tools</a>
-        <a class="btn" href="timesilhouette/index.html" aria-label="Gallery">Gallery</a>
-        <!-- <a class="btn" href="#publications" aria-label="跳转到论文">Publications</a>
-        <a class="btn" href="#projects" aria-label="跳转到项目">Projects</a>
-        <button class="btn" onclick="toggleTheme()" aria-label="切换明暗模式">🌗 主题</button>
-        <a class="btn" href="mailto:h.fang@ed.ac.uk" aria-label="邮件联系">✉️ 联系</a> -->
-      </div>
-    </nav>
-  </header>
-
-  <main id="main" class="container">
-    <!-- Hero -->
-    <section class="hero" id="about">
-      <img class="avatar" src="resources/fanghao.jpg" alt="Portrait of Hao Fang" />
-      <div>
-        <h1>Hao Fang</h1>
-        <p class="subtitle">PhD Researcher · SMART Group · University of Edinburgh</p>
-        <p>
-          I am a PhD candidate at the Institute for Imaging, Data and Communications (IDCOM), School of Engineering, University of Edinburgh, supervised by Dr. Yang. Previously, I was an algorithm engineer at the Brain-Machine Fusion Intelligence Institute, JITRI, focusing on brain-computer interface algorithms. I hold an M.S. in Signal Processing and Communications from the University of Edinburgh (with Dr. Elliot J. Crowley) and a B.Eng. in Electronic and Electrical Engineering from the joint program of the University of Leeds and Southwest Jiaotong University (with Prof. Huang).
-        </p>
-
-        <div class="chips" aria-label="研究方向">
-          <span class="chip">Deep Learning</span>
-          <span class="chip">Electrical Impedance Tomography</span>
-          <span class="chip">Inverse Problems</span>
-          <span class="chip">Medical Imaging</span>
-          <span class="chip">Soft Robotics</span>
+  <div id="main" role="main">
+    <aside class="sidebar sticky">
+      <div itemscope itemtype="http://schema.org/Person" class="profile_box">
+        <div class="author__avatar-wrap">
+          <img src="resources/fanghao.jpg" class="author__avatar" alt="Hao Fang">
         </div>
-        <div class="kbar" aria-label="快速链接">
-          <a href="https://github.com/fanghao0506" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=WyRCGEQAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
-          <a href="https://ieeexplore.ieee.org/author/394425319528970" target="_blank" rel="noreferrer">IEEE Profile</a>
-          <a href="https://www.researchgate.net/profile/Hao-Fang-38" target="_blank" rel="noreferrer">ResearchGate</a>
-          <a href="assets/HaoFang_CV.pdf" target="_blank" rel="noreferrer">CV</a>
+        <div class="author__content">
+          <h3 class="author__name" itemprop="name">Hao Fang<br><span style="font-size:0.92rem; font-weight:600;">方浩</span></h3>
+          <p class="author__bio">University of Edinburgh</p>
         </div>
-      </div>
-    </section>
-
-    <!-- News -->
-    <!-- <section id="news">
-      <div class="sec-title">
-        <h2>News</h2>
-        <span class="toc">Last updated: <time id="last-updated"></time></span>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <div class="meta">2025‑07</div>
-          <p>IoT‑J major revision submitted: <em>MAIP: Multi‑Branch Attention Image Prior for mfEIT</em>.</p>
-        </div>
-        <div class="card">
-          <div class="meta">2025‑05</div>
-          <p>Preprint: <em>DDIP for 3D time‑sequence pulmonary EIT</em>.</p>
+        <div class="author__urls-wrapper">
+          <ul class="author__urls social-icons">
+            <li>
+              <div style="white-space: normal; margin-bottom: 1em;">
+                <p class="site-desc">PhD candidate in the Institute for Imaging, Data and Communications, School of Engineering.</p>
+                <p class="site-desc"><strong>Research interests:</strong></p>
+                <ul class="site-desc-list">
+                  <li>Electrical Impedance Tomography and medical imaging</li>
+                  <li>Digital twins, time-sequence reconstruction, and deep learning</li>
+                  <li>LLM/Agent evaluation and applied AI systems</li>
+                  <li>Electronic skin and flexible robotic sensing</li>
+                </ul>
+              </div>
+            </li>
+            <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Edinburgh, UK</li>
+            <li><a href="mailto:h.fang@ed.ac.uk"><i class="fa fa-fw fa-envelope" aria-hidden="true"></i> h.fang@ed.ac.uk</a></li>
+            <li><a href="mailto:fanghao0506@icloud.com"><i class="fa fa-fw fa-envelope-o" aria-hidden="true"></i> fanghao0506@icloud.com</a></li>
+            <li><a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=WyRCGEQAAAAJ&sortby=pubdate"><i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
+            <li><a href="https://edwebprofiles.ed.ac.uk/profile/fanghao"><i class="fa fa-fw fa-university" aria-hidden="true"></i> University Profile</a></li>
+            <li><a href="https://github.com/fanghao0506"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+            <li><a href="resources/Academic_CV.pdf"><i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i> CV</a></li>
+          </ul>
+          <div class="author__urls_sm">
+            <a href="mailto:h.fang@ed.ac.uk" aria-label="Email"><i class="fa fa-envelope"></i></a>
+            <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=WyRCGEQAAAAJ&sortby=pubdate" aria-label="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+            <a href="https://github.com/fanghao0506" aria-label="GitHub"><i class="fa fa-github"></i></a>
+          </div>
         </div>
       </div>
-    </section> -->
+    </aside>
 
-    <!-- Publications -->
-    <!-- <section id="publications">
-      <div class="sec-title">
-        <h2>Selected Publications</h2>
-        <a class="toc" href="#">Full list →</a>
+    <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+      <div class="page__inner-wrap">
+        <section class="page__content" itemprop="text">
+          <span class="anchor" id="about-me"></span>
+          <h1>Welcome</h1>
+          <h2 style="font-weight:700;">Hao Fang</h2>
+          <p><em>PhD Candidate @ <a href="https://www.ed.ac.uk">University of Edinburgh</a></em></p>
+
+          <p class="lead">
+            I am a PhD candidate in the School of Engineering at the University of Edinburgh, advised by <a href="https://eng.ed.ac.uk/about/people/dr-yunjie-yang">Dr. Yunjie Yang</a>, working on machine learning methods for next-generation pulmonary electrical impedance tomography (EIT). My research sits at the intersection of medical imaging, inverse problems, digital twins, and deep learning, with a particular focus on high-quality 3D and 4D lung function reconstruction from low-dimensional voltage measurements.
+          </p>
+
+          <p>
+            Before starting my PhD, I worked as a Software and Algorithm Engineer at the Brain-Machine Fusion Intelligence Institute, Jiangsu Industrial Technology Research Institute, where I developed software and algorithms for brain-computer interface systems. I received my MSc in Signal Processing and Communications from the University of Edinburgh, advised by <a href="https://eng.ed.ac.uk/about/people/dr-elliot-j-crowley">Dr. Elliot J. Crowley</a>, and my BEng in Electrical and Electronic Engineering from Southwest Jiaotong University, advised by <a href="https://faculty.swjtu.edu.cn/huangdeqing">Prof. Deqing Huang</a>.
+          </p>
+
+          <ul class="research-list">
+            <li><strong>Medical imaging:</strong> pulmonary EIT, 3D/4D reconstruction, clinical bedside monitoring, and Sim2Clinic digital-twin data loops.</li>
+            <li><strong>Learning for inverse problems:</strong> deep image priors, quantum-inspired inference, attention regularization, robustness, and domain adaptation.</li>
+            <li><strong>LLM/Agent systems:</strong> automated evaluation, shopping-agent benchmarks, grounding, trajectory quality, and applied AI product workflows.</li>
+            <li><strong>Flexible sensing:</strong> EIT-based electronic skin, tactile perception, and proprioception for soft robotic systems.</li>
+          </ul>
+
+          <h1 id="news">News</h1>
+          <div class="news-scroll">
+            <div class="news-item" data-date="2026-05"><em>2026.05</em>: Paper accepted by <span class="venue">IEEE Transactions on Industrial Electronics</span>: Self-Supervised Cross-Source Point Cloud Registration Framework with Geometric Tree Transformer for HMD 6D Pose Estimation.</div>
+            <div class="news-item" data-date="2026-04"><em>2026.04</em>: Received the <span class="venue">I2MTC 2026 Student Travel Grant</span> from IEEE Instrumentation and Measurement Society.</div>
+            <div class="news-item" data-date="2026-02"><em>2026.02</em>: Conference paper accepted as an oral presentation at <span class="venue">IEEE I2MTC 2026</span>: Dual-branch Attention Regularization for Clinical 3D Pulmonary EIT.</div>
+            <div class="news-item" data-date="2025-12"><em>2025.12</em>: Paper accepted by <span class="venue">Engineering Applications of Artificial Intelligence</span>: Deep Dynamic Image Prior for Three-dimensional Time-sequence Pulmonary EIT.</div>
+            <div class="news-item" data-date="2025-11"><em>2025.11</em>: Paper accepted by <span class="venue">IEEE Internet of Things Journal</span>: Multifrequency EIT Reconstruction with Multibranch Attention Image Prior.</div>
+            <div class="news-item" data-date="2026-01"><em>2026.01</em>: Recognized as an Outstanding Reviewer for <span class="venue">IEEE Transactions on Instrumentation and Measurement</span>.</div>
+          </div>
+
+          <h1 id="publications">Publications</h1>
+          <h2>Journal Articles</h2>
+
+          <div class="paper-box">
+            <div class="paper-box-image"><div class="badge">EAAI 2026</div></div>
+            <div class="paper-box-text">
+              <p class="paper-title"><a href="https://www.sciencedirect.com/science/article/pii/S0952197625035523">Deep Dynamic Image Prior for Three-dimensional Time-sequence Pulmonary Electrical Impedance Tomography</a></p>
+              <p class="paper-meta"><strong>H Fang</strong>, et al.</p>
+              <p class="paper-meta"><span class="venue">Engineering Applications of Artificial Intelligence</span>, DOI: 10.1016/j.engappai.2025.113521 <span class="status">First author</span></p>
+            </div>
+          </div>
+
+          <div class="paper-box">
+            <div class="paper-box-image"><div class="badge">IoT-J 2025</div></div>
+            <div class="paper-box-text">
+              <p class="paper-title"><a href="https://ieeexplore.ieee.org/document/11214340/">Multifrequency Electrical Impedance Tomography Reconstruction with Multibranch Attention Image Prior</a></p>
+              <p class="paper-meta"><strong>H Fang</strong>, et al.</p>
+              <p class="paper-meta"><span class="venue">IEEE Internet of Things Journal</span>, DOI: 10.1109/JIOT.2025.3624228 <span class="status">First author</span></p>
+            </div>
+          </div>
+
+          <div class="paper-box">
+            <div class="paper-box-image"><div class="badge">TII 2025</div></div>
+            <div class="paper-box-text">
+              <p class="paper-title"><a href="https://arxiv.org/abs/2507.14031">QuantEIT: Ultra-Lightweight Quantum-Inspired Inference for Electrical Impedance Tomography</a></p>
+              <p class="paper-meta"><strong>H Fang</strong>, et al.</p>
+              <p class="paper-meta"><span class="venue">IEEE Transactions on Industrial Informatics</span> <span class="status">Minor Revision</span> <span class="status">First author</span></p>
+            </div>
+          </div>
+
+          <div class="paper-box">
+            <div class="paper-box-image"><div class="badge">TMI 2026</div></div>
+            <div class="paper-box-text">
+              <p class="paper-title"><a href="https://fanghao0506.github.io/resources/TMI_Self_Balancing_Directional_Gradient_Projection_for_Lung_Electrical_Impedance_Tomography_ur.pdf">DRGP-θ: Self-Balancing Directional Gradient Projection for Lung Electrical Impedance Tomography</a></p>
+              <p class="paper-meta"><strong>H Fang</strong>, et al.</p>
+              <p class="paper-meta"><span class="venue">IEEE Transactions on Medical Imaging</span> <span class="status">Under Review</span> <span class="status">First author</span></p>
+            </div>
+          </div>
+
+          <div class="paper-box">
+            <div class="paper-box-image"><div class="badge">TIE 2026</div></div>
+            <div class="paper-box-text">
+              <p class="paper-title"><a href="https://ieeexplore.ieee.org/document/11435234">Self-Supervised Cross-Source Point Cloud Registration Framework with Geometric Tree Transformer for HMD 6D Pose Estimation</a></p>
+              <p class="paper-meta">L Li, <strong>H Fang</strong>, et al.</p>
+              <p class="paper-meta"><span class="venue">IEEE Transactions on Industrial Electronics</span>, DOI: 10.1109/TIE.2026.3670314 <span class="status">Second author</span></p>
+            </div>
+          </div>
+
+          <ol start="6" class="compact-list">
+            <li><strong>H Fang</strong>, et al. Robust three-dimensional pulmonary electrical impedance tomography via training-free dual-frame network prior, <span class="venue">Engineering Applications of Artificial Intelligence</span>, under review.</li>
+            <li>Z Liu,<strong>H Fang</strong>, et al. Clinically ready, structure-aware imaging of pulmonary function dynamics enabled by digital respiration-driven learning, <span class="venue">Nature</span>, in progress.</li>
+            <li>L Li, <strong>H Fang</strong>, et al. DAVD: Density-Aware Versatile Descriptors and Progressive Correspondence Pruning for Robust Point Cloud Registration, <span class="venue">IEEE Transactions on Pattern Analysis and Machine Intelligence</span>, under review.</li>
+            <li>S Teng, <strong>H Fang</strong>, et al. Tracking-Assisted Flexible Electrical Impedance Tomography for Deformation-Aware Tactile Sensing, <span class="venue">IEEE Transactions on Robotics</span>, under review.</li>
+            <li>Z Liu, <strong>H Fang</strong>, et al. <a href="https://ieeexplore.ieee.org/abstract/document/10902455">Regularized Shallow Image Prior for Electrical Impedance Tomography</a>, <span class="venue">IEEE Transactions on Instrumentation and Measurement</span>, DOI: 10.1109/TIM.2025.3545548.</li>
+          </ol>
+
+          <h2>Conference Papers</h2>
+          <ol class="compact-list">
+            <li><strong>H Fang</strong>, et al. Dual-branch Attention Regularization for Clinical 3D Pulmonary Electrical Impedance Tomography, <span class="venue">IEEE I2MTC 2026</span>, accepted, oral.</li>
+            <li><strong>H Fang</strong>, et al. <a href="https://ieeexplore.ieee.org/abstract/document/10784633">Multi-Modal EIT Imaging Using Lensfree and Flexible Impedance Sensor</a>, <span class="venue">2024 IEEE SENSORS</span>, DOI: 10.1109/SENSORS60989.2024.10784633.</li>
+            <li><strong>H Fang</strong>, et al. <a href="https://www.researchgate.net/publication/384107227_Frequency-difference_Cell_Imaging_with_Flexible_Micro-EIT_Sensor">Frequency-difference Cell Imaging with Flexible Micro-EIT Sensor</a>, <span class="venue">EIT 2024</span>.</li>
+            <li><strong>H Fang</strong>, et al. <a href="https://ieeexplore.ieee.org/abstract/document/10271197">V-SWIR-IF: Visible and Short-Wave Infrared Image Fusion</a>, <span class="venue">ISCEIC 2023</span>, DOI: 10.1109/ISCEIC59030.2023.10271197.</li>
+          </ol>
+
+          <h2>Patents</h2>
+          <ul class="compact-list">
+            <li>Multi-channel EEG signal acquisition device, Chinese Utility Model Patent, CN219,147,613 U, 2023.</li>
+            <li>Integrated active dry electrode and EEG acquisition device, Chinese Utility Model Patent, CN219,270,940 U, 2023.</li>
+          </ul>
+
+          <h1 id="projects">Projects</h1>
+          <div class="project-grid">
+            <div class="project-card featured">
+              <h3>Precision 4D Pulmonary Functional Imaging</h3>
+              <p><em>Medical imaging + machine learning + digital twins, 2023-present</em></p>
+              <p>Builds a Sim2Clinic data-generation pipeline for 4D pulmonary EIT: segmenting lungs, thoracic cavity, and multi-tissue structures from large-scale clinical CT; constructing individualized thorax-electrode FEM models in COMSOL; and generating large-scale 4D EIT datasets through physiology-informed respiratory dynamics simulations.</p>
+              <p>Develops modular training paradigms, multimodal single-frame reconstruction models, and temporal autoregressive deep reconstruction models to recover high-quality 3D/4D lung function images from low-dimensional voltage sequences.</p>
+              <p>Models realistic measurement disturbances and introduces patient-adaptive strategies, validating robustness and generalization on multi-center clinical datasets.</p>
+            </div>
+            <div class="project-card">
+              <h3>Clinical Bedside Real-time Medical Imaging</h3>
+              <p><em>Industry-university collaboration, 2024-present</em></p>
+              <p>Develops 3D lung EIT reconstruction algorithms for real-time ICU bedside imaging with Prunus Medical and the University of Edinburgh.</p>
+            </div>
+            <div class="project-card">
+              <h3>SELECT: Next-generation Soft Robots</h3>
+              <p><em>ERC Starting Grant project, 2024-present</em></p>
+              <p>Studies EIT-based reconstruction methods for tactile perception and proprioception in soft robotic systems.</p>
+            </div>
+            <div class="project-card">
+              <h3>FLEX-AI Electronic Skin</h3>
+              <p><em>ERC Proof of Concept project, 2026-present</em></p>
+              <p>Develops perception algorithms for scalable electronic skin and autonomous intelligence in soft robots.</p>
+            </div>
+            <div class="project-card">
+              <h3>LLM/Agent Evaluation for Shopping Scenarios</h3>
+              <p><em>Independent research project, 2026</em></p>
+              <p>Designs automatic evaluation metrics for shopping agents covering constraint satisfaction, grounding, factuality, comparison quality, and trajectory quality.</p>
+            </div>
+            <div class="project-card">
+              <h3>BrainTunes BCI Music Interaction</h3>
+              <p><em>Software and algorithm development, 2022-2023</em></p>
+              <p>Designed and implemented a lightweight WeChat mini program for physiological signal acquisition, visualization, and closed-loop music feedback.</p>
+            </div>
+          </div>
+
+          <h1 id="experience">Experience</h1>
+          <ul class="timeline">
+            <li>
+              <span class="date">2024.03 - present</span>
+              <span><strong>Research Assistant</strong>, University of Edinburgh. Tutor and demonstrator for undergraduate and MSc courses, supporting teaching and laboratory supervision.</span>
+            </li>
+            <li>
+              <span class="date">2022.11 - 2023.09</span>
+              <span><strong>Software and Algorithm Engineer</strong>, Brain-Machine Fusion Intelligence Institute, Jiangsu Industrial Technology Research Institute. Developed BCI software and algorithms, supervised joint-training MSc student projects, and supported technical project design.</span>
+            </li>
+            <li>
+              <span class="date">2023 - present</span>
+              <span><strong>Reviewer</strong> for IEEE Transactions on Instrumentation and Measurement, IEEE Transactions on Computational Imaging, Measurement, and related venues.</span>
+            </li>
+          </ul>
+
+          <h1 id="education">Educations</h1>
+          <ul class="timeline">
+            <li>
+              <span class="date">2023.10 - present</span>
+              <span><strong>PhD in Engineering</strong>, University of Edinburgh, UK. Research on machine learning methods for next-generation pulmonary EIT.</span>
+            </li>
+            <li>
+              <span class="date">2021.09 - 2022.09</span>
+              <span><strong>MSc in Signal Processing and Communications</strong>, University of Edinburgh, UK.</span>
+            </li>
+            <li>
+              <span class="date">2017.09 - 2021.06</span>
+              <span><strong>BEng in Electrical and Electronic Engineering</strong>, Southwest Jiaotong University, China. Weighted average: 90.36/100, top 3%.</span>
+            </li>
+          </ul>
+
+          <h1 id="awards">Honors and Awards</h1>
+          <ul class="compact-list">
+            <li><strong>I2MTC 2026 Student Travel Grant</strong> ($1,200 USD), IEEE Instrumentation and Measurement Society, 2026.</li>
+            <li><strong>Outstanding Reviewer 2026</strong>, IEEE Transactions on Instrumentation and Measurement, IEEE Instrumentation and Measurement Society, January 2026.</li>
+            <li><strong>First-class Comprehensive Scholarship</strong>, Southwest Jiaotong University, 2020.</li>
+            <li><strong>Merit Student</strong>, Southwest Jiaotong University, 2020.</li>
+          </ul>
+        </section>
       </div>
-      <ol class="pub">
-        <li>
-          <span class="venue">IEEE TMI (under review)</span> — H. Fang, <em>Deep Dynamic Image Prior for 3D Time‑sequence EIT Reconstruction</em>, 2025. <a href="#">PDF</a> · <a href="#">Code</a>
-        </li>
-        <li>
-          <span class="venue">IEEE IoT‑J (R1)</span> — H. Fang et al., <em>Multi‑frequency EIT Reconstruction with Multi‑Branch Attention Image Prior</em>, 2025. <a href="#">PDF</a>
-        </li>
-        <li>
-          <span class="venue">IEEE Sensors</span> — <em>Multi‑modal EIT using Lens‑free & Flexible Impedance Sensor</em>, 2024. <a href="#">Poster</a>
-        </li>
-      </ol>
-    </section> -->
+    </article>
+  </div>
 
-    <!-- Projects -->
-    <!-- <section id="projects">
-      <div class="sec-title"><h2>Projects</h2></div>
-      <div class="grid cards">
-        <article class="card">
-          <h3>DDIP — Deep Dynamic Image Prior</h3>
-          <p class="meta">Python · PyTorch · 3D UNet++ · 4D‑TV</p>
-          <p>Unsupervised 3D time‑sequence reconstruction with physics‑informed priors and warm‑start acceleration.</p>
-          <p><a href="#">Repo</a> · <a href="#">Demo</a></p>
-        </article>
-        <article class="card">
-          <h3>MAIP — Multi‑Branch Attention Image Prior</h3>
-          <p class="meta">mfEIT · Stability · Sensitivity‑guided</p>
-          <p>Model‑based unsupervised learning for multi‑frequency EIT with state‑of‑the‑art results.</p>
-          <p><a href="#">Repo</a> · <a href="#">Preprint</a></p>
-        </article>
-        <article class="card">
-          <h3>Lens‑free × Flexible Sensor</h3>
-          <p class="meta">Hardware · Biosensing</p>
-          <p>High‑throughput dynamic biological monitoring via hybrid optical‑impedance sensing.</p>
-          <p><a href="#">Poster</a></p>
-        </article>
-      </div>
-    </section> -->
+  <span class="js-cursor-container" aria-hidden="true"></span>
 
-    <!-- Teaching / Service -->
-    <!-- <section id="service">
-      <div class="sec-title"><h2>Teaching & Service</h2></div>
-      <ul>
-        <li>EIT 2024 — Oral presentation.</li>
-        <li>IEEE Sensors 2024 — Poster.</li>
-        <li>Reviewer — IEEE TMI, TIP (invited).</li>
-      </ul>
-    </section> -->
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="sec-title"><h2>Contact</h2></div>
-      <p>📧 <a href="mailto:h.fang@ed.ac.uk">h.fang@ed.ac.uk</a> · 🔗 <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noreferrer">GitHub</a> · 🔗 <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">Google Scholar</a></p>
-      <p class="meta">This website is static and privacy‑friendly; no cookies, no trackers.</p>
-    </section>
-  </main>
-
-  <footer class="container">
-    <small>© <span id="year"></span> Hao Fang. Built with GitHub Pages. <a href="#" aria-label="返回顶部">Back to top ↑</a></small>
+  <footer class="footer">
+    <small>&copy; <span id="year"></span> Hao Fang. Built with GitHub Pages.</small>
   </footer>
 
   <script>
-    // 更新“Last updated”与年份
-    document.getElementById('last-updated').textContent = new Date().toISOString().slice(0,10);
+    (function cursorTrail() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+      const container = document.querySelector('.js-cursor-container');
+      const colors = ['#005eb8', '#b1282e', '#1b8798'];
+      const particles = [];
+      let lastTime = 0;
+
+      function createParticle(x, y) {
+        const particle = document.createElement('span');
+        const size = 9 + Math.random() * 5;
+        const drift = (Math.random() - 0.5) * 28;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        particle.textContent = '*';
+        particle.style.cssText = [
+          'position: fixed',
+          'left: 0',
+          'top: 0',
+          'pointer-events: none',
+          'z-index: 1000',
+          'font-weight: 700',
+          `font-size: ${size}px`,
+          `color: ${color}`,
+          `transform: translate3d(${x + 8}px, ${y + 8}px, 0) scale(1)`,
+          'opacity: 0.72',
+          'will-change: transform, opacity'
+        ].join(';');
+
+        container.appendChild(particle);
+        particles.push({ el: particle, x: x + 8, y: y + 8, drift, life: 42, maxLife: 42 });
+      }
+
+      document.addEventListener('mousemove', (event) => {
+        const now = performance.now();
+        if (now - lastTime < 28) return;
+        lastTime = now;
+        createParticle(event.clientX, event.clientY);
+      });
+
+      function animate() {
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.life -= 1;
+          const progress = 1 - p.life / p.maxLife;
+          const x = p.x + p.drift * progress;
+          const y = p.y + 28 * progress;
+          const scale = Math.max(0, 1 - progress);
+          p.el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale}) rotate(${progress * 90}deg)`;
+          p.el.style.opacity = String(Math.max(0, 0.72 * (1 - progress)));
+
+          if (p.life <= 0) {
+            p.el.remove();
+            particles.splice(i, 1);
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    })();
+
+    document.querySelectorAll('.news-scroll').forEach((newsList) => {
+      [...newsList.querySelectorAll('.news-item')]
+        .sort((a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || ''))
+        .forEach((item) => newsList.appendChild(item));
+    });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
