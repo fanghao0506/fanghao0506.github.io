@@ -1,652 +1,274 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <!-- Google tag (gtag.js) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的收藏 · Collection — Hao Fang</title>
+<meta name="description" content="Hao Fang's collection of useful tools and websites.">
+<link rel="icon" href="../images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&text=%E6%88%91%E7%9A%84%E6%94%B6%E8%97%8F&display=swap">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5HK5SHKZ7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G5HK5SHKZ7');
+  gtag("js", new Date());
+  gtag("config", "G-G5HK5SHKZ7");
 </script>
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
-    <title>我的收藏 | Online Tools</title>
-    <meta charset="utf-8" />
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-        }
+<style>
+  :root {
+    --bg: #f6f5f2; --card: #ffffff; --fg: #1d1c1a; --mute: #8a867e; --line: #e4e1da;
+    --hover: #fbfaf8; --accent: #1d1c1a; --ring: rgba(29, 28, 26, .14);
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f0f0f; --card: #171716; --fg: #ebe7e0; --mute: #7d796f; --line: #262523;
+      --hover: #1d1d1b; --accent: #ebe7e0; --ring: rgba(235, 231, 224, .16);
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--bg); color: var(--fg); -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font: 14px/1.5 var(--sans); }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
 
-        h1 {
-            margin-top: 30px;
-        }
+  .top {
+    display: flex; justify-content: space-between; align-items: center; padding: 22px 0;
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--mute);
+  }
+  .top a, .top button { transition: color .3s; }
+  .top a:hover, .top button:hover { color: var(--fg); }
+  .lang { border: 0; background: none; padding: 0; cursor: pointer; letter-spacing: inherit; }
 
-        .link-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 80%;
-            margin-top: 20px;
-        }
+  .intro { text-align: center; padding: clamp(36px, 9vh, 90px) 0 clamp(28px, 5vh, 48px); }
+  h1 { margin: 0; font-weight: 300; }
+  h1 .zh { display: block; font: 300 clamp(28px, 4vw, 42px)/1.2 "Noto Serif SC", serif; letter-spacing: .4em; margin-right: -.4em; }
+  h1 .en { display: block; margin-top: 10px; font: italic 300 clamp(18px, 2vw, 23px)/1 "Cormorant Garamond", serif; color: var(--mute); letter-spacing: .05em; }
 
-        .link-row a {
-            flex: 1;
-            padding: 10px 20px;
-            background-color: #f0f0f0;
-            color: #333;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-right: 10px;
-            font-size: 22px;
-            text-align: center;
-        }
+  /* Search */
+  .search { position: sticky; top: 0; z-index: 5; padding: 12px 0 0; background: var(--bg); }
+  .box {
+    display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 8px 0 18px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: 0 0 0 12px var(--bg);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .box:focus-within { border-color: var(--mute); box-shadow: 0 0 0 4px var(--ring), 0 0 0 12px var(--bg); }
+  .box svg { flex: none; width: 18px; height: 18px; fill: none; stroke: var(--mute); stroke-width: 1.6; }
+  .box input {
+    flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: none;
+    font: inherit; font-size: 16px; color: var(--fg);
+  }
+  .box input::placeholder { color: var(--mute); }
+  .engines { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--bg); }
+  .engines button {
+    border: 0; background: none; padding: 5px 10px; border-radius: 8px; cursor: pointer;
+    font-size: 12px; color: var(--mute); transition: background .2s, color .2s;
+  }
+  .engines button[aria-pressed="true"] { background: var(--card); color: var(--fg); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+  .hint { margin: 8px 4px 0; font-size: 12px; color: var(--mute); min-height: 18px; }
+  kbd {
+    font: 11px var(--sans); padding: 1px 5px; border: 1px solid var(--line); border-bottom-width: 2px;
+    border-radius: 4px; background: var(--card);
+  }
 
-        [data-lang="en"] {
-            display: none; /* hide English content by default */
-        }
-        [data-lang="zh"] {
-            display: block; /* show Chinese content by default */
-        }
+  /* Bookmarks */
+  section { margin-top: 34px; }
+  section[hidden] { display: none; }
+  h2 {
+    display: flex; align-items: baseline; gap: 10px; margin: 0 0 12px; padding-left: 2px;
+    font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--mute);
+  }
+  h2 small { font-size: 11px; letter-spacing: 0; opacity: .7; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; }
+  .card {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px; min-width: 0;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px; outline: 0;
+    transition: border-color .2s, background .2s, transform .2s;
+  }
+  .card:hover, .card:focus-visible { background: var(--hover); border-color: var(--mute); }
+  .card:focus-visible { box-shadow: 0 0 0 4px var(--ring); }
+  .card:active { transform: scale(.985); }
+  .card[hidden] { display: none; }
+  .ico {
+    position: relative; flex: none; display: grid; place-items: center; width: 32px; height: 32px;
+    border-radius: 8px; background: var(--bg); font-size: 13px; font-weight: 600; color: var(--mute);
+  }
+  .ico img { position: absolute; inset: 6px; width: 20px; height: 20px; opacity: 0; transition: opacity .3s; }
+  .ico img.on { opacity: 1; }
+  .ico.on { color: transparent; }
+  .txt { min-width: 0; }
+  .name, .host { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .name { font-size: 14px; }
+  .host { font-size: 12px; color: var(--mute); }
+  mark { background: none; color: inherit; text-decoration: underline; text-decoration-color: var(--mute); text-underline-offset: 3px; }
 
-        #languageButton {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-        }
+  footer { padding: 70px 0 40px; text-align: center; font: italic 300 16px "Cormorant Garamond", serif; color: var(--mute); }
+  footer a { border-bottom: 1px solid var(--line); }
+  footer a:hover { color: var(--fg); }
 
-        .home-button {
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 10px;
-            margin-top: 10px;
-            margin-left: 10px;
-        }
-
-        .search-container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            }
-
-            label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 22px;
-            }
-
-            select,
-            input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            }
-
-            #search-button {
-            width: auto;
-            margin-top: 10px;
-            padding: 8px 15px;
-            font-size: 25px;
-            background-color: #909497;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            }
-
-            #search-button:hover {
-            background-color: #0056b3;
-            }
-    </style>
-
-<link rel="stylesheet" href="assets/font-awesome.min.css">
-<link rel="stylesheet" href="assets/semantic.min.css">
-
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+    .card { padding: 10px; gap: 10px; }
+    .host { display: none; }
+    .engines button { padding: 5px 7px; }
+    .hint { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
 </head>
 <body>
-    <button id="languageButton">中文/English</button>
-    <a href="../index.html" class="home-button">
-        <img src="images/home_icon.png" alt="Home" />
-    </a>
-
-    <h1 data-lang="zh">我的收藏</h1>
-    <h1 data-lang="en">Online Tools</h1>
-
-    <h2 data-lang="zh">搜索</h2>
-    <h2 data-lang="en">Search</h2>
-    <div class="search-container">
-        <div>
-          <label for="searchEngine" data-lang="zh">选择搜索引擎:</label>
-          <label for="searchEngine" data-lang="en">Select Search Engine:</label>
-          <select id="searchEngine">
-            <option value="https://www.google.com/">Google</option>
-            <option value="https://www.baidu.com/s?">Baidu</option>
-            <!-- Add more search engine options here -->
-          </select>
-        </div>
-        <div>
-          <label for="searchQuery" data-lang="zh">输入搜索内容:</label>
-          <label for="searchQuery" data-lang="en">Enter your search query:</label>
-          <input type="text" id="searchQuery" />
-        </div>
-        <div>
-          <button id="search-button" onclick="search()" data-lang="zh">搜索</button>
-          <button id="search-button" onclick="search()" data-lang="en">Search</button>
-        </div>
-      </div>
-
-
-    <h2 data-lang="zh">工具集合</h2>
-    <h2 data-lang="en">Toolkit Collection</h2>
-
-    <div class="link-row">
-        <a href="https://tools.miku.ac/" data-lang="zh">MikuTools--轻量工具集合</a>
-        <a href="https://tools.miku.ac/" data-lang="en">MikuTools - Lightweight Toolkit Collection</a>
-
-        <a href="https://tool.lu/" data-lang="zh">在线工具集合</a>
-        <a href="https://tool.lu/" data-lang="en">Online Tools Collection</a>
-    </div>
-
-    <h2 data-lang="zh">实用工具</h2>
-    <h2 data-lang="en">Practical Tools</h2>
-
-    <div class="link-row">
-        <a href="https://smallpdf.com/cn" data-lang="zh">PDF合并及分割</a>
-        <a href="https://smallpdf.com/cn" data-lang="en">PDF Merge and Split</a>
-
-        <a href="https://docsmall.com/" data-lang="zh">图像及PDF压缩</a>
-        <a href="https://docsmall.com/" data-lang="en">Image and PDF Compression</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://compressjpeg.com/zh/" data-lang="zh">JPG图像压缩</a>
-        <a href="https://compressjpeg.com/zh/" data-lang="en">JPG Image Compression</a>
-
-        <a href="https://www.cutout.pro/photo-enhancer-sharpener-upscaler/upload" data-lang="zh">图像画质增强</a>
-        <a href="https://www.cutout.pro/photo-enhancer-sharpener-upscaler/upload" data-lang="en">Image Quality Enhancement</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://www.mathway.com/zh/Algebra" data-lang="zh">数学计算</a>
-        <a href="https://www.mathway.com/zh/Algebra" data-lang="en">Mathematical Calculations</a>
-
-        <a href="https://www.aconvert.com/" data-lang="zh">文件格式转换</a>
-        <a href="https://www.aconvert.com/" data-lang="en">File Format Conversion</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://www.alltoall.net/" data-lang="zh">在线格式转换</a>
-        <a href="https://www.alltoall.net/" data-lang="en">All to all</a>
-
-        <a href="https://tools.pdf24.org/zh/" data-lang="zh">PDF工具</a>
-        <a href="https://tools.pdf24.org/zh/" data-lang="en">PDF Tools</a>
-
-    </div>
-
-    <div class="link-row">
-        <a href="https://www.latexlive.com/" data-lang="zh">LATEX公式编辑器</a>
-        <a href="https://www.latexlive.com/" data-lang="en">LATEX Formula Editor</a>
-
-        <a href="https://www.tablesgenerator.com/" data-lang="zh">LATEX表格生成器</a>
-        <a href="https://www.tablesgenerator.com/" data-lang="en">LATEX Tables Generator</a>
-    </div>
-
-
-    <div class="link-row">
-        <a href="https://sc.chinaz.com/" data-lang="zh">HTML素材</a>
-        <a href="https://sc.chinaz.com/" data-lang="en">HTML Resources</a>
-
-        <a href="https://www.flaticon.com/" data-lang="zh">矢量图标素材</a>
-        <a href="https://www.flaticon.com/" data-lang="en">Vector icons</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://www.emojiall.com/zh-hans/copy">Emoji</a>
-
-        <a href="https://tikolu.net/emojimix" data-lang="zh">Emoji融合</a>
-        <a href="https://tikolu.net/emojimix" data-lang="en">Emoji Mix</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://www.remove.bg/zh?from=thosefree.com" data-lang="zh">在线抠图</a>
-        <a href="https://www.remove.bg/zh?from=thosefree.com" data-lang="en">Remove Background</a>
-
-        <a href="https://id.zhengzhaopai.com/" data-lang="zh">证件照</a>
-        <a href="https://id.zhengzhaopai.com/" data-lang="en">ID photo</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://www.subtitlecat.com/index.html" data-lang="zh">视频字幕搜索</a>
-        <a href="https://www.subtitlecat.com/index.html" data-lang="en">Video Subtitle Search</a>
-
-        <a href="https://docs.rsshub.app/" data-lang="zh">RSSHub爬虫</a>
-        <a href="https://docs.rsshub.app/" data-lang="en">RSSHub Crawler</a>
-
-    </div>
-
-    <div class="link-row">
-        <a href="https://networks001.ridefullspeed.us/">VPN -- RideFullSpeed</a>
-    </div>
-
-
-    <h2 data-lang="zh">论文写作</h2>
-    <h2 data-lang="en">Academic Writing</h2>
-
-    <div class="link-row">
-        <a href="https://quillbot.com/">QuillBot</a>
-
-        <a href="https://www.phrasebank.manchester.ac.uk/" data-lang="zh">语料库</a>
-        <a href="https://www.phrasebank.manchester.ac.uk/" data-lang="en">Phrasebank</a>
-        
-        <a href="https://chat.openai.com/">ChatGPT</a>
-
-    </div>
-
-    <div class="link-row">
-        <a href="https://www.letpub.com.cn/index.php?page=journalapp" data-lang="zh">SCI选刊</a>
-        <a href="https://www.letpub.com.cn/index.php?page=journalapp" data-lang="en">SCI Journals</a>
-
-        <a href="https://www.pubmed.pro/home" data-lang="zh">影响因子</a>
-        <a href="https://www.pubmed.pro/home" data-lang="en">Impact Factor</a>
-
-        <a href="https://www.ais.cn/" data-lang="zh">艾思科蓝</a>
-        <a href="https://www.ais.cn/" data-lang="en">AiScholar</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://translate.google.com/?hl=zh-CN" data-lang="zh">谷歌翻译</a>
-        <a href="https://translate.google.com/?hl=zh-CN" data-lang="en">Google Translate</a>
-
-        <a href="https://scholar.google.com" data-lang="zh">谷歌学术</a>
-        <a href="https://scholar.google.com" data-lang="en">Google Scholar</a>
-
-        <a href="https://patents.google.com/" data-lang="zh">谷歌专利</a>
-        <a href="https://patents.google.com/" data-lang="en">Google Patents</a>
-    </div>
-
-    <h2 data-lang="zh">自建工具</h2>
-    <h2 data-lang="en">Self-build Tools</h2>
-
-    <div class="link-row">
-        <a href="time_weather.html" data-lang="zh">时间与天气</a>
-        <a href="time_weather.html" data-lang="en">Time and Weather</a>
-
-        <a href="currency.html" data-lang="zh">实时汇率</a>
-        <a href="currency.html" data-lang="en">Real-time Currency </a>        
-
-        <a href="search.html" data-lang="zh">搜索</a>
-        <a href="search.html" data-lang="en">Search </a>  
-    </div>
-
-    <div class="link-row">
-        <a href="COMSOL_notes.html" data-lang="zh">COMSOL肺成像学习笔记</a>
-        <a href="COMSOL_notes.html" data-lang="en">COMSOL Pulmonary Imaging Notes</a>
-
-        <a href="COMSOL_tools1.html" data-lang="zh">COMSOL数据标号</a>
-        <a href="COMSOL_tools1.html" data-lang="en">COMSOL DataLabeler</a>
-    </div>
-
-    <h2 data-lang="zh">多媒体</h2>
-    <h2 data-lang="en">Multimedia</h2>
-
-    <div class="link-row">
-        <a href="https://www.gushiwen.cn/" data-lang="zh">古诗文</a>
-        <a href="https://www.gushiwen.cn/" data-lang="en">Gushiwen</a>
-
-        <a href="https://g2.ltfc.net/home" data-lang="zh">中华珍宝馆</a>
-        <a href="https://g2.ltfc.net/home" data-lang="en">Chinese Treasure</a>
-
-        <a href="gallerix.asia/" data-lang="zh">虚拟博物馆</a>
-        <a href="gallerix.asia/" data-lang="en">Gallerix</a>
-    </div>
-
-    <h2 data-lang="zh">摸鱼</h2>
-    <h2 data-lang="en">Mess Around</h2>
-
-    <div class="link-row">
-        <a href="https://goldfishies.com/" data-lang="zh">喂鱼</a>
-        <a href="https://goldfishies.com/" data-lang="en">Fish Feeding</a>
-
-        <a href="https://www.mazegenerator.net/" data-lang="zh">迷宫生成器</a>
-        <a href="https://www.mazegenerator.net/" data-lang="en">Maze Generator</a>
-    </div>
-
-    <div class="link-row">
-        <a href="http://slither.io/" data-lang="zh">贪吃蛇</a>
-        <a href="http://slither.io/" data-lang="en">Snake Game</a>
-
-        <a href="https://www.v2fy.com/game/tetris/" data-lang="zh">俄罗斯方块</a>
-        <a href="https://www.v2fy.com/game/tetris/" data-lang="en">Tetris</a>
-    </div>
-    <!-- Add more rows as needed -->
-    <div class="link-row">
-        <a href="http://magickeyboard.io/" data-lang="zh">魔法键盘</a>
-        <a href="http://magickeyboard.io/" data-lang="en">Magic Keyboard</a>
-
-        <a href="https://www.yikm.net/" data-lang="zh">小霸王游戏机</a>
-        <a href="http://magickeyboard.io/" data-lang="en">SUBOR Simulator</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://yorg.io" data-lang="zh">塔防</a>
-        <a href="https://yorg.io" data-lang="en">Yorg</a>
-
-        <a href="https://aidn.jp/mikutap/" data-lang="zh">音游</a>
-        <a href="https://aidn.jp/mikutap/" data-lang="en">Mikutap</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://zty.pe/" data-lang="zh">战机</a>
-        <a href="https://zty.pe/" data-lang="en">Ztype</a>
-
-        <a href="https://www.playok.com/" data-lang="zh">下棋</a>
-        <a href="https://www.playok.com/" data-lang="en">Playok</a>
-    </div>
-
-    <div class="link-row">
-        <a href="https://lines.frvr.com/" data-lang="zh">连线</a>
-        <a href="https://lines.frvr.com/" data-lang="en">Play Lines</a>
-
-        <a href="https://www.crazygames.com" data-lang="zh">在线游戏</a>
-        <a href="https://www.crazygames.com" data-lang="en">Crazy Games</a>
-    </div>
-
-    <script src="../assets/jquery.min.js"></script>
-	<script src="../assets/semantic.min.js"></script>
-	<script src="../assets/jquery.scrollTo.min.js"></script>
-	<script src="../assets/autoload.js"></script>
-
-    <script>
-        document.getElementById('languageButton').addEventListener('click', function() {
-            var enElements = document.querySelectorAll('[data-lang="en"]');
-            var zhElements = document.querySelectorAll('[data-lang="zh"]');
-            for (var i = 0; i < zhElements.length; i++) {
-                if (zhElements[i].style.display === 'none') {
-                    zhElements[i].style.display = 'block';
-                    enElements[i].style.display = 'none';
-                } else {
-                    zhElements[i].style.display = 'none';
-                    enElements[i].style.display = 'block';
-                }
-            }
-        });
-    </script>
-
+<div class="wrap">
+  <header class="top">
+    <a href="../index.html">Hao Fang</a>
+    <button class="lang" type="button" aria-label="Switch language"></button>
+  </header>
+
+  <div class="intro">
+    <h1><span class="zh">我的收藏</span><span class="en">Collection</span></h1>
+  </div>
+
+  <form class="search" role="search">
+    <label class="box">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" name="q" autocomplete="off" spellcheck="false" enterkeyhint="search">
+      <span class="engines" role="group"></span>
+    </label>
+  </form>
+  <p class="hint"></p>
+
+  <main></main>
+
+  <footer>© Hao Fang &nbsp;·&nbsp; <a href="../index.html">Homepage</a></footer>
+</div>
+
+<script src="links.js"></script>
 <script>
-    function search() {
-      const searchEngineSelect = document.getElementById('searchEngine');
-      const searchEngineUrl = searchEngineSelect.value;
-      const searchQueryInput = document.getElementById('searchQuery');
-      const searchQuery = encodeURIComponent(searchQueryInput.value);
+(() => {
+  const ENGINES = [
+    { id: "google", name: "Google", url: "https://www.google.com/search?q=" },
+    { id: "baidu", name: "百度", en: "Baidu", url: "https://www.baidu.com/s?wd=" },
+    { id: "scholar", name: "学术", en: "Scholar", url: "https://scholar.google.com/scholar?q=" },
+  ];
+  const T = {
+    zh: { placeholder: "筛选收藏或搜索网页", lang: "EN", hint: "按 <kbd>/</kbd> 聚焦 · <kbd>↓</kbd> 选择收藏 · <kbd>Enter</kbd> 用 {e} 搜索",
+          none: "没有匹配的收藏 — 按 <kbd>Enter</kbd> 用 {e} 搜索「{q}」" },
+    en: { placeholder: "Filter, or search the web", lang: "中文",
+          hint: "<kbd>/</kbd> to focus · <kbd>↓</kbd> to pick a bookmark · <kbd>Enter</kbd> to search {e}",
+          none: "No bookmarks match — press <kbd>Enter</kbd> to search {e} for “{q}”" },
+  };
+  const store = {
+    get: k => { try { return localStorage.getItem(k); } catch { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch {} },
+  };
 
-      if (searchQuery.trim() !== '') {
-        let searchUrl;
+  let lang = store.get("tools.lang") || (navigator.language.startsWith("zh") ? "zh" : "en");
+  let engine = ENGINES.find(e => e.id === store.get("tools.engine")) || ENGINES[0];
 
-        if (searchEngineUrl.includes('google')) {
-          searchUrl = searchEngineUrl + 'search?q=' + searchQuery;
-        } else if (searchEngineUrl.includes('baidu')) {
-          searchUrl = searchEngineUrl + 'wd=' + searchQuery;
-        } else {
-          // Add more conditions for other search engines
-          // For example, if it's another search engine, use a different query parameter
-        }
+  const main = document.querySelector("main");
+  const form = document.querySelector(".search");
+  const input = form.q;
+  const hint = document.querySelector(".hint");
+  const enginesEl = form.querySelector(".engines");
+  const langBtn = document.querySelector(".lang");
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const hostOf = url => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
 
-        window.location.href = searchUrl;
-      }
+  // Build every card once; filtering only toggles `hidden`.
+  const cards = [];
+  main.innerHTML = COLLECTION.map((cat, ci) => `
+    <section data-c="${ci}">
+      <h2><span data-zh="${esc(cat.zh)}" data-en="${esc(cat.en)}"></span><small>${cat.links.length}</small></h2>
+      <div class="grid">${cat.links.map(l => {
+        const host = hostOf(l.url);
+        const ext = !!host;
+        return `<a class="card" href="${esc(l.url)}"${l.tags ? ` title="${esc(l.tags)}"` : ""}${ext ? ' target="_blank" rel="noopener"' : ""}>
+          <span class="ico">${esc((l.en || l.zh)[0].toUpperCase())}${ext
+            ? `<img src="https://www.google.com/s2/favicons?domain=${host}&sz=64" alt="" loading="lazy">` : ""}</span>
+          <span class="txt"><span class="name"></span><span class="host">${ext ? esc(host) : "fanghao0506.github.io"}</span></span>
+        </a>`;
+      }).join("")}</div>
+    </section>`).join("");
+
+  const sections = [...main.querySelectorAll("section")];
+  sections.forEach((sec, ci) => {
+    [...sec.querySelectorAll(".card")].forEach((el, li) => {
+      const l = COLLECTION[ci].links[li];
+      cards.push({ el, sec, l, name: el.querySelector(".name"),
+                   hay: `${l.zh} ${l.en} ${l.tags || ""} ${hostOf(l.url)} ${COLLECTION[ci].zh} ${COLLECTION[ci].en}`.toLowerCase() });
+    });
+  });
+
+  main.querySelectorAll(".ico img").forEach(img => {
+    img.onload = () => { if (img.naturalWidth > 16) { img.classList.add("on"); img.parentNode.classList.add("on"); } else img.remove(); };
+    img.onerror = () => img.remove();
+  });
+
+  function label(l) { return lang === "zh" ? l.zh : l.en; }
+
+  function highlight(text, q) {
+    const i = q ? text.toLowerCase().indexOf(q) : -1;
+    return i < 0 ? esc(text) : esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(text.slice(i + q.length));
+  }
+
+  function filter() {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    for (const c of cards) {
+      const hit = !q || c.hay.includes(q);
+      c.el.hidden = !hit;
+      if (hit) shown++;
+      c.name.innerHTML = highlight(label(c.l), q);
     }
+    for (const sec of sections) sec.hidden = !sec.querySelector(".card:not([hidden])");
+    const t = T[lang], e = esc(lang === "zh" ? engine.name : engine.en || engine.name);
+    hint.innerHTML = (q && !shown ? t.none : t.hint).replace("{e}", e).replace("{q}", esc(input.value.trim()));
+  }
 
-    
-    const searchQueryInput = document.getElementById('searchQuery');
-    searchQueryInput.addEventListener('keydown', handleKeyDown);
+  function render() {
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+    langBtn.textContent = T[lang].lang;
+    input.placeholder = T[lang].placeholder;
+    main.querySelectorAll("h2 [data-zh]").forEach(s => { s.textContent = s.dataset[lang]; });
+    enginesEl.innerHTML = ENGINES.map(e =>
+      `<button type="button" data-id="${e.id}" aria-pressed="${e === engine}">${lang === "zh" ? e.name : e.en || e.name}</button>`).join("");
+    filter();
+  }
 
-    function handleKeyDown(event) {
-      if (event.key === "Enter") {
-        // Call the search() function when the Enter key is pressed
-        search();
-      }
-    }
-  </script>
+  langBtn.onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.set("tools.lang", lang); render(); };
+  enginesEl.onclick = e => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    engine = ENGINES.find(x => x.id === b.dataset.id);
+    store.set("tools.engine", engine.id);
+    render();
+    input.focus();
+  };
+  input.addEventListener("input", filter);
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const q = input.value.trim();
+    if (q) location.href = engine.url + encodeURIComponent(q);
+  });
 
+  const visible = () => cards.filter(c => !c.el.hidden).map(c => c.el);
+  document.addEventListener("keydown", e => {
+    const inInput = e.target === input;
+    if (e.key === "/" && !inInput) { e.preventDefault(); input.focus(); input.select(); return; }
+    if (e.key === "Escape" && inInput) { input.value = ""; filter(); return; }
+    const list = visible(), i = list.indexOf(document.activeElement);
+    if (inInput && e.key === "ArrowDown" && list.length) { e.preventDefault(); list[0].focus(); return; }
+    if (i < 0) return;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); list[Math.min(i + 1, list.length - 1)].focus(); }
+    else if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); (i ? list[i - 1] : input).focus(); }
+  });
+
+  render();
+})();
+</script>
 </body>
 </html>
-
-<script>
-	!function () {
-    function n(n, e, t) {
-        return n.getAttribute(e) || t
-    }
- 
-    function e(n) {
-        return document.getElementsByTagName(n)
-    }
- 
-    function t() {
-        var t = e("script"), o = t.length, i = t[o - 1];
-        return {l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,0,0"), n: n(i, "count", 99)}
-    }
- 
-    function o() {
-        a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-    }
- 
-    function i() {
-        r.clearRect(0, 0, a, c);
-        var n, e, t, o, m, l;
-        s.forEach(function (i, x) {
-            for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e], null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
-        }), x(i)
-    }
- 
-    var a, c, u, m = document.createElement("canvas"), d = t(), l = "c_n" + d.l, r = m.getContext("2d"),
-        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (n) {
-            window.setTimeout(n, 1e3 / 45)
-        }, w = Math.random, y = {x: null, y: null, max: 2e4};
-    m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o, window.onmousemove = function (n) {
-        n = n || window.event, y.x = n.clientX, y.y = n.clientY
-    }, window.onmouseout = function () {
-        y.x = null, y.y = null
-    };
-    for (var s = [], f = 0; d.n > f; f++) {
-        var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1;
-        s.push({x: h, y: g, xa: v, ya: p, max: 6e3})
-    }
-    u = s.concat([y]), setTimeout(function () {
-        i()
-    }, 100)
-}();
-</script>
-
-    <!-- 网页鼠标点击特效（爱心） -->
-    <script type="text/javascript">
-        ! function (e, t, a) {
-           function r() {
-               for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[
-                       e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x +
-                   "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e]
-                   .scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-               requestAnimationFrame(r)
-           }
-
-           function n() {
-               var t = "function" == typeof e.onclick && e.onclick;
-               e.onclick = function (e) {
-                   t && t(), o(e)
-               }
-           }
-
-           function o(e) {
-               var a = t.createElement("div");
-               a.className = "heart", s.push({
-                   el: a,
-                   x: e.clientX - 5,
-                   y: e.clientY - 5,
-                   scale: 1,
-                   alpha: 1,
-                   color: c()
-               }), t.body.appendChild(a)
-           }
-
-           function i(e) {
-               var a = t.createElement("style");
-               a.type = "text/css";
-               try {
-                   a.appendChild(t.createTextNode(e))
-               } catch (t) {
-                   a.styleSheet.cssText = e
-               }
-               t.getElementsByTagName("head")[0].appendChild(a)
-           }
-
-           function c() {
-               return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math
-                   .random()) + ")"
-           }
-           var s = [];
-           e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e
-               .mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-                   setTimeout(e, 1e3 / 60)
-               }, i(
-                   ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
-               ), n(), r()
-       }(window, document);
-   </script>
-
-<!-- 粒子拖尾 -->
-<span class="js-cursor-container"></span>
-<script>
-    (function fairyDustCursor() {
-
-        var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
-        var width = window.innerWidth;
-        var height = window.innerHeight;
-        var cursor = { x: width / 2, y: width / 2 };
-        var particles = [];
-
-        function init() {
-            bindEvents();
-            loop();
-        }
-
-        // Bind events that are needed
-        function bindEvents() {
-            document.addEventListener('mousemove', onMouseMove);
-            window.addEventListener('resize', onWindowResize);
-        }
-
-        function onWindowResize(e) {
-            width = window.innerWidth;
-            height = window.innerHeight;
-        }
-
-        function onMouseMove(e) {
-            cursor.x = e.clientX;
-            cursor.y = e.clientY;
-
-            addParticle(cursor.x, cursor.y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
-        }
-
-        function addParticle(x, y, color) {
-            var particle = new Particle();
-            particle.init(x, y, color);
-            particles.push(particle);
-        }
-
-        function updateParticles() {
-
-            // Updated
-            for (var i = 0; i < particles.length; i++) {
-                particles[i].update();
-            }
-
-            // Remove dead particles
-            for (var i = particles.length - 1; i >= 0; i--) {
-                if (particles[i].lifeSpan < 0) {
-                    particles[i].die();
-                    particles.splice(i, 1);
-                }
-            }
-
-        }
-
-        function loop() {
-            requestAnimationFrame(loop);
-            updateParticles();
-        }
-
-        /**
-         * Particles
-         */
-
-        function Particle() {
-
-            this.character = "*";
-            this.lifeSpan = 120; //ms
-            this.initialStyles = {
-                "position": "fixed",
-                "display": "inline-block",
-                "top": "0px",
-                "left": "0px",
-                "pointerEvents": "none",
-                "touch-action": "none",
-                "z-index": "10000000",
-                "fontSize": "25px",
-                "will-change": "transform"
-            };
-
-            // Init, and set properties
-            this.init = function (x, y, color) {
-
-                this.velocity = {
-                    x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
-                    y: 1
-                };
-
-                this.position = { x: x + 10, y: y + 10 };
-                this.initialStyles.color = color;
-
-                this.element = document.createElement('span');
-                this.element.innerHTML = this.character;
-                applyProperties(this.element, this.initialStyles);
-                this.update();
-
-                document.querySelector('.js-cursor-container').appendChild(this.element);
-            };
-
-            this.update = function () {
-                this.position.x += this.velocity.x;
-                this.position.y += this.velocity.y;
-                this.lifeSpan--;
-
-                this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px, 0) scale(" + (this.lifeSpan / 120) + ")";
-            }
-
-            this.die = function () {
-                this.element.parentNode.removeChild(this.element);
-            }
-
-        }
-
-        /**
-         * Utils
-         */
-
-        // Applies css `properties` to an element.
-        function applyProperties(target, properties) {
-            for (var key in properties) {
-                target.style[key] = properties[key];
-            }
-        }
-
-        if (!('ontouchstart' in window || navigator.msMaxTouchPoints)) init();
-    })();    
-</script>
-
